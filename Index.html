@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deepankar Shukla | Lead – Global Command Center (MIS & WFM)</title>
   
-  <!-- OpenGraph / Social Meta Tags -->
+  <!-- OpenGraph Meta Tags -->
   <meta property="og:title" content="Deepankar Shukla | Lead – Global Command Center (MIS & WFM)" />
-  <meta property="og:description" content="9+ Years of expertise in WFM Capacity Planning, Operations Analytics, Erlang-C modeling, and Multi-Country Command Center Governance." />
+  <meta property="og:description" content="9+ Years of industry mastery in WFM Capacity Planning, Operations Analytics, Erlang-C modeling, and Multi-Region Command Center Governance." />
   <meta property="og:image" content="profile.jpg" />
   <meta property="og:type" content="website" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Chart.js for Telemetry Visuals -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
@@ -34,31 +39,31 @@
     .hidden { display: none !important; }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+<body class="bg-slate-100 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans min-h-screen flex flex-col transition-colors duration-200 selection:bg-blue-600 selection:text-white">
 
   <!-- TOP HEADER AREA -->
-  <header class="bg-white border-b border-slate-200 py-4 px-4 sm:px-8 shadow-sm">
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-4 px-4 sm:px-8 shadow-sm">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
       
       <!-- Brand & Title -->
       <div class="flex items-center gap-3">
-        <div class="w-14 h-14 rounded-xl bg-blue-950 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 flex-shrink-0 overflow-hidden">
+        <div class="w-14 h-14 rounded-xl bg-blue-950 dark:bg-blue-900 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 dark:border-blue-700 flex-shrink-0 overflow-hidden">
           <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-2xl">DS</span>
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-950 uppercase leading-none">
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-950 dark:text-blue-400 uppercase leading-none">
               Deepankar Shukla
             </h1>
-            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-300">
+            <span class="bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-300 dark:border-emerald-800">
               ● GCC LEAD
             </span>
           </div>
-          <p class="text-xs sm:text-sm font-semibold text-blue-700 mt-1">
+          <p class="text-xs sm:text-sm font-semibold text-blue-700 dark:text-blue-300 mt-1">
             Lead – Global Command Center (MIS & WFM) | Workforce Planning & Operations Analytics
           </p>
-          <p class="text-[11px] text-slate-500 flex items-center gap-1.5 mt-0.5">
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1.5 mt-0.5">
             <span>📍 Lucknow, Uttar Pradesh, India</span>
             <span>•</span>
             <span>✉️ shukladeepankar91@gmail.com</span>
@@ -68,8 +73,11 @@
         </div>
       </div>
 
-      <!-- Header CTAs -->
+      <!-- Header CTAs & Dark Mode Toggle -->
       <div class="flex items-center gap-2.5 w-full md:w-auto justify-end">
+        <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 transition" title="Toggle Dark Theme">
+          <i id="theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
         <button onclick="showTab('contact')" class="flex items-center gap-1.5 bg-blue-900 hover:bg-blue-800 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
           <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
         </button>
@@ -82,44 +90,47 @@
   </header>
 
   <!-- MAIN NAVIGATION BAR -->
-  <nav class="bg-blue-950 text-white shadow-md sticky top-0 z-50 border-b-2 border-blue-900">
+  <nav class="bg-blue-950 dark:bg-slate-900 text-white shadow-md sticky top-0 z-50 border-b-2 border-blue-900 dark:border-slate-800">
     <div class="max-w-7xl mx-auto flex overflow-x-auto text-xs sm:text-sm font-semibold whitespace-nowrap">
-      <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 dark:border-slate-800 flex items-center gap-1.5">
         <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Executive Dashboard
       </button>
-      <button id="nav-calculators" onclick="showTab('calculators')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-calculators" onclick="showTab('calculators')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 dark:border-slate-800 flex items-center gap-1.5">
         <i data-lucide="calculator" class="w-4 h-4"></i> WFM Calculators & Simulators
       </button>
-      <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
-        <i data-lucide="cpu" class="w-4 h-4"></i> Telemetry & Visuals
+      <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 dark:border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="cpu" class="w-4 h-4"></i> Telemetry & Tech Radar
       </button>
-      <button id="nav-experience" onclick="showTab('experience')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
-        <i data-lucide="briefcase" class="w-4 h-4"></i> Career Milestones
+      <button id="nav-casestudies" onclick="showTab('casestudies')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 dark:border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="shield-check" class="w-4 h-4"></i> ROI Case Studies
       </button>
-      <button id="nav-about" onclick="showTab('about')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
-        <i data-lucide="user" class="w-4 h-4"></i> Comprehensive Bio
+      <button id="nav-experience" onclick="showTab('experience')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 dark:border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="briefcase" class="w-4 h-4"></i> Milestones
+      </button>
+      <button id="nav-about" onclick="showTab('about')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 dark:border-slate-800 flex items-center gap-1.5">
+        <i data-lucide="user" class="w-4 h-4"></i> Bio
       </button>
       <button id="nav-contact" onclick="showTab('contact')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition flex items-center gap-1.5">
-        <i data-lucide="phone-call" class="w-4 h-4"></i> Connect & Inquiry
+        <i data-lucide="phone-call" class="w-4 h-4"></i> Contact
       </button>
     </div>
   </nav>
 
   <!-- MARQUEE TICKER -->
-  <div class="bg-white border-b border-slate-200 py-2 px-4 shadow-sm">
+  <div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-2 px-4 shadow-sm">
     <div class="max-w-7xl mx-auto flex items-center gap-3 overflow-hidden text-xs sm:text-sm">
       <span class="bg-red-600 text-white font-bold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider flex-shrink-0 animate-pulse">
         ● GCC UPDATE
       </span>
       <div class="overflow-hidden whitespace-nowrap w-full">
-        <div class="animate-marquee font-medium text-blue-950 space-x-8">
-          <span class="font-bold text-blue-900">🌐 Managing Pan-India & SEA (MY, ID, VN, TH) Command Center Operations</span>
+        <div class="animate-marquee font-medium text-blue-950 dark:text-slate-200 space-x-8">
+          <span class="font-bold text-blue-900 dark:text-blue-400">🌐 Managing Pan-India & SEA (MY, ID, VN, TH) Command Center Operations</span>
           <span>|</span>
-          <span class="text-emerald-700 font-semibold">📊 Financial Modeling: Connect-Minute, FTE & Per-Hour Billing</span>
+          <span class="text-emerald-700 dark:text-emerald-400 font-semibold">📊 Financial Modeling: Connect-Minute, FTE & Per-Hour Billing</span>
           <span>|</span>
-          <span class="text-red-700 font-semibold">⚙️ Telephony & Telemetry: Avaya CMS, Cisco CUIC, IEX, SFTP</span>
+          <span class="text-red-700 dark:text-red-400 font-semibold">⚙️ Telephony & Telemetry: Avaya CMS, Cisco CUIC, IEX, SFTP</span>
           <span>|</span>
-          <span class="text-indigo-800 font-semibold">🏢 Supporting: Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit & Zomato</span>
+          <span class="text-indigo-800 dark:text-indigo-400 font-semibold">🏢 Supporting: Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit & Zomato</span>
         </div>
       </div>
     </div>
@@ -134,78 +145,78 @@
     <div id="tab-home" class="tab-content space-y-6">
       
       <!-- Hero Card -->
-      <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
+      <section class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4 mb-4">
           <div>
-            <span class="text-[11px] font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-blue-700 dark:text-blue-400 bg-blue-50 dark:bg-blue-950 px-2.5 py-1 rounded border border-blue-200 dark:border-blue-800">
               Executive Profile Summary
             </span>
-            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">Workforce Planning & Operations Analytics Leadership</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2">Workforce Planning & Operations Analytics Leadership</h2>
           </div>
-          <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg border border-slate-200 font-medium">
+          <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 font-medium">
             📍 Base: Lucknow, UP • Multi-Region Scope
           </span>
         </div>
-        <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+        <p class="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
           "Results-driven WFM & MIS professional with over <strong>9 years of cross-functional experience</strong> driving large-scale capacity planning, operational analytics, process automation, and multi-region command center operations across India and Southeast Asia (SEA). Specialized in financial modeling/invoicing (Connect-minute, FTE & Per-hour billing), complex dashboard architecture, and advanced VBA/Access solutions."
         </p>
       </section>
 
       <!-- Stats Grid -->
       <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-blue-800">
-          <p class="text-3xl sm:text-4xl font-extrabold text-blue-950">9+ Years</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Experience in MIS & WFM</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">BPM & Public Sector Ops</p>
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm text-center border-t-4 border-t-blue-800">
+          <p class="text-3xl sm:text-4xl font-extrabold text-blue-950 dark:text-blue-400">9+ Years</p>
+          <p class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mt-1">Experience in MIS & WFM</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">BPM & Public Sector Ops</p>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-emerald-700">
-          <p class="text-3xl sm:text-4xl font-extrabold text-emerald-700">11+ Members</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Team Leadership</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">Pan-India GCC MIS Operations</p>
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm text-center border-t-4 border-t-emerald-700">
+          <p class="text-3xl sm:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400">11+ Members</p>
+          <p class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mt-1">Team Leadership</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Pan-India GCC MIS Operations</p>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-cyan-700">
-          <p class="text-2xl sm:text-3xl font-extrabold text-cyan-800 pt-1">Pan-India & SEA</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Multi-Regional Scope</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">Malaysia, Indo, Vietnam, Thai</p>
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm text-center border-t-4 border-t-cyan-700">
+          <p class="text-2xl sm:text-3xl font-extrabold text-cyan-800 dark:text-cyan-400 pt-1">Pan-India & SEA</p>
+          <p class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mt-1">Multi-Regional Scope</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Malaysia, Indo, Vietnam, Thai</p>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-amber-600">
-          <p class="text-3xl sm:text-4xl font-extrabold text-amber-700">End-to-End</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Financial & Invoicing</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">CBA, RPA & Capacity Planning</p>
+        <div class="bg-white dark:bg-slate-900 p-5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm text-center border-t-4 border-t-amber-600">
+          <p class="text-3xl sm:text-4xl font-extrabold text-amber-700 dark:text-amber-400">End-to-End</p>
+          <p class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mt-1">Financial & Invoicing</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">CBA, RPA & Capacity Planning</p>
         </div>
       </section>
 
       <!-- 3 Key Columns -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col">
           <div class="bg-rose-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
             🏆 Command Center Focus (2026)
           </div>
-          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
-            <li class="pt-2 text-slate-700"><strong>Headcount Planning:</strong> Precision attrition, shrinkage, and AL/SL monitoring across 24/7 rosters.</li>
-            <li class="pt-2 text-slate-700"><strong>Multi-Country Sync:</strong> Real-time operations alignment across India, Malaysia, Indonesia, Vietnam, and Thailand.</li>
-            <li class="pt-2 text-slate-700"><strong>Billing Verification:</strong> Audit and governance of pan-India revenue billing files.</li>
+          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 dark:divide-slate-800 flex-1 text-slate-700 dark:text-slate-300">
+            <li class="pt-2"><strong>Headcount Planning:</strong> Precision attrition, shrinkage, and AL/SL monitoring across 24/7 rosters.</li>
+            <li class="pt-2"><strong>Multi-Country Sync:</strong> Real-time operations alignment across India, Malaysia, Indonesia, Vietnam, and Thailand.</li>
+            <li class="pt-2"><strong>Billing Verification:</strong> Audit and governance of pan-India revenue billing files.</li>
           </ul>
         </div>
-        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col">
           <div class="bg-amber-600 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
             🌐 Global Client Accounts
           </div>
-          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
-            <li class="pt-2 text-slate-700 font-semibold">• Uber & Blinkit (On-Demand Quick Ops)</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Vodafone Idea & Canon</li>
-            <li class="pt-2 text-slate-700 font-semibold">• AJIO & Zomato Delivery Ecosystems</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Star Health & Allied Insurance</li>
+          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 dark:divide-slate-800 flex-1 text-slate-700 dark:text-slate-300 font-semibold">
+            <li class="pt-2">• Uber & Blinkit (On-Demand Quick Ops)</li>
+            <li class="pt-2">• Vodafone Idea & Canon</li>
+            <li class="pt-2">• AJIO & Zomato Delivery Ecosystems</li>
+            <li class="pt-2">• Star Health & Allied Insurance</li>
           </ul>
         </div>
-        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col">
           <div class="bg-emerald-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
             ⚙️ Engineering & Automation
           </div>
-          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
-            <li class="pt-2 text-slate-700 font-semibold">• Automated ETL pipelines via PowerShell & SFTP</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Advanced dynamic matrix modeling in Excel</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Real-time telemetry ingestion into MS Access & NAV</li>
+          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 dark:divide-slate-800 flex-1 text-slate-700 dark:text-slate-300 font-semibold">
+            <li class="pt-2">• Automated ETL pipelines via PowerShell & SFTP</li>
+            <li class="pt-2">• Advanced dynamic matrix modeling in Excel</li>
+            <li class="pt-2">• Real-time telemetry ingestion into MS Access & NAV</li>
           </ul>
         </div>
       </div>
@@ -217,48 +228,47 @@
     <!-- ==================================================== -->
     <div id="tab-calculators" class="tab-content hidden space-y-6">
       
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
+      <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-8">
         <div>
-          <h2 class="text-2xl font-extrabold text-blue-950 mb-2">Interactive WFM & Financial Simulation Engines</h2>
-          <p class="text-sm text-slate-600">Live operational modeling tools showcasing mathematical workforce planning, FTE equations, and telecom invoicing architecture.</p>
+          <h2 class="text-2xl font-extrabold text-blue-950 dark:text-blue-400 mb-2">Advanced WFM & Financial Simulation Suite</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Interactive tools for mathematical capacity modeling, 24/7 seat sharing, shrinkage loss, and interval heatmaps.</p>
         </div>
 
-        <!-- Section A: Interactive Calculators -->
+        <!-- Row 1: Erlang & Billing -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           <!-- Calculator 1: Capacity & FTE Modeler -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
-            <div class="flex items-center gap-2 text-blue-900 font-bold text-base border-b border-slate-200 pb-3">
-              <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i>
+          <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
+            <div class="flex items-center gap-2 text-blue-900 dark:text-blue-300 font-bold text-base border-b border-slate-200 dark:border-slate-700 pb-3">
+              <i data-lucide="calculator" class="w-5 h-5 text-blue-700 dark:text-blue-400"></i>
               <h3>Erlang-C / FTE Capacity Estimator</h3>
             </div>
 
             <div class="space-y-3 text-xs">
               <div>
-                <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
-                <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
+                <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Expected Call Volume (Interval):</label>
+                <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runFteCalculator(); generateHeatmap();">
               </div>
               <div class="grid grid-cols-2 gap-3">
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
-                  <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">AHT (Seconds):</label>
+                  <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" oninput="runFteCalculator(); generateHeatmap();">
                 </div>
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
-                  <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator()">
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Interval (Mins):</label>
+                  <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" onchange="runFteCalculator(); generateHeatmap();">
                     <option value="1800">30 Mins (1800s)</option>
                     <option value="3600">60 Mins (3600s)</option>
                   </select>
                 </div>
               </div>
               <div>
-                <label class="font-bold text-slate-700 block mb-1">Total Shrinkage % (Planned + Unplanned):</label>
-                <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator()">
-                <span id="shrink-val" class="text-blue-700 font-bold text-xs">22%</span>
+                <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Total Shrinkage %:</label>
+                <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator(); generateHeatmap();">
+                <span id="shrink-val" class="text-blue-700 dark:text-blue-400 font-bold text-xs">22%</span>
               </div>
             </div>
 
-            <!-- Result Box -->
             <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
               <div>
                 <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
@@ -271,103 +281,125 @@
             </div>
           </div>
 
-          <!-- Calculator 2: Billing Model Comparison -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
-            <div class="flex items-center gap-2 text-emerald-900 font-bold text-base border-b border-slate-200 pb-3">
-              <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i>
-              <h3>Connect-Minute vs FTE Billing Simulator</h3>
+          <!-- Calculator 2: 24/7 Seat Sharing & Real Estate Modeler -->
+          <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
+            <div class="flex items-center gap-2 text-indigo-900 dark:text-indigo-300 font-bold text-base border-b border-slate-200 dark:border-slate-700 pb-3">
+              <i data-lucide="building" class="w-5 h-5 text-indigo-700 dark:text-indigo-400"></i>
+              <h3>24/7 Seat Sharing & Real Estate Modeler</h3>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Total Active Roster Headcount (FTE):</label>
+                <input type="number" id="seat-total-fte" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" oninput="runSeatCalculator()">
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Operating Window:</label>
+                  <select id="seat-ops-window" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" onchange="runSeatCalculator()">
+                    <option value="24">24/7 (3 Shifts / Day)</option>
+                    <option value="16">16/6 (2 Shifts / Day)</option>
+                    <option value="9">9/5 (1 Shift / Day)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Seat Sharing Ratio:</label>
+                  <select id="seat-share-ratio" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" onchange="runSeatCalculator()">
+                    <option value="1.8">1 : 1.8 (High 24/7 Sharing)</option>
+                    <option value="1.6">1 : 1.6 (Standard 24/7)</option>
+                    <option value="1.2">1 : 1.2 (Dual Shift)</option>
+                    <option value="1.0">1 : 1.0 (Dedicated 1:1)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-indigo-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
+              <div>
+                <p class="text-[11px] text-indigo-200 font-semibold uppercase">Physical Seats Needed</p>
+                <p id="res-physical-seats" class="text-2xl font-black text-cyan-400">178</p>
+              </div>
+              <div>
+                <p class="text-[11px] text-indigo-200 font-semibold uppercase">Real Estate Footprint Saved</p>
+                <p id="res-seat-savings" class="text-2xl font-black text-emerald-400">44.4%</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Row 2: Shrinkage Split & Connect-Min Glossary -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Shrinkage Split Modeler -->
+          <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
+            <div class="flex items-center gap-2 text-rose-900 dark:text-rose-300 font-bold text-base border-b border-slate-200 dark:border-slate-700 pb-3">
+              <i data-lucide="pie-chart" class="w-5 h-5 text-rose-700 dark:text-rose-400"></i>
+              <h3>Planned vs Unplanned Shrinkage Split Matrix</h3>
             </div>
 
             <div class="space-y-3 text-xs">
               <div class="grid grid-cols-2 gap-3">
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
-                  <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Planned Leave (AL/SL %):</label>
+                  <input type="number" id="shrink-planned" value="10.5" step="0.5" class="w-full p-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" oninput="runShrinkageMatrix()">
                 </div>
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
-                  <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Unplanned Attrition / Abs %:</label>
+                  <input type="number" id="shrink-unplanned" value="5.2" step="0.5" class="w-full p-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" oninput="runShrinkageMatrix()">
                 </div>
               </div>
               <div class="grid grid-cols-2 gap-3">
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
-                  <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Training / Briefing %:</label>
+                  <input type="number" id="shrink-train" value="3.5" step="0.5" class="w-full p-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" oninput="runShrinkageMatrix()">
                 </div>
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
-                  <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">RnP & Technical Loss %:</label>
+                  <input type="number" id="shrink-rnp" value="2.8" step="0.5" class="w-full p-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 font-semibold outline-none" oninput="runShrinkageMatrix()">
                 </div>
               </div>
             </div>
 
-            <!-- Result Box -->
-            <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
-              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-                <span>Connect-Minute Revenue:</span>
-                <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
+            <div class="bg-rose-950 text-white rounded-lg p-3 text-center text-xs font-bold flex justify-around">
+              <div>Cumulative Shrinkage: <span id="res-cum-shrink" class="text-amber-400 text-sm">22.0%</span></div>
+              <div>Net Operational Availability: <span id="res-net-avail" class="text-emerald-400 text-sm">78.0%</span></div>
+            </div>
+          </div>
+
+          <!-- Formula Architecture Box -->
+          <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
+            <div class="flex items-center gap-2 text-blue-950 dark:text-blue-300 font-bold text-base border-b border-slate-200 dark:border-slate-700 pb-3">
+              <i data-lucide="book-open-check" class="w-5 h-5 text-blue-800 dark:text-blue-400"></i>
+              <h3>WFM Mathematical Formulation Engine</h3>
+            </div>
+            <div class="space-y-3 text-xs">
+              <div class="bg-slate-900 text-slate-100 p-3 rounded-lg font-mono text-[11px] border border-slate-800">
+                <p class="text-emerald-400 font-bold">// 1. Connect-Minute Telecom Revenue</p>
+                Connect Mins = (Calls Handled × [Talk Time + Hold Time]) / 60
               </div>
-              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-                <span>FTE Retainer Revenue:</span>
-                <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
-              </div>
-              <div class="flex justify-between items-center pt-1 font-bold">
-                <span>Variance (Model Delta):</span>
-                <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
+              <div class="bg-slate-900 text-slate-100 p-3 rounded-lg font-mono text-[11px] border border-slate-800">
+                <p class="text-cyan-400 font-bold">// 2. Net to Gross FTE Formula</p>
+                Net FTE = (Volume × AHT) / Interval Secs | Gross = Net / (1 - Shrinkage)
               </div>
             </div>
           </div>
 
         </div>
 
-        <!-- Section B: Technical Glossary & Formula Architecture Card -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
-          <div class="flex items-center gap-2 text-blue-950 font-bold text-base border-b border-slate-200 pb-3">
-            <i data-lucide="book-open-check" class="w-5 h-5 text-blue-800"></i>
-            <h3>Workforce Analytics & Financial Modeling Framework</h3>
+        <!-- 24-Hour Interval Staffing Heatmap Simulator -->
+        <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-3">
+            <div class="flex items-center gap-2 text-blue-950 dark:text-blue-300 font-bold text-base">
+              <i data-lucide="grid" class="w-5 h-5 text-blue-700 dark:text-blue-400"></i>
+              <h3>24-Hour Multi-Interval Roster Heatmap Generator</h3>
+            </div>
+            <span class="text-[10px] bg-blue-100 dark:bg-blue-900 text-blue-900 dark:text-blue-200 font-bold px-2 py-0.5 rounded">Dynamic Distribution</span>
           </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
-            
-            <!-- Technical Box 1: Connect-Minute -->
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
-              <div class="flex items-center gap-2">
-                <span class="p-1.5 bg-blue-100 text-blue-900 rounded-md"><i data-lucide="phone-forwarded" class="w-4 h-4"></i></span>
-                <h4 class="font-bold text-blue-950 text-sm">Connect-Minute (CM) Architecture</h4>
-              </div>
-              <p class="text-slate-600 leading-relaxed">
-                <strong>Definition:</strong> The cumulative billable telecom duration spent on active customer interactions captured via ACD telephony telemetry (Avaya CMS / Cisco CUIC).
-              </p>
-              <div class="bg-slate-900 text-slate-100 p-3 rounded-lg font-mono text-[11px] leading-relaxed border border-slate-800">
-                <p class="text-emerald-400 font-bold">// Telecom Billing Formula</p>
-                Connect Mins = (Calls Handled × [Talk Time + Hold Time]) / 60
-              </div>
-              <ul class="list-disc pl-4 text-slate-600 space-y-1">
-                <li>Directly tied to switch trunk duration audits.</li>
-                <li>Used for variable on-demand client invoicing models.</li>
-              </ul>
-            </div>
-
-            <!-- Technical Box 2: FTE Definition -->
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
-              <div class="flex items-center gap-2">
-                <span class="p-1.5 bg-emerald-100 text-emerald-900 rounded-md"><i data-lucide="users" class="w-4 h-4"></i></span>
-                <h4 class="font-bold text-emerald-950 text-sm">Full-Time Equivalent (FTE) Principles</h4>
-              </div>
-              <p class="text-slate-600 leading-relaxed">
-                <strong>Definition:</strong> Standardized unit of productive workload measurement representing one full-time operative's capacity over defined interval windows.
-              </p>
-              <div class="bg-slate-900 text-slate-100 p-3 rounded-lg font-mono text-[11px] leading-relaxed border border-slate-800">
-                <p class="text-cyan-400 font-bold">// Mathematical Equations</p>
-                Net FTE = (Call Volume × AHT in Secs) / Interval Secs<br>
-                Gross FTE = Net FTE / (1 - Shrinkage %)
-              </div>
-              <ul class="list-disc pl-4 text-slate-600 space-y-1">
-                <li><strong>Net FTE:</strong> Pure operational workload without downtime.</li>
-                <li><strong>Gross FTE:</strong> Roster requirements incorporating shrinkage (leaves, coaching, downtime).</li>
-              </ul>
-            </div>
-
+          <p class="text-xs text-slate-600 dark:text-slate-400">Color-coded FTE distribution curve across typical 24-hour command center operations (Green: Low, Amber: Medium, Red: Peak SLA Risk).</p>
+          
+          <div id="heatmap-grid" class="grid grid-cols-6 sm:grid-cols-12 gap-2 text-center text-xs pt-2">
+            <!-- Dynamically generated via JS -->
           </div>
         </div>
 
@@ -376,134 +408,251 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 3: TELEMETRY & VISUAL CHARTS -->
+    <!-- TAB 3: TELEMETRY & TECH-STACK (4th ALL WITH CLICKABLE DEPTH) -->
     <!-- ==================================================== -->
     <div id="tab-competencies" class="tab-content hidden space-y-6">
       
-      <!-- Charts Row -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-              <i data-lucide="trending-up" class="w-4 h-4 text-blue-700"></i> Intraday Call Flow & SLA Response Curve
-            </h3>
-            <span class="text-[10px] bg-blue-50 text-blue-800 font-bold px-2 py-0.5 rounded">Avaya CMS Sync</span>
+      <!-- 2nd: Tableau / Visuals Suite Embed Card -->
+      <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4 mb-4">
+          <div class="flex items-center gap-2">
+            <span class="p-2 bg-amber-100 dark:bg-amber-950 text-amber-900 dark:text-amber-300 rounded-lg">
+              <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+            </span>
+            <div>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white">Interactive Tableau & Power BI Telemetry Suite</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Executive drill-down dashboards for pan-India and Southeast Asian operational command centers.</p>
+            </div>
           </div>
-          <div class="h-64">
-            <canvas id="slaChart"></canvas>
-          </div>
+          <span class="bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 text-xs font-bold px-3 py-1 rounded-full border border-emerald-300 dark:border-emerald-800">
+            ● Live Visual Matrix
+          </span>
         </div>
 
-        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
-              <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-700"></i> Multi-Regional Shrinkage & Operational Loss Breakdown
-            </h3>
-            <span class="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">IEX TotalView</span>
+        <!-- Charts Visuals -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+          <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <p class="font-bold text-xs text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-1.5">
+              <i data-lucide="trending-up" class="w-4 h-4 text-blue-600"></i> Intraday Call Flow vs SLA Compliance Curve
+            </p>
+            <div class="h-60">
+              <canvas id="slaChart"></canvas>
+            </div>
           </div>
-          <div class="h-64 flex items-center justify-center">
-            <canvas id="shrinkageChart"></canvas>
+          <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <p class="font-bold text-xs text-slate-800 dark:text-slate-200 mb-2 flex items-center gap-1.5">
+              <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-600"></i> Operational Loss & Telemetry Shrinkage Breakdown
+            </p>
+            <div class="h-60 flex items-center justify-center">
+              <canvas id="shrinkageChart"></canvas>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Architecture Pipeline Card -->
-      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-        <h3 class="font-bold text-slate-900 text-base mb-4 flex items-center gap-2">
-          <i data-lucide="workflow" class="w-5 h-5 text-indigo-700"></i> End-to-End GCC Automation & Reporting Architecture
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs text-center">
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-blue-900 mb-1">1. Telemetry Ingestion</p>
-            <p class="text-slate-600">Avaya CMS, Cisco CUIC, & SFTP raw interval dumps scheduled via PowerShell.</p>
+      <!-- 4th ALL: Complete Interactive Tech-Stack Matrix with Clickable Depth -->
+      <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-6">
+        <div>
+          <h3 class="font-bold text-lg text-slate-900 dark:text-white">Command Center Telemetry & Engineering Tech-Stack</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400">Core operational engines and technical toolchains. <strong class="text-blue-600 dark:text-blue-400">Click on any tool badge</strong> to inspect real-world implementation depth & architecture.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          
+          <!-- Stack 1: Telephony / ACD -->
+          <div class="p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl space-y-2.5">
+            <div class="flex items-center gap-2 text-blue-900 dark:text-blue-300 font-bold border-b border-slate-200 dark:border-slate-700 pb-1.5">
+              <i data-lucide="radio" class="w-4 h-4 text-blue-600"></i>
+              <h4>Telephony / ACD</h4>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="showToolModal('Avaya CMS', 'CentreVu Management System used for real-time switch monitoring, interval call flow ingestion, trunk utilization, and split/skill performance telemetry across pan-India and SEA locations.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-blue-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Avaya CMS ↗</button>
+              <button onclick="showToolModal('Cisco CUIC', 'Unified Intelligence Center utilized for comprehensive ACD historical reporting, agent state tracking, queue analytics, and automated interval data exports.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-blue-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Cisco CUIC ↗</button>
+              <button onclick="showToolModal('Exony', 'Advanced telephony reporting and interaction telemetry management across enterprise telecom infrastructures.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-blue-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Exony ↗</button>
+              <button onclick="showToolModal('Heartbeat Telemetry', 'Real-time agent occupancy, adherence, and active queue state monitor engine.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-blue-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Heartbeat ↗</button>
+            </div>
           </div>
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-indigo-900 mb-1">2. Data Transformation</p>
-            <p class="text-slate-600">Batch script ETL sanitization into relational MS Access & MS NAV schemas.</p>
+
+          <!-- Stack 2: WFM Tools -->
+          <div class="p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl space-y-2.5">
+            <div class="flex items-center gap-2 text-emerald-900 dark:text-emerald-300 font-bold border-b border-slate-200 dark:border-slate-700 pb-1.5">
+              <i data-lucide="users" class="w-4 h-4 text-emerald-600"></i>
+              <h4>WFM Platforms</h4>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="showToolModal('IEX TotalView', 'Enterprise workforce management solution for forecasting, intraday interval scheduling, shrinkage management, and multi-skill schedule generation.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-emerald-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">IEX TotalView ↗</button>
+              <button onclick="showToolModal('Aspect WFM', 'Workforce optimization platform used for capacity forecasting, shrinkage tracking, and schedule adherence scoring.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-emerald-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Aspect WFM ↗</button>
+              <button onclick="showToolModal('Erlang-C Core', 'Mathematical queuing model for exact FTE capacity planning, SLA probability curves, and queue load balancing.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-emerald-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Erlang-C Core ↗</button>
+              <button onclick="showToolModal('Interval Scheduling', '30-minute and 60-minute granularity interval roster optimization balancing peak-to-trough agent staffing.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-emerald-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Interval Sched. ↗</button>
+            </div>
           </div>
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-emerald-900 mb-1">3. Capacity Modeling</p>
-            <p class="text-slate-600">Erlang matrices, Attrition/Shrinkage smoothing, and connect-minute verification.</p>
+
+          <!-- Stack 3: Databases & ERP -->
+          <div class="p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl space-y-2.5">
+            <div class="flex items-center gap-2 text-indigo-900 dark:text-indigo-300 font-bold border-b border-slate-200 dark:border-slate-700 pb-1.5">
+              <i data-lucide="database" class="w-4 h-4 text-indigo-600"></i>
+              <h4>Databases & ERP</h4>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="showToolModal('Microsoft NAV 2016', 'Enterprise resource planning system for tracking headcount billing rates, payroll hours, cost center allocations, and financial reconciliations.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-indigo-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">MS NAV 2016 ↗</button>
+              <button onclick="showToolModal('MS Access DB', 'Relational database architecture housing millions of interval telecom records, automated query pipelines, and macro-driven report dispatchers.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-indigo-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">MS Access DB ↗</button>
+              <button onclick="showToolModal('SQL Basics & Schemas', 'Structured query querying for data sanitization, joins across interval tables, and high-speed telemetry ETL processing.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-indigo-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">SQL Schemas ↗</button>
+              <button onclick="showToolModal('Relational Data Schemas', 'Normalized data structures connecting agent master, skill groups, and interval telephony logs.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-indigo-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Relational DB ↗</button>
+            </div>
           </div>
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-amber-900 mb-1">4. Executive Telemetry</p>
-            <p class="text-slate-600">Automated DPR/WPR/MPR dissemination to C-level stakeholders pan-India & SEA.</p>
+
+          <!-- Stack 4: Automation & Scripting -->
+          <div class="p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl space-y-2.5">
+            <div class="flex items-center gap-2 text-purple-900 dark:text-purple-300 font-bold border-b border-slate-200 dark:border-slate-700 pb-1.5">
+              <i data-lucide="terminal" class="w-4 h-4 text-purple-600"></i>
+              <h4>Automation & Scripting</h4>
+            </div>
+            <div class="flex flex-wrap gap-1.5 pt-1">
+              <button onclick="showToolModal('VBA Macro Programming', 'Custom automated modules for 1-click DPR generation, email automation via Outlook MAPI, and Excel data cleansing pipelines.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-purple-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">VBA Macros ↗</button>
+              <button onclick="showToolModal('PowerShell Automation', 'Scheduled background scripts executing daily raw interval extraction, SFTP sync, and file conversion without human touch.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-purple-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">PowerShell ↗</button>
+              <button onclick="showToolModal('Batch Script Scheduling', 'Windows Task Scheduler pipelines for automated night-shift ETL handshakes and database archival.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-purple-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Batch Scripts ↗</button>
+              <button onclick="showToolModal('Dynamic Matrices & Sumproduct', 'Advanced nested Excel formulas, dynamic array matrices, and SUMPRODUCT models for complex multi-condition capacity modeling.')" class="px-2.5 py-1 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 hover:border-purple-500 rounded font-semibold text-slate-700 dark:text-slate-200 transition cursor-pointer shadow-sm hover:scale-105">Dynamic Matrix ↗</button>
+            </div>
           </div>
+
         </div>
       </div>
 
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 4: CAREER MILESTONES -->
+    <!-- TAB 4: 3rd ALL: ROI & CASE STUDIES ARCHITECTURE -->
+    <!-- ==================================================== -->
+    <div id="tab-casestudies" class="tab-content hidden space-y-6">
+      
+      <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm space-y-6">
+        <div>
+          <h2 class="text-2xl font-extrabold text-blue-950 dark:text-blue-400 mb-2">High-Impact ROI & Operational Case Studies</h2>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Quantifiable operational turnarounds, revenue protection models, and automation architectures.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Case 1 -->
+          <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-300 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded border border-blue-200 dark:border-blue-800">Financial Invoicing</span>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white mt-2">Pan-India Telecom Revenue Audit</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                Engineered custom reconciliation matrices to audit connect-minute telecom durations against billing statements for leading enterprise telecom clients.
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs">
+              <p class="font-bold text-emerald-600 dark:text-emerald-400">Impact Result:</p>
+              <p class="text-slate-700 dark:text-slate-300">Eliminated 100% billing dispute turnaround delays and protected multi-crore invoice accuracy.</p>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-300 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded border border-red-200 dark:border-red-800">Public Sector Mission</span>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white mt-2">UP Police 1090 Emergency Peak Analytics</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                Spearheaded response telemetry reporting and queue redistribution models during peak statewide distress call intervals.
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs">
+              <p class="font-bold text-emerald-600 dark:text-emerald-400">Impact Result:</p>
+              <p class="text-slate-700 dark:text-slate-300">Streamlined call handling latency with zero critical interval SLA dropouts.</p>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-5 flex flex-col justify-between space-y-4">
+            <div>
+              <span class="bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded border border-indigo-200 dark:border-indigo-800">Automation Engine</span>
+              <h3 class="font-bold text-base text-slate-900 dark:text-white mt-2">Zero-Touch SFTP & PowerShell Pipeline</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+                Architected an end-to-end scheduled batch pipeline fetching raw Avaya CMS interval telemetry directly into MS Access/Excel sanitizers.
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 p-3 rounded-lg border border-slate-200 dark:border-slate-700 text-xs">
+              <p class="font-bold text-emerald-600 dark:text-emerald-400">Impact Result:</p>
+              <p class="text-slate-700 dark:text-slate-300">Saved 90% manual DPR compilation hours daily across an 11-member command center.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- TAB 5: CAREER MILESTONES -->
     <!-- ==================================================== -->
     <div id="tab-experience" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <h2 class="text-2xl font-extrabold text-blue-950 mb-6 border-b border-slate-200 pb-3">Career Milestones & Professional Timeline</h2>
-        <div class="relative border-l-2 border-blue-900 ml-4 pl-6 space-y-8">
+      <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-2xl font-extrabold text-blue-950 dark:text-blue-400 mb-6 border-b border-slate-200 dark:border-slate-800 pb-3">Career Milestones & Professional Timeline</h2>
+        <div class="relative border-l-2 border-blue-900 dark:border-blue-700 ml-4 pl-6 space-y-8">
           <div class="relative">
-            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow"></span>
+            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-900 shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h3 class="text-lg font-bold text-blue-950">Lead – GCC MIS</h3>
-              <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Dec 2024 – Present</span>
+              <h3 class="text-lg font-bold text-blue-950 dark:text-white">Lead – GCC MIS</h3>
+              <span class="text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950 px-2.5 py-1 rounded border border-blue-200 dark:border-blue-800">Dec 2024 – Present</span>
             </div>
-            <p class="text-sm font-semibold text-slate-700">Startek (Aegis Customer Support Services)</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, automation pipelines, and multi-brand billing files.</p>
+            <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Startek (Aegis Customer Support Services)</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, automation pipelines, and multi-brand billing files.</p>
           </div>
           <div class="relative">
-            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white shadow"></span>
+            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white dark:border-slate-900 shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h3 class="text-lg font-bold text-slate-900">WFM Assistant Manager</h3>
-              <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Oct 2022 – Jul 2024</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">WFM Assistant Manager</h3>
+              <span class="text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Oct 2022 – Jul 2024</span>
             </div>
-            <p class="text-sm font-semibold text-slate-700">Concentrix Daksh India Pvt. Ltd.</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Drove capacity planning, interval scheduling, cost-benefit analyses, and multi-country operational reporting across Southeast Asian BPM deployments.</p>
+            <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Concentrix Daksh India Pvt. Ltd.</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">Drove capacity planning, interval scheduling, cost-benefit analyses, and multi-country operational reporting across Southeast Asian BPM deployments.</p>
           </div>
           <div class="relative">
-            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white shadow"></span>
+            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white dark:border-slate-900 shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h3 class="text-lg font-bold text-slate-900">Process Specialist</h3>
-              <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Mar 2022 – Oct 2022</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Process Specialist</h3>
+              <span class="text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Mar 2022 – Oct 2022</span>
             </div>
-            <p class="text-sm font-semibold text-slate-700">Cognizant Technology Solutions</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Managed process analytics, performance scorecards, and workflow optimization standards.</p>
+            <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Cognizant Technology Solutions</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">Managed process analytics, performance scorecards, and workflow optimization standards.</p>
           </div>
           <div class="relative">
-            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white shadow"></span>
+            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white dark:border-slate-900 shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h3 class="text-lg font-bold text-slate-900">Data Analyst</h3>
-              <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Oct 2021 – Mar 2022</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">Data Analyst</h3>
+              <span class="text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Oct 2021 – Mar 2022</span>
             </div>
-            <p class="text-sm font-semibold text-slate-700">Technosys Pvt. Ltd. (Women Power Line 1090, UP Police)</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Spearheaded operational analytics, call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.</p>
+            <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">Technosys Pvt. Ltd. (Women Power Line 1090, UP Police)</p>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">Spearheaded operational analytics, call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.</p>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 5: COMPREHENSIVE BIO -->
+    <!-- TAB 6: COMPREHENSIVE BIO -->
     <!-- ==================================================== -->
     <div id="tab-about" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
-        <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-6">
-          <div class="w-40 h-40 bg-blue-950 text-white rounded-2xl flex items-center justify-center shadow-lg border-4 border-blue-100 mb-4 overflow-hidden">
+      <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
+        <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 pb-6 md:pb-0 md:pr-6">
+          <div class="w-40 h-40 bg-blue-950 text-white rounded-2xl flex items-center justify-center shadow-lg border-4 border-blue-100 dark:border-blue-900 mb-4 overflow-hidden">
             <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-5xl">DS</span>
           </div>
-          <h2 class="text-2xl font-bold text-slate-900">Deepankar Shukla</h2>
-          <p class="text-xs font-bold text-blue-700 mt-0.5">Lead – Global Command Center (MIS & WFM)</p>
-          <span class="mt-3 bg-blue-50 text-blue-900 border border-blue-200 px-3 py-1 rounded-full text-[11px] font-bold">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Deepankar Shukla</h2>
+          <p class="text-xs font-bold text-blue-700 dark:text-blue-400 mt-0.5">Lead – Global Command Center (MIS & WFM)</p>
+          <span class="mt-3 bg-blue-50 dark:bg-blue-950 text-blue-900 dark:text-blue-300 border border-blue-200 dark:border-blue-800 px-3 py-1 rounded-full text-[11px] font-bold">
             9+ Years of Industry Mastery
           </span>
-          <div class="w-full mt-6 pt-4 border-t border-slate-100 text-left text-xs space-y-2 text-slate-600">
+          <div class="w-full mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-left text-xs space-y-2 text-slate-600 dark:text-slate-400">
             <p><strong>Location:</strong> Lucknow, UP, India</p>
             <p><strong>Languages:</strong> English, Hindi</p>
             <p><strong>Specialization:</strong> Financial Invoicing & WFM Capacity</p>
           </div>
         </div>
-        <div class="w-full md:w-2/3 space-y-4 text-slate-700">
-          <h3 class="text-xl font-bold text-blue-950 border-b border-slate-100 pb-2">Professional Biography</h3>
+        <div class="w-full md:w-2/3 space-y-4 text-slate-700 dark:text-slate-300">
+          <h3 class="text-xl font-bold text-blue-950 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2">Professional Biography</h3>
           <p class="text-sm leading-relaxed">
             "I am a seasoned <strong>Lead – MIS & Workforce Management professional with 9+ years of industry experience</strong> across global BPM and analytics environments, including Startek, Concentrix, Cognizant, and public sector operations (UP Police WPL 1090)."
           </p>
@@ -515,65 +664,65 @@
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 6: CONNECT & ZERO-BACKEND WORKING NETLIFY FORM -->
+    <!-- TAB 7: CONNECT & WORKING NETLIFY FORM -->
     <!-- ==================================================== -->
     <div id="tab-contact" class="tab-content hidden space-y-6">
       
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto">
+      <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto">
         <div class="text-center mb-8">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-950">Let's Connect & Collaborate</h2>
-          <p class="text-slate-600 text-xs sm:text-sm mt-1">Available for executive WFM consultations, Command Center architecture discussions, and leadership opportunities.</p>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-950 dark:text-white">Let's Connect & Collaborate</h2>
+          <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Available for executive WFM consultations, Command Center architecture discussions, and leadership opportunities.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           <!-- Contact Info -->
           <div class="space-y-4">
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-              <i data-lucide="mail" class="w-5 h-5 text-blue-700 flex-shrink-0"></i>
+            <div class="p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-blue-700 dark:text-blue-400 flex-shrink-0"></i>
               <div>
-                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Email</p>
-                <a href="mailto:shukladeepankar91@gmail.com" class="text-xs font-bold text-slate-900 hover:text-blue-700">shukladeepankar91@gmail.com</a>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 font-semibold uppercase">Direct Email</p>
+                <a href="mailto:shukladeepankar91@gmail.com" class="text-xs font-bold text-slate-900 dark:text-white hover:text-blue-700">shukladeepankar91@gmail.com</a>
               </div>
             </div>
 
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-emerald-700 flex-shrink-0"></i>
+            <div class="p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg flex items-center gap-3">
+              <i data-lucide="phone" class="w-5 h-5 text-emerald-700 dark:text-emerald-400 flex-shrink-0"></i>
               <div>
-                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Phone</p>
-                <a href="tel:+918787250550" class="text-xs font-bold text-slate-900 hover:text-emerald-700">+91-8787250550</a>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 font-semibold uppercase">Direct Phone</p>
+                <a href="tel:+918787250550" class="text-xs font-bold text-slate-900 dark:text-white hover:text-emerald-700">+91-8787250550</a>
               </div>
             </div>
 
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-indigo-700 flex-shrink-0"></i>
+            <div class="p-4 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-indigo-700 dark:text-indigo-400 flex-shrink-0"></i>
               <div>
-                <p class="text-[11px] text-slate-500 font-semibold uppercase">Location</p>
-                <p class="text-xs font-bold text-slate-900">Lucknow, Uttar Pradesh, India</p>
+                <p class="text-[11px] text-slate-500 dark:text-slate-400 font-semibold uppercase">Location</p>
+                <p class="text-xs font-bold text-slate-900 dark:text-white">Lucknow, Uttar Pradesh, India</p>
               </div>
             </div>
 
             <div class="pt-2">
-              <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-xs">
+              <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="w-full flex items-center justify-center gap-2 bg-slate-900 dark:bg-blue-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-xs">
                 <i data-lucide="download" class="w-4 h-4"></i> Download Full Resume (PDF)
               </a>
             </div>
           </div>
 
           <!-- Working Direct Netlify Form -->
-          <form name="contact" method="POST" data-netlify="true" class="space-y-3 bg-slate-50 p-6 rounded-xl border border-slate-200 text-xs">
+          <form name="contact" method="POST" data-netlify="true" class="space-y-3 bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-xs">
             <input type="hidden" name="form-name" value="contact" />
             <div>
-              <label class="font-bold text-slate-700 block mb-1">Your Name *</label>
-              <input type="text" name="name" required placeholder="John Doe" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
+              <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Your Name *</label>
+              <input type="text" name="name" required placeholder="John Doe" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 outline-none focus:ring-2 focus:ring-blue-600">
             </div>
             <div>
-              <label class="font-bold text-slate-700 block mb-1">Email Address *</label>
-              <input type="email" name="email" required placeholder="john@company.com" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
+              <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Email Address *</label>
+              <input type="email" name="email" required placeholder="john@company.com" class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 outline-none focus:ring-2 focus:ring-blue-600">
             </div>
             <div>
-              <label class="font-bold text-slate-700 block mb-1">Message / Consultation Query *</label>
-              <textarea name="message" rows="3" required placeholder="Tell me about your project or opportunity..." class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+              <label class="font-bold text-slate-700 dark:text-slate-300 block mb-1">Message / Consultation Query *</label>
+              <textarea name="message" rows="3" required placeholder="Tell me about your project or opportunity..." class="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 outline-none focus:ring-2 focus:ring-blue-600"></textarea>
             </div>
             <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-lg shadow transition flex items-center justify-center gap-1.5">
               <i data-lucide="send" class="w-4 h-4"></i> Send Message Directly
@@ -587,8 +736,22 @@
 
   </main>
 
+  <!-- INTERACTIVE TOOL MODAL (CLICK DEPTH POPUP) -->
+  <div id="tool-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 id="modal-tool-title" class="font-bold text-lg text-blue-950 dark:text-blue-400">Tool Architecture</h3>
+        <button onclick="closeToolModal()" class="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-white">✕</button>
+      </div>
+      <p id="modal-tool-desc" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed"></p>
+      <div class="pt-2 flex justify-end">
+        <button onclick="closeToolModal()" class="bg-blue-900 text-white text-xs font-semibold px-4 py-2 rounded-lg">Close</button>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
-  <footer class="bg-blue-950 text-slate-300 border-t border-blue-900 py-6 text-center text-xs mt-auto">
+  <footer class="bg-blue-950 dark:bg-slate-950 text-slate-300 border-t border-blue-900 dark:border-slate-800 py-6 text-center text-xs mt-auto">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
       <p><strong>Deepankar Shukla</strong> • Lead – Global Command Center (MIS & WFM) © 2026</p>
       <p class="text-slate-400">Pan-India & SEA Operations Analytics Infrastructure</p>
@@ -596,7 +759,21 @@
   </footer>
 
   <script>
-    // Tab Switching Logic
+    // 1. Dark Mode Toggle
+    function toggleDarkMode() {
+      const html = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        icon.setAttribute('data-lucide', 'moon');
+      } else {
+        html.classList.add('dark');
+        icon.setAttribute('data-lucide', 'sun');
+      }
+      lucide.createIcons();
+    }
+
+    // 2. Tab Switching Logic
     function showTab(tabId) {
       const allTabs = document.querySelectorAll('.tab-content');
       allTabs.forEach(tab => tab.classList.add('hidden'));
@@ -614,7 +791,6 @@
         activeNav.classList.add('bg-blue-800');
       }
 
-      // If Telemetry tab, render charts
       if (tabId === 'competencies') {
         renderCharts();
       }
@@ -622,7 +798,17 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 1. WFM FTE Calculator Function
+    // 3. Clickable Tool Modal Depth Function
+    function showToolModal(title, desc) {
+      document.getElementById('modal-tool-title').innerText = title;
+      document.getElementById('modal-tool-desc').innerText = desc;
+      document.getElementById('tool-modal').classList.remove('hidden');
+    }
+    function closeToolModal() {
+      document.getElementById('tool-modal').classList.add('hidden');
+    }
+
+    // 4. WFM FTE Calculator Function
     function runFteCalculator() {
       const volume = parseFloat(document.getElementById('calc-volume').value) || 0;
       const aht = parseFloat(document.getElementById('calc-aht').value) || 0;
@@ -637,29 +823,62 @@
       document.getElementById('res-gross-fte').innerText = grossFte.toFixed(1);
     }
 
-    // 2. Billing Model Simulator
-    function runBillingSim() {
-      const mins = parseFloat(document.getElementById('calc-mins').value) || 0;
-      const rateMin = parseFloat(document.getElementById('calc-min-rate').value) || 0;
-      const ftes = parseFloat(document.getElementById('calc-bill-fte').value) || 0;
-      const rateFte = parseFloat(document.getElementById('calc-fte-rate').value) || 0;
+    // 5. Seat Sharing Calculator
+    function runSeatCalculator() {
+      const totalFte = parseFloat(document.getElementById('seat-total-fte').value) || 0;
+      const ratio = parseFloat(document.getElementById('seat-share-ratio').value) || 1.6;
+      
+      const seatsNeeded = Math.ceil(totalFte / ratio);
+      const savingsPct = totalFte > 0 ? (((totalFte - seatsNeeded) / totalFte) * 100).toFixed(1) : 0;
 
-      const minRev = mins * rateMin;
-      const fteRev = ftes * rateFte;
-      const delta = minRev - fteRev;
-
-      document.getElementById('res-min-rev').innerText = '₹' + minRev.toLocaleString('en-IN');
-      document.getElementById('res-fte-rev').innerText = '₹' + fteRev.toLocaleString('en-IN');
-      document.getElementById('res-var-rev').innerText = (delta >= 0 ? '+₹' : '-₹') + Math.abs(delta).toLocaleString('en-IN');
+      document.getElementById('res-physical-seats').innerText = seatsNeeded;
+      document.getElementById('res-seat-savings').innerText = savingsPct + '%';
     }
 
-    // 3. Render Chart.js Telemetry
+    // 6. Shrinkage Matrix Modeler
+    function runShrinkageMatrix() {
+      const planned = parseFloat(document.getElementById('shrink-planned').value) || 0;
+      const unplanned = parseFloat(document.getElementById('shrink-unplanned').value) || 0;
+      const train = parseFloat(document.getElementById('shrink-train').value) || 0;
+      const rnp = parseFloat(document.getElementById('shrink-rnp').value) || 0;
+
+      const total = planned + unplanned + train + rnp;
+      const avail = Math.max(0, 100 - total);
+
+      document.getElementById('res-cum-shrink').innerText = total.toFixed(1) + '%';
+      document.getElementById('res-net-avail').innerText = avail.toFixed(1) + '%';
+    }
+
+    // 7. 24-Hour Interval Staffing Heatmap Generator
+    function generateHeatmap() {
+      const grid = document.getElementById('heatmap-grid');
+      grid.innerHTML = '';
+      
+      const baseVol = parseFloat(document.getElementById('calc-volume').value) || 400;
+      const distribution = [0.2, 0.15, 0.1, 0.1, 0.15, 0.3, 0.6, 0.85, 1.0, 0.95, 0.9, 0.88, 0.82, 0.85, 0.9, 0.95, 1.0, 0.92, 0.8, 0.7, 0.6, 0.5, 0.35, 0.25];
+
+      distribution.forEach((factor, idx) => {
+        const intervalFte = Math.round((baseVol * factor * 320) / 1800);
+        let colorClass = "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950 dark:text-emerald-300 dark:border-emerald-800";
+        if (factor > 0.8) {
+          colorClass = "bg-rose-100 text-rose-900 border-rose-300 dark:bg-rose-950 dark:text-rose-300 dark:border-rose-800";
+        } else if (factor > 0.5) {
+          colorClass = "bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-950 dark:text-amber-300 dark:border-amber-800";
+        }
+
+        const box = document.createElement('div');
+        box.className = `p-2 rounded-lg border font-mono ${colorClass}`;
+        box.innerHTML = `<p class="font-bold text-[10px]">${idx < 10 ? '0' + idx : idx}:00</p><p class="text-xs font-black mt-0.5">${intervalFte} <span class="text-[9px]">FTE</span></p>`;
+        grid.appendChild(box);
+      });
+    }
+
+    // 8. Chart.js Telemetry
     let chartsRendered = false;
     function renderCharts() {
       if (chartsRendered) return;
       chartsRendered = true;
 
-      // SLA Curve Line Chart
       const ctx1 = document.getElementById('slaChart').getContext('2d');
       new Chart(ctx1, {
         type: 'line',
@@ -669,8 +888,8 @@
             {
               label: 'Call Volume',
               data: [120, 380, 490, 420, 510, 320, 180],
-              borderColor: '#1e40af',
-              backgroundColor: 'rgba(30, 64, 175, 0.1)',
+              borderColor: '#2563eb',
+              backgroundColor: 'rgba(37, 99, 235, 0.1)',
               yAxisID: 'y',
               tension: 0.3,
               fill: true
@@ -694,14 +913,13 @@
         }
       });
 
-      // Shrinkage Doughnut Chart
       const ctx2 = document.getElementById('shrinkageChart').getContext('2d');
       new Chart(ctx2, {
         type: 'doughnut',
         data: {
-          labels: ['Planned Leave (AL/SL)', 'Unplanned Attrition', 'Training & Coaching', 'Meeting / RnP Loss'],
+          labels: ['Planned Leave', 'Unplanned Attrition', 'Training/Briefing', 'RnP Loss'],
           datasets: [{
-            data: [9.5, 4.2, 3.8, 2.5],
+            data: [10.5, 5.2, 3.5, 2.8],
             backgroundColor: ['#1e3a8a', '#dc2626', '#0284c7', '#f59e0b']
           }]
         },
@@ -715,9 +933,11 @@
       });
     }
 
-    // Initialize Calculators & Icons
+    // Initialize all engines
     runFteCalculator();
-    runBillingSim();
+    runSeatCalculator();
+    runShrinkageMatrix();
+    generateHeatmap();
     lucide.createIcons();
   </script>
 </body>
