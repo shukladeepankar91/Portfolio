@@ -4,10 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deepankar Shukla | Lead – Global Command Center (MIS & WFM)</title>
+  
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:title" content="Deepankar Shukla | Lead – Global Command Center (MIS & WFM)" />
+  <meta property="og:description" content="9+ Years of expertise in WFM Capacity Planning, Operations Analytics, Erlang-C modeling, and Multi-Country Command Center Governance." />
+  <meta property="og:image" content="profile.jpg" />
+  <meta property="og:type" content="website" />
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js for Telemetry Visuals -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     @keyframes marquee {
       0% { transform: translateX(100%); }
@@ -32,7 +42,6 @@
       
       <!-- Brand & Title -->
       <div class="flex items-center gap-3">
-        <!-- Top Profile Avatar -->
         <div class="w-14 h-14 rounded-xl bg-blue-950 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 flex-shrink-0 overflow-hidden">
           <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-2xl">DS</span>
@@ -61,9 +70,9 @@
 
       <!-- Header CTAs -->
       <div class="flex items-center gap-2.5 w-full md:w-auto justify-end">
-        <a href="mailto:shukladeepankar91@gmail.com" class="flex items-center gap-1.5 bg-blue-900 hover:bg-blue-800 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
+        <button onclick="showTab('contact')" class="flex items-center gap-1.5 bg-blue-900 hover:bg-blue-800 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
           <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
-        </a>
+        </button>
         <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
           <i data-lucide="file-text" class="w-4 h-4"></i> Download CV
         </a>
@@ -72,28 +81,31 @@
     </div>
   </header>
 
-  <!-- MAIN NAVIGATION BAR (NAVY BLUE PORTAL STYLE) -->
+  <!-- MAIN NAVIGATION BAR -->
   <nav class="bg-blue-950 text-white shadow-md sticky top-0 z-50 border-b-2 border-blue-900">
     <div class="max-w-7xl mx-auto flex overflow-x-auto text-xs sm:text-sm font-semibold whitespace-nowrap">
-      <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
         <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Executive Dashboard
       </button>
-      <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
-        <i data-lucide="cpu" class="w-4 h-4"></i> Core Competencies & Telemetry
+      <button id="nav-calculators" onclick="showTab('calculators')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+        <i data-lucide="calculator" class="w-4 h-4"></i> WFM Calculators & Simulators
       </button>
-      <button id="nav-experience" onclick="showTab('experience')" class="nav-link px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+        <i data-lucide="cpu" class="w-4 h-4"></i> Telemetry & Visuals
+      </button>
+      <button id="nav-experience" onclick="showTab('experience')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
         <i data-lucide="briefcase" class="w-4 h-4"></i> Career Milestones
       </button>
-      <button id="nav-about" onclick="showTab('about')" class="nav-link px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-about" onclick="showTab('about')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
         <i data-lucide="user" class="w-4 h-4"></i> Comprehensive Bio
       </button>
-      <button id="nav-contact" onclick="showTab('contact')" class="nav-link px-5 py-3 hover:bg-blue-800 transition flex items-center gap-1.5">
-        <i data-lucide="phone-call" class="w-4 h-4"></i> Connect & Invoicing Inquiry
+      <button id="nav-contact" onclick="showTab('contact')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition flex items-center gap-1.5">
+        <i data-lucide="phone-call" class="w-4 h-4"></i> Connect & Inquiry
       </button>
     </div>
   </nav>
 
-  <!-- BREAKING NEWS / LIVE MARQUEE TICKER -->
+  <!-- MARQUEE TICKER -->
   <div class="bg-white border-b border-slate-200 py-2 px-4 shadow-sm">
     <div class="max-w-7xl mx-auto flex items-center gap-3 overflow-hidden text-xs sm:text-sm">
       <span class="bg-red-600 text-white font-bold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider flex-shrink-0 animate-pulse">
@@ -121,7 +133,7 @@
     <!-- ==================================================== -->
     <div id="tab-home" class="tab-content space-y-6">
       
-      <!-- Executive Summary Hero Card -->
+      <!-- Hero Card -->
       <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
         <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
           <div>
@@ -134,32 +146,28 @@
             📍 Base: Lucknow, UP • Multi-Region Scope
           </span>
         </div>
-        
         <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
           "Results-driven WFM & MIS professional with over <strong>9 years of cross-functional experience</strong> driving large-scale capacity planning, operational analytics, process automation, and multi-region command center operations across India and Southeast Asia (SEA). Specialized in financial modeling/invoicing (Connect-minute, FTE & Per-hour billing), complex dashboard architecture, and advanced VBA/Access solutions."
         </p>
       </section>
 
-      <!-- 3. KEY METRICS / STATS COUNTER -->
+      <!-- Stats Grid -->
       <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-blue-800">
           <p class="text-3xl sm:text-4xl font-extrabold text-blue-950">9+ Years</p>
           <p class="text-xs font-bold text-slate-700 uppercase mt-1">Experience in MIS & WFM</p>
           <p class="text-[11px] text-slate-500 mt-0.5">BPM & Public Sector Ops</p>
         </div>
-
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-emerald-700">
           <p class="text-3xl sm:text-4xl font-extrabold text-emerald-700">11+ Members</p>
           <p class="text-xs font-bold text-slate-700 uppercase mt-1">Team Leadership</p>
           <p class="text-[11px] text-slate-500 mt-0.5">Pan-India GCC MIS Operations</p>
         </div>
-
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-cyan-700">
           <p class="text-2xl sm:text-3xl font-extrabold text-cyan-800 pt-1">Pan-India & SEA</p>
           <p class="text-xs font-bold text-slate-700 uppercase mt-1">Multi-Regional Scope</p>
           <p class="text-[11px] text-slate-500 mt-0.5">Malaysia, Indo, Vietnam, Thai</p>
         </div>
-
         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-amber-600">
           <p class="text-3xl sm:text-4xl font-extrabold text-amber-700">End-to-End</p>
           <p class="text-xs font-bold text-slate-700 uppercase mt-1">Financial & Invoicing</p>
@@ -167,53 +175,8 @@
         </div>
       </section>
 
-      <!-- Portal Grid Modules -->
-      <section class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-        <h3 class="text-center font-extrabold text-blue-950 text-base sm:text-lg uppercase tracking-wide mb-4">
-          GCC Operational Capabilities & Billing Architectures
-        </h3>
-        
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-3">
-          <div class="bg-sky-700 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            CONNECT-MINUTE BILLING
-          </div>
-          <div class="bg-blue-800 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            FTE & PER-HOUR INVOICING
-          </div>
-          <div class="bg-cyan-800 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            CAPACITY FORECASTING
-          </div>
-          <div class="bg-indigo-900 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            COST-BENEFIT ANALYSIS (CBA)
-          </div>
-          <div class="bg-blue-950 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            RPA PIPELINE PROJECTIONS
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          <div class="bg-sky-800 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            PAN-INDIA DPR & APR
-          </div>
-          <div class="bg-cyan-700 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            AVAYA CMS TELEMETRY
-          </div>
-          <div class="bg-blue-900 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            CISCO CUIC & IEX
-          </div>
-          <div class="bg-indigo-950 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            VBA / POWERSHELL SCRIPTING
-          </div>
-          <div class="bg-slate-900 text-white text-center py-3 px-2 rounded-lg font-bold text-xs uppercase tracking-tight shadow-sm">
-            TNPS & UNIQUE CALL METRICS
-          </div>
-        </div>
-      </section>
-
       <!-- 3 Key Columns -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Box 1 -->
         <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
           <div class="bg-rose-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
             🏆 Command Center Focus (2026)
@@ -224,8 +187,6 @@
             <li class="pt-2 text-slate-700"><strong>Billing Verification:</strong> Audit and governance of pan-India revenue billing files.</li>
           </ul>
         </div>
-
-        <!-- Box 2 -->
         <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
           <div class="bg-amber-600 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
             🌐 Global Client Accounts
@@ -237,109 +198,194 @@
             <li class="pt-2 text-slate-700 font-semibold">• Star Health & Allied Insurance</li>
           </ul>
         </div>
-
-        <!-- Box 3 -->
         <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
           <div class="bg-emerald-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
-            ⚙️ Engineering & Tools
+            ⚙️ Engineering & Automation
           </div>
           <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
-            <li class="pt-2 text-slate-700 font-semibold">• Advanced Excel (Sumproduct, Dynamic Matrices)</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Microsoft NAV 2016 & MS Access DB</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Automated ETL via SFTP, PowerShell & Batch</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Real-Time Telemetry via Heartbeat & IEX</li>
+            <li class="pt-2 text-slate-700 font-semibold">• Automated ETL pipelines via PowerShell & SFTP</li>
+            <li class="pt-2 text-slate-700 font-semibold">• Advanced dynamic matrix modeling in Excel</li>
+            <li class="pt-2 text-slate-700 font-semibold">• Real-time telemetry ingestion into MS Access & NAV</li>
           </ul>
         </div>
-
       </div>
 
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 2: CORE COMPETENCIES & TELEMETRY -->
+    <!-- TAB 2: INTERACTIVE WFM CALCULATORS & SIMULATORS -->
+    <!-- ==================================================== -->
+    <div id="tab-calculators" class="tab-content hidden space-y-6">
+      
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <h2 class="text-2xl font-extrabold text-blue-950 mb-2">Interactive WFM & Financial Simulation Engines</h2>
+        <p class="text-sm text-slate-600 mb-6">Live operational modeling tools showcasing mathematical workforce planning and financial invoicing architecture.</p>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Calculator 1: Capacity & FTE Modeler -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
+            <div class="flex items-center gap-2 text-blue-900 font-bold text-base border-b border-slate-200 pb-3">
+              <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i>
+              <h3>Erlang-C / FTE Capacity Estimator</h3>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
+                <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
+                  <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
+                  <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator()">
+                    <option value="1800">30 Mins</option>
+                    <option value="3600">60 Mins</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Total Shrinkage % (Planned + Unplanned):</label>
+                <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator()">
+                <span id="shrink-val" class="text-blue-700 font-bold text-xs">22%</span>
+              </div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
+              <div>
+                <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
+                <p id="res-net-fte" class="text-2xl font-black text-emerald-400">80.0</p>
+              </div>
+              <div>
+                <p class="text-[11px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
+                <p id="res-gross-fte" class="text-2xl font-black text-amber-400">102.6</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculator 2: Billing Model Comparison -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
+            <div class="flex items-center gap-2 text-emerald-900 font-bold text-base border-b border-slate-200 pb-3">
+              <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i>
+              <h3>Connect-Minute vs FTE Billing Simulator</h3>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
+                  <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
+                  <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
+                  <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
+                  <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+              </div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
+              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+                <span>Connect-Minute Revenue:</span>
+                <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
+              </div>
+              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+                <span>FTE Retainer Revenue:</span>
+                <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
+              </div>
+              <div class="flex justify-between items-center pt-1 font-bold">
+                <span>Variance (Model Delta):</span>
+                <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==================================================== -->
+    <!-- TAB 3: TELEMETRY & VISUAL CHARTS -->
     <!-- ==================================================== -->
     <div id="tab-competencies" class="tab-content hidden space-y-6">
       
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
-        <div>
-          <h2 class="text-2xl font-extrabold text-blue-950">Core Competencies & Telemetry Toolkit</h2>
-          <p class="text-sm text-slate-600 mt-1">Cross-functional expertise across workforce management, financial invoicing models, and data pipeline automations.</p>
+      <!-- Charts Row -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <i data-lucide="trending-up" class="w-4 h-4 text-blue-700"></i> Intraday Call Flow & SLA Response Curve
+            </h3>
+            <span class="text-[10px] bg-blue-50 text-blue-800 font-bold px-2 py-0.5 rounded">Avaya CMS Sync</span>
+          </div>
+          <div class="h-64">
+            <canvas id="slaChart"></canvas>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          
-          <!-- Card A -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-blue-900 font-bold text-base">
-              <i data-lucide="trending-up" class="w-5 h-5 text-blue-700"></i>
-              <h3>Workforce Management & Planning</h3>
-            </div>
-            <ul class="text-xs sm:text-sm text-slate-700 space-y-2 list-disc pl-5">
-              <li><strong>Capacity Planning & Headcount Forecasting:</strong> Long-term and short-term interval modeling.</li>
-              <li><strong>Cost-Benefit Analysis (CBA):</strong> Financial ROI evaluation on staffing shifts & seat ratios.</li>
-              <li><strong>RPA Projections:</strong> Identifying automation targets to optimize human FTE requirements.</li>
-              <li><strong>Operational Health Tracking:</strong> Real-time Attrition, Shrinkage, RnP, SLA, and AL/SL monitoring.</li>
-            </ul>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-700"></i> Multi-Regional Shrinkage & Operational Loss Breakdown
+            </h3>
+            <span class="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">IEX TotalView</span>
           </div>
-
-          <!-- Card B -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-emerald-900 font-bold text-base">
-              <i data-lucide="badge-dollar-sign" class="w-5 h-5 text-emerald-700"></i>
-              <h3>Business Analytics & Invoicing Models</h3>
-            </div>
-            <ul class="text-xs sm:text-sm text-slate-700 space-y-2 list-disc pl-5">
-              <li><strong>Connect-Minute Based Billing:</strong> Complex telecommunication duration billing validation.</li>
-              <li><strong>FTE & Per-Hour Billing:</strong> Multi-geography cost center allocations.</li>
-              <li><strong>Pan-India DPR & APR:</strong> Daily Performance & Agent Productivity Reports.</li>
-              <li><strong>Customer Sentiment Analytics:</strong> Transactional Net Promoter Score (TNPS) & Unique Call tracking.</li>
-            </ul>
+          <div class="h-64 flex items-center justify-center">
+            <canvas id="shrinkageChart"></canvas>
           </div>
+        </div>
+      </div>
 
-          <!-- Card C -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-purple-900 font-bold text-base">
-              <i data-lucide="terminal" class="w-5 h-5 text-purple-700"></i>
-              <h3>Automation & Technical Tools</h3>
-            </div>
-            <ul class="text-xs sm:text-sm text-slate-700 space-y-2 list-disc pl-5">
-              <li><strong>Advanced MS Excel:</strong> Complex index-match matrices, dynamic formulas, nested sumproducts.</li>
-              <li><strong>Scripting & ETL Automation:</strong> VBA Macro programming, PowerShell automation, batch script scheduling.</li>
-              <li><strong>Database Architectures:</strong> MS Access relational databases & Microsoft NAV 2016.</li>
-            </ul>
+      <!-- Architecture Pipeline Card -->
+      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+        <h3 class="font-bold text-slate-900 text-base mb-4 flex items-center gap-2">
+          <i data-lucide="workflow" class="w-5 h-5 text-indigo-700"></i> End-to-End GCC Automation & Reporting Architecture
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs text-center">
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+            <p class="font-bold text-blue-900 mb-1">1. Telemetry Ingestion</p>
+            <p class="text-slate-600">Avaya CMS, Cisco CUIC, & SFTP raw interval dumps scheduled via PowerShell.</p>
           </div>
-
-          <!-- Card D -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
-            <div class="flex items-center gap-2 text-cyan-900 font-bold text-base">
-              <i data-lucide="radio" class="w-5 h-5 text-cyan-700"></i>
-              <h3>ERP & Telephony Telemetry</h3>
-            </div>
-            <ul class="text-xs sm:text-sm text-slate-700 space-y-2 list-disc pl-5">
-              <li><strong>Telephony Platforms:</strong> Avaya CMS (CentreVu Management System), Cisco CUIC, Exony.</li>
-              <li><strong>WFM Tools:</strong> IEX TotalView, Heartbeat real-time monitoring.</li>
-              <li><strong>Data Transport:</strong> Automated SFTP integrations and scheduled data warehouse handshakes.</li>
-            </ul>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+            <p class="font-bold text-indigo-900 mb-1">2. Data Transformation</p>
+            <p class="text-slate-600">Batch script ETL sanitization into relational MS Access & MS NAV schemas.</p>
           </div>
-
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+            <p class="font-bold text-emerald-900 mb-1">3. Capacity Modeling</p>
+            <p class="text-slate-600">Erlang matrices, Attrition/Shrinkage smoothing, and connect-minute verification.</p>
+          </div>
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+            <p class="font-bold text-amber-900 mb-1">4. Executive Telemetry</p>
+            <p class="text-slate-600">Automated DPR/WPR/MPR dissemination to C-level stakeholders pan-India & SEA.</p>
+          </div>
         </div>
       </div>
 
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 3: CAREER MILESTONES (EXPERIENCE TIMELINE) -->
+    <!-- TAB 4: CAREER MILESTONES -->
     <!-- ==================================================== -->
     <div id="tab-experience" class="tab-content hidden space-y-6">
-      
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <h2 class="text-2xl font-extrabold text-blue-950 mb-6 border-b border-slate-200 pb-3">
-          Career Milestones & Professional Timeline
-        </h2>
-
+        <h2 class="text-2xl font-extrabold text-blue-950 mb-6 border-b border-slate-200 pb-3">Career Milestones & Professional Timeline</h2>
         <div class="relative border-l-2 border-blue-900 ml-4 pl-6 space-y-8">
-          
-          <!-- Role 1 -->
           <div class="relative">
             <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -347,12 +393,8 @@
               <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">Dec 2024 – Present</span>
             </div>
             <p class="text-sm font-semibold text-slate-700">Startek (Aegis Customer Support Services)</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Leading an 11-member command center team managing Pan-India & Southeast Asia (Malaysia, Indonesia, Vietnam, Thailand) reporting, capacity modeling, automation pipelines, and multi-brand billing files.
-            </p>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, automation pipelines, and multi-brand billing files.</p>
           </div>
-
-          <!-- Role 2 -->
           <div class="relative">
             <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -360,12 +402,8 @@
               <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Oct 2022 – Jul 2024</span>
             </div>
             <p class="text-sm font-semibold text-slate-700">Concentrix Daksh India Pvt. Ltd.</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Drove capacity planning, interval scheduling, cost-benefit analyses, and multi-country operational reporting across Southeast Asian BPM deployments.
-            </p>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Drove capacity planning, interval scheduling, cost-benefit analyses, and multi-country operational reporting across Southeast Asian BPM deployments.</p>
           </div>
-
-          <!-- Role 3 -->
           <div class="relative">
             <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -373,12 +411,8 @@
               <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Mar 2022 – Oct 2022</span>
             </div>
             <p class="text-sm font-semibold text-slate-700">Cognizant Technology Solutions</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Managed process analytics, performance scorecards, and workflow optimization standards.
-            </p>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Managed process analytics, performance scorecards, and workflow optimization standards.</p>
           </div>
-
-          <!-- Role 4 -->
           <div class="relative">
             <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-white shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -386,37 +420,17 @@
               <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Oct 2021 – Mar 2022</span>
             </div>
             <p class="text-sm font-semibold text-slate-700">Technosys Pvt. Ltd. (Women Power Line 1090, UP Police)</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Spearheaded operational analytics, call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.
-            </p>
+            <p class="text-xs text-slate-600 mt-2 leading-relaxed">Spearheaded operational analytics, call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.</p>
           </div>
-
-          <!-- Role 5 -->
-          <div class="relative">
-            <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow"></span>
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-              <h3 class="text-lg font-bold text-slate-900">MIS Executive ➔ Senior MIS Executive</h3>
-              <span class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">Oct 2016 – Oct 2021</span>
-            </div>
-            <p class="text-sm font-semibold text-slate-700">Aegis (Startek) Ltd.</p>
-            <p class="text-xs text-slate-600 mt-2 leading-relaxed">
-              Developed and automated DPR/WPR/MPR reports, automated data ingestion with VBA, and maintained telephony database health.
-            </p>
-          </div>
-
         </div>
       </div>
-
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 4: COMPREHENSIVE BIO -->
+    <!-- TAB 5: COMPREHENSIVE BIO -->
     <!-- ==================================================== -->
     <div id="tab-about" class="tab-content hidden space-y-6">
-      
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
-        
-        <!-- Bio Profile Card with Photo -->
         <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-6">
           <div class="w-40 h-40 bg-blue-950 text-white rounded-2xl flex items-center justify-center shadow-lg border-4 border-blue-100 mb-4 overflow-hidden">
             <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -427,86 +441,90 @@
           <span class="mt-3 bg-blue-50 text-blue-900 border border-blue-200 px-3 py-1 rounded-full text-[11px] font-bold">
             9+ Years of Industry Mastery
           </span>
-          
           <div class="w-full mt-6 pt-4 border-t border-slate-100 text-left text-xs space-y-2 text-slate-600">
             <p><strong>Location:</strong> Lucknow, UP, India</p>
             <p><strong>Languages:</strong> English, Hindi</p>
             <p><strong>Specialization:</strong> Financial Invoicing & WFM Capacity</p>
           </div>
         </div>
-
         <div class="w-full md:w-2/3 space-y-4 text-slate-700">
           <h3 class="text-xl font-bold text-blue-950 border-b border-slate-100 pb-2">Professional Biography</h3>
-          
           <p class="text-sm leading-relaxed">
             "I am a seasoned <strong>Lead – MIS & Workforce Management professional with 9+ years of industry experience</strong> across global BPM and analytics environments, including Startek, Concentrix, Cognizant, and public sector operations (UP Police WPL 1090)."
           </p>
-
           <p class="text-sm leading-relaxed">
             "Currently heading Pan-India GCC MIS & reporting operations at Startek, I manage capacity planning, cost-benefit analyses (CBA), and high-impact dashboards for major global brands (<strong>Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit, and Zomato</strong>). My core expertise lies in transforming raw ERP/telephony data (CMS, CUIC, IEX, SFTP) into actionable business intelligence, engineering custom automation pipelines using VBA, PowerShell, & MS Access, and driving cost efficiencies through precision workforce optimization."
           </p>
-
-          <div class="pt-4">
-            <h4 class="font-bold text-slate-900 text-sm mb-2">Key Management Highlights</h4>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
-                <span class="font-bold text-blue-900">Command Center Leadership:</span> Mentoring and managing an 11-member multi-regional MIS operations team.
-              </div>
-              <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg">
-                <span class="font-bold text-blue-900">Global Telecom & Retail:</span> Scaling reporting frameworks across Southeast Asia and Indian enterprise accounts.
-              </div>
-            </div>
-          </div>
         </div>
-
       </div>
-
     </div>
 
     <!-- ==================================================== -->
-    <!-- TAB 5: CONTACT & RESUME CTA -->
+    <!-- TAB 6: CONNECT & ZERO-BACKEND WORKING NETLIFY FORM -->
     <!-- ==================================================== -->
     <div id="tab-contact" class="tab-content hidden space-y-6">
       
-      <div class="bg-white rounded-xl border border-slate-200 p-8 sm:p-12 shadow-sm text-center max-w-3xl mx-auto space-y-6">
-        <div class="w-16 h-16 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto text-2xl">
-          <i data-lucide="mail-check" class="w-8 h-8"></i>
-        </div>
-        
-        <div>
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto">
+        <div class="text-center mb-8">
           <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-950">Let's Connect & Collaborate</h2>
-          <p class="text-slate-600 text-sm mt-2 max-w-xl mx-auto">
-            Available for executive WFM consultations, Command Center architecture discussions, and leadership opportunities in Global Workforce Management & Operations Analytics.
-          </p>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1">Available for executive WFM consultations, Command Center architecture discussions, and leadership opportunities.</p>
         </div>
 
-        <!-- Direct Contact Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-lg mx-auto">
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-            <i data-lucide="mail" class="w-5 h-5 text-blue-700 flex-shrink-0"></i>
-            <div>
-              <p class="text-[11px] text-slate-500 font-semibold uppercase">Email Address</p>
-              <a href="mailto:shukladeepankar91@gmail.com" class="text-xs font-bold text-slate-900 hover:text-blue-700">shukladeepankar91@gmail.com</a>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Contact Info -->
+          <div class="space-y-4">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-blue-700 flex-shrink-0"></i>
+              <div>
+                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Email</p>
+                <a href="mailto:shukladeepankar91@gmail.com" class="text-xs font-bold text-slate-900 hover:text-blue-700">shukladeepankar91@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
+              <i data-lucide="phone" class="w-5 h-5 text-emerald-700 flex-shrink-0"></i>
+              <div>
+                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Phone</p>
+                <a href="tel:+918787250550" class="text-xs font-bold text-slate-900 hover:text-emerald-700">+91-8787250550</a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-indigo-700 flex-shrink-0"></i>
+              <div>
+                <p class="text-[11px] text-slate-500 font-semibold uppercase">Location</p>
+                <p class="text-xs font-bold text-slate-900">Lucknow, Uttar Pradesh, India</p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-xs">
+                <i data-lucide="download" class="w-4 h-4"></i> Download Full Resume (PDF)
+              </a>
             </div>
           </div>
 
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-            <i data-lucide="phone" class="w-5 h-5 text-emerald-700 flex-shrink-0"></i>
+          <!-- Working Direct Netlify Form -->
+          <form name="contact" method="POST" data-netlify="true" class="space-y-3 bg-slate-50 p-6 rounded-xl border border-slate-200 text-xs">
+            <input type="hidden" name="form-name" value="contact" />
             <div>
-              <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Phone</p>
-              <a href="tel:+918787250550" class="text-xs font-bold text-slate-900 hover:text-emerald-700">+91-8787250550</a>
+              <label class="font-bold text-slate-700 block mb-1">Your Name *</label>
+              <input type="text" name="name" required placeholder="John Doe" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
             </div>
-          </div>
-        </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Email Address *</label>
+              <input type="email" name="email" required placeholder="john@company.com" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Message / Consultation Query *</label>
+              <textarea name="message" rows="3" required placeholder="Tell me about your project or opportunity..." class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-lg shadow transition flex items-center justify-center gap-1.5">
+              <i data-lucide="send" class="w-4 h-4"></i> Send Message Directly
+            </button>
+          </form>
 
-        <!-- Action Buttons -->
-        <div class="flex flex-wrap justify-center gap-4 pt-4">
-          <a href="mailto:shukladeepankar91@gmail.com" class="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition text-sm">
-            <i data-lucide="send" class="w-4 h-4"></i> Get In Touch / Let's Connect
-          </a>
-          <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-8 rounded-lg shadow-md transition text-sm">
-            <i data-lucide="download" class="w-4 h-4"></i> Download CV
-          </a>
         </div>
       </div>
 
@@ -534,19 +552,117 @@
       }
 
       const allNavLinks = document.querySelectorAll('.nav-link');
-      allNavLinks.forEach(link => {
-        link.classList.remove('bg-blue-800');
-      });
+      allNavLinks.forEach(link => link.classList.remove('bg-blue-800'));
 
       const activeNav = document.getElementById('nav-' + tabId);
       if(activeNav) {
         activeNav.classList.add('bg-blue-800');
       }
 
+      // If Telemetry tab, render charts
+      if (tabId === 'competencies') {
+        renderCharts();
+      }
+
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
-    // Initialize Lucide Icons
+
+    // 1. WFM FTE Calculator Function
+    function runFteCalculator() {
+      const volume = parseFloat(document.getElementById('calc-volume').value) || 0;
+      const aht = parseFloat(document.getElementById('calc-aht').value) || 0;
+      const intervalSecs = parseFloat(document.getElementById('calc-interval').value) || 1800;
+      const shrink = (parseFloat(document.getElementById('calc-shrinkage').value) || 0) / 100;
+
+      const workloadSecs = volume * aht;
+      const netFte = (workloadSecs / intervalSecs);
+      const grossFte = shrink < 1 ? (netFte / (1 - shrink)) : netFte;
+
+      document.getElementById('res-net-fte').innerText = netFte.toFixed(1);
+      document.getElementById('res-gross-fte').innerText = grossFte.toFixed(1);
+    }
+
+    // 2. Billing Model Simulator
+    function runBillingSim() {
+      const mins = parseFloat(document.getElementById('calc-mins').value) || 0;
+      const rateMin = parseFloat(document.getElementById('calc-min-rate').value) || 0;
+      const ftes = parseFloat(document.getElementById('calc-bill-fte').value) || 0;
+      const rateFte = parseFloat(document.getElementById('calc-fte-rate').value) || 0;
+
+      const minRev = mins * rateMin;
+      const fteRev = ftes * rateFte;
+      const delta = minRev - fteRev;
+
+      document.getElementById('res-min-rev').innerText = '₹' + minRev.toLocaleString('en-IN');
+      document.getElementById('res-fte-rev').innerText = '₹' + fteRev.toLocaleString('en-IN');
+      document.getElementById('res-var-rev').innerText = (delta >= 0 ? '+₹' : '-₹') + Math.abs(delta).toLocaleString('en-IN');
+    }
+
+    // 3. Render Chart.js Telemetry
+    let chartsRendered = false;
+    function renderCharts() {
+      if (chartsRendered) return;
+      chartsRendered = true;
+
+      // SLA Curve Line Chart
+      const ctx1 = document.getElementById('slaChart').getContext('2d');
+      new Chart(ctx1, {
+        type: 'line',
+        data: {
+          labels: ['09:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:00'],
+          datasets: [
+            {
+              label: 'Call Volume',
+              data: [120, 380, 490, 420, 510, 320, 180],
+              borderColor: '#1e40af',
+              backgroundColor: 'rgba(30, 64, 175, 0.1)',
+              yAxisID: 'y',
+              tension: 0.3,
+              fill: true
+            },
+            {
+              label: 'SLA Achieved %',
+              data: [94, 88, 82, 85, 81, 91, 95],
+              borderColor: '#059669',
+              yAxisID: 'y1',
+              tension: 0.3
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { position: 'left', title: { display: true, text: 'Calls' } },
+            y1: { position: 'right', max: 100, min: 50, title: { display: true, text: 'SLA %' } }
+          }
+        }
+      });
+
+      // Shrinkage Doughnut Chart
+      const ctx2 = document.getElementById('shrinkageChart').getContext('2d');
+      new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: ['Planned Leave (AL/SL)', 'Unplanned Attrition', 'Training & Coaching', 'Meeting / RnP Loss'],
+          datasets: [{
+            data: [9.5, 4.2, 3.8, 2.5],
+            backgroundColor: ['#1e3a8a', '#dc2626', '#0284c7', '#f59e0b']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
+          }
+        }
+      });
+    }
+
+    // Initialize Calculators & Icons
+    runFteCalculator();
+    runBillingSim();
     lucide.createIcons();
   </script>
 </body>
