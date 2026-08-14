@@ -32,8 +32,10 @@
       
       <!-- Brand & Title -->
       <div class="flex items-center gap-3">
-        <div class="w-14 h-14 rounded-xl bg-blue-950 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 flex-shrink-0">
-          DS
+        <!-- Top Profile Avatar -->
+        <div class="w-14 h-14 rounded-xl bg-blue-950 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 flex-shrink-0 overflow-hidden">
+          <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-2xl">DS</span>
         </div>
         <div>
           <div class="flex items-center gap-2">
@@ -165,7 +167,7 @@
         </div>
       </section>
 
-      <!-- Portal Grid Modules (Sarkari Style Category Layout) -->
+      <!-- Portal Grid Modules -->
       <section class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
         <h3 class="text-center font-extrabold text-blue-950 text-base sm:text-lg uppercase tracking-wide mb-4">
           GCC Operational Capabilities & Billing Architectures
@@ -208,7 +210,7 @@
         </div>
       </section>
 
-      <!-- 3 Key Columns: Recent Mandates | Client Portfolio | Technical Automation -->
+      <!-- 3 Key Columns -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Box 1 -->
@@ -414,9 +416,11 @@
       
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
         
+        <!-- Bio Profile Card with Photo -->
         <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-6">
-          <div class="w-36 h-36 bg-blue-950 text-white rounded-2xl flex items-center justify-center text-5xl font-black shadow-lg border-4 border-blue-100 mb-4">
-            DS
+          <div class="w-40 h-40 bg-blue-950 text-white rounded-2xl flex items-center justify-center shadow-lg border-4 border-blue-100 mb-4 overflow-hidden">
+            <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-5xl">DS</span>
           </div>
           <h2 class="text-2xl font-bold text-slate-900">Deepankar Shukla</h2>
           <p class="text-xs font-bold text-blue-700 mt-0.5">Lead – Global Command Center (MIS & WFM)</p>
@@ -521,29 +525,24 @@
   <script>
     // Tab Switching Logic
     function showTab(tabId) {
-      // 1. Hide all tab contents
       const allTabs = document.querySelectorAll('.tab-content');
       allTabs.forEach(tab => tab.classList.add('hidden'));
 
-      // 2. Show the selected tab
       const targetTab = document.getElementById('tab-' + tabId);
       if(targetTab) {
         targetTab.classList.remove('hidden');
       }
 
-      // 3. Reset all nav active states
       const allNavLinks = document.querySelectorAll('.nav-link');
       allNavLinks.forEach(link => {
         link.classList.remove('bg-blue-800');
       });
 
-      // 4. Highlight active nav link
       const activeNav = document.getElementById('nav-' + tabId);
       if(activeNav) {
         activeNav.classList.add('bg-blue-800');
       }
 
-      // Scroll smoothly to top of main container on mobile
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
     
