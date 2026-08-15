@@ -40,19 +40,6 @@
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-blue-600 selection:text-white pb-16 md:pb-0">
 
-  <!-- DYNAMIC NATIONAL DAY BANNER (AUTOMATIC FLASH) -->
-  <div id="national-event-banner" class="hidden bg-gradient-to-r from-orange-600 via-white to-green-700 text-slate-900 border-b border-slate-300 py-2 px-4 shadow-md font-bold text-xs sm:text-sm">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
-      <div class="flex items-center gap-2">
-        <span class="text-base sm:text-lg">🇮🇳</span>
-        <span id="national-event-text" class="text-blue-950 uppercase tracking-wide font-black"></span>
-      </div>
-      <span class="bg-blue-950 text-white text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full shadow font-semibold">
-        Jai Hind 🇮🇳
-      </span>
-    </div>
-  </div>
-
   <!-- TOP HEADER AREA -->
   <header class="bg-white border-b border-slate-200 py-4 px-4 sm:px-8 shadow-sm">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -149,7 +136,9 @@
   <!-- MAIN CONTAINER -->
   <main class="max-w-7xl mx-auto w-full p-4 sm:p-6 flex-1 space-y-6">
 
+    <!-- ==================================================== -->
     <!-- TAB 1: EXECUTIVE DASHBOARD (HOME) -->
+    <!-- ==================================================== -->
     <div id="tab-home" class="tab-content space-y-6">
       
       <!-- Hero Card -->
@@ -231,7 +220,9 @@
 
     </div>
 
+    <!-- ==================================================== -->
     <!-- TAB 2: INTERACTIVE WFM CALCULATORS & SIMULATORS -->
+    <!-- ==================================================== -->
     <div id="tab-calculators" class="tab-content hidden space-y-6">
       
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
@@ -434,7 +425,9 @@
 
     </div>
 
+    <!-- ==================================================== -->
     <!-- TAB 3: TELEMETRY & VISUAL CHARTS + RADAR -->
+    <!-- ==================================================== -->
     <div id="tab-competencies" class="tab-content hidden space-y-6">
       
       <!-- Charts Row 1: SLA Line + Shrinkage Pie -->
@@ -509,7 +502,9 @@
 
     </div>
 
+    <!-- ==================================================== -->
     <!-- TAB 4: CAREER MILESTONES -->
+    <!-- ==================================================== -->
     <div id="tab-experience" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
         <h2 class="text-2xl font-extrabold text-blue-950 mb-6 border-b border-slate-200 pb-3">Career Milestones & Professional Timeline</h2>
@@ -569,7 +564,9 @@
       </div>
     </div>
 
+    <!-- ==================================================== -->
     <!-- TAB 5: COMPREHENSIVE BIO -->
+    <!-- ==================================================== -->
     <div id="tab-about" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
         <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-6">
@@ -600,7 +597,9 @@
       </div>
     </div>
 
+    <!-- ==================================================== -->
     <!-- TAB 6: CONNECT & ZERO-BACKEND WORKING NETLIFY FORM -->
+    <!-- ==================================================== -->
     <div id="tab-contact" class="tab-content hidden space-y-6">
       
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto">
@@ -712,43 +711,6 @@
   </footer>
 
   <script>
-    // Ordinal Helper (e.g. 77th, 80th, 1st)
-    function getOrdinalSuffix(n) {
-      const s = ["th", "st", "nd", "rd"];
-      const v = n % 100;
-      return n + (s[(v - 20) % 10] || s[v] || s[0]);
-    }
-
-    // Dynamic National Holiday Banner Checker
-    function checkNationalDay() {
-      const now = new Date();
-      const month = now.getMonth() + 1; // 1-12
-      const day = now.getDate();
-      const year = now.getFullYear();
-
-      let eventGreeting = "";
-
-      if (month === 1 && day === 26) {
-        const repCount = year - 1950 + 1;
-        eventGreeting = `Happy ${getOrdinalSuffix(repCount)} Republic Day (${year})! Celebrating the Democratic Spirit of India`;
-      } else if (month === 8 && day === 15) {
-        const indCount = year - 1947 + 1;
-        eventGreeting = `Happy ${getOrdinalSuffix(indCount)} Independence Day (${year})! Celebrating Freedom & Global Leadership`;
-      } else if (month === 10 && day === 2) {
-        const gandhiCount = year - 1869;
-        eventGreeting = `Remembering Mahatma Gandhi on his ${getOrdinalSuffix(gandhiCount)} Birth Anniversary | International Day of Non-Violence`;
-      }
-
-      if (eventGreeting) {
-        const banner = document.getElementById('national-event-banner');
-        const bannerText = document.getElementById('national-event-text');
-        if (banner && bannerText) {
-          bannerText.innerText = eventGreeting;
-          banner.classList.remove('hidden');
-        }
-      }
-    }
-
     // 1. Tab Switching Logic
     function showTab(tabId) {
       const allTabs = document.querySelectorAll('.tab-content');
@@ -982,8 +944,7 @@
       });
     }
 
-    // Initialize National Day Check, Calculators, Models & Icons
-    checkNationalDay();
+    // Initialize Calculators, Models & Icons
     runFteCalculator();
     runWhatIfModel();
     runBillingSim();
