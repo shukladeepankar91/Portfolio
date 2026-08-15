@@ -254,16 +254,13 @@
 
     <!-- TAB 2: INTERACTIVE WFM CALCULATORS & SIMULATORS -->
     <div id="tab-calculators" class="tab-content hidden space-y-6">
-      
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
         <div>
           <h2 class="text-2xl font-extrabold text-blue-950 mb-2">Interactive WFM & Financial Simulation Engines</h2>
           <p class="text-sm text-slate-600">Live operational modeling tools showcasing mathematical workforce planning, FTE equations, and telecom invoicing architecture.</p>
         </div>
 
-        <!-- Section A: Interactive Calculators with 1-Click Excel Export -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
           <!-- Calculator 1: Capacity & FTE Modeler -->
           <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
             <div class="flex items-center justify-between border-b border-slate-200 pb-3">
@@ -301,7 +298,6 @@
               </div>
             </div>
 
-            <!-- Result Box -->
             <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
               <div>
                 <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
@@ -344,7 +340,6 @@
               </div>
             </div>
 
-            <!-- Result Box -->
             <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
               <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
                 <span>Connect-Minute Revenue:</span>
@@ -360,7 +355,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <!-- "What-If" Scenario Modeler -->
@@ -399,66 +393,11 @@
             </div>
           </div>
         </div>
-
-        <!-- Section B: Technical Glossary & Formula Architecture Card -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4">
-          <div class="flex items-center gap-2 text-blue-950 font-bold text-base border-b border-slate-200 pb-3">
-            <i data-lucide="book-open-check" class="w-5 h-5 text-blue-800"></i>
-            <h3>Workforce Analytics & Financial Modeling Framework</h3>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
-            
-            <!-- Technical Box 1: Connect-Minute -->
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
-              <div class="flex items-center gap-2">
-                <span class="p-1.5 bg-blue-100 text-blue-900 rounded-md"><i data-lucide="phone-forwarded" class="w-4 h-4"></i></span>
-                <h4 class="font-bold text-blue-950 text-sm">Connect-Minute (CM) Architecture</h4>
-              </div>
-              <p class="text-slate-600 leading-relaxed">
-                <strong>Definition:</strong> The cumulative billable telecom duration spent on active customer interactions captured via ACD telephony telemetry (Avaya CMS / Cisco CUIC).
-              </p>
-              <div class="bg-slate-900 text-slate-100 p-3 rounded-lg font-mono text-[11px] leading-relaxed border border-slate-800">
-                <p class="text-emerald-400 font-bold">// Telecom Billing Formula</p>
-                Connect Mins = (Calls Handled × [Talk Time + Hold Time]) / 60
-              </div>
-              <ul class="list-disc pl-4 text-slate-600 space-y-1">
-                <li>Directly tied to switch trunk duration audits.</li>
-                <li>Used for variable on-demand client invoicing models.</li>
-              </ul>
-            </div>
-
-            <!-- Technical Box 2: FTE Definition -->
-            <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-3">
-              <div class="flex items-center gap-2">
-                <span class="p-1.5 bg-emerald-100 text-emerald-900 rounded-md"><i data-lucide="users" class="w-4 h-4"></i></span>
-                <h4 class="font-bold text-emerald-950 text-sm">Full-Time Equivalent (FTE) Principles</h4>
-              </div>
-              <p class="text-slate-600 leading-relaxed">
-                <strong>Definition:</strong> Standardized unit of productive workload measurement representing one full-time operative's capacity over defined interval windows.
-              </p>
-              <div class="bg-slate-900 text-slate-100 p-3 rounded-lg font-mono text-[11px] leading-relaxed border border-slate-800">
-                <p class="text-cyan-400 font-bold">// Mathematical Equations</p>
-                Net FTE = (Call Volume × AHT in Secs) / Interval Secs<br>
-                Gross FTE = Net FTE / (1 - Shrinkage %)
-              </div>
-              <ul class="list-disc pl-4 text-slate-600 space-y-1">
-                <li><strong>Net FTE:</strong> Pure operational workload without downtime.</li>
-                <li><strong>Gross FTE:</strong> Roster requirements incorporating shrinkage (leaves, coaching, downtime).</li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
-
       </div>
-
     </div>
 
     <!-- TAB 3: TELEMETRY & VISUAL CHARTS + RADAR -->
     <div id="tab-competencies" class="tab-content hidden space-y-6">
-      
-      <!-- Charts Row 1: SLA Line + Shrinkage Pie -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
@@ -485,7 +424,6 @@
         </div>
       </div>
 
-      <!-- 5-Dimensional Core Competencies Radar Chart -->
       <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4 mb-4">
           <div>
@@ -502,32 +440,6 @@
           <canvas id="skillsRadarChart"></canvas>
         </div>
       </div>
-
-      <!-- Architecture Pipeline Card -->
-      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-        <h3 class="font-bold text-slate-900 text-base mb-4 flex items-center gap-2">
-          <i data-lucide="workflow" class="w-5 h-5 text-indigo-700"></i> End-to-End GCC Automation & Reporting Architecture
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs text-center">
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-blue-900 mb-1">1. Telemetry Ingestion</p>
-            <p class="text-slate-600">Avaya CMS, Cisco CUIC, & SFTP raw interval dumps scheduled via PowerShell.</p>
-          </div>
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-indigo-900 mb-1">2. Data Transformation</p>
-            <p class="text-slate-600">Batch script ETL sanitization into relational MS Access & MS NAV schemas.</p>
-          </div>
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-emerald-900 mb-1">3. Capacity Modeling</p>
-            <p class="text-slate-600">Erlang matrices, Attrition/Shrinkage smoothing, and connect-minute verification.</p>
-          </div>
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-            <p class="font-bold text-amber-900 mb-1">4. Executive Telemetry</p>
-            <p class="text-slate-600">Automated DPR/WPR/MPR dissemination to C-level stakeholders pan-India & SEA.</p>
-          </div>
-        </div>
-      </div>
-
     </div>
 
     <!-- TAB 4: CAREER MILESTONES -->
@@ -535,7 +447,6 @@
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
         <h2 class="text-2xl font-extrabold text-blue-950 mb-6 border-b border-slate-200 pb-3">Career Milestones & Professional Timeline</h2>
         <div class="relative border-l-2 border-blue-900 ml-4 pl-6 space-y-8">
-          
           <div class="relative">
             <span class="absolute -left-[33px] top-1.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow"></span>
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -585,7 +496,6 @@
             <p class="text-sm font-semibold text-slate-700">Aegis (Startek) Ltd.</p>
             <p class="text-xs text-slate-600 mt-2 leading-relaxed">Developed automated DPR/WPR/MPR reports, automated data ingestion with VBA, and maintained telephony database health.</p>
           </div>
-
         </div>
       </div>
     </div>
@@ -621,9 +531,8 @@
       </div>
     </div>
 
-    <!-- TAB 6: CONNECT & ZERO-BACKEND WORKING NETLIFY FORM -->
+    <!-- TAB 6: CONNECT -->
     <div id="tab-contact" class="tab-content hidden space-y-6">
-      
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto">
         <div class="text-center mb-8">
           <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-950">Let's Connect & Collaborate</h2>
@@ -631,8 +540,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          <!-- Contact Info -->
           <div class="space-y-4">
             <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
               <i data-lucide="mail" class="w-5 h-5 text-blue-700 flex-shrink-0"></i>
@@ -669,7 +576,6 @@
             </div>
           </div>
 
-          <!-- Working Direct Netlify Form -->
           <form name="contact" method="POST" data-netlify="true" class="space-y-3 bg-slate-50 p-6 rounded-xl border border-slate-200 text-xs">
             <input type="hidden" name="form-name" value="contact" />
             <div>
@@ -688,21 +594,19 @@
               <i data-lucide="send" class="w-4 h-4"></i> Send Message Directly
             </button>
           </form>
-
         </div>
       </div>
-
     </div>
 
   </main>
 
-  <!-- TOAST NOTIFICATION (POPUP) -->
+  <!-- TOAST NOTIFICATION -->
   <div id="toast-notification" class="fixed bottom-20 md:bottom-6 right-6 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-2xl z-50 opacity-0 pointer-events-none transform translate-y-2 flex items-center gap-2 border border-slate-700">
     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
     <span id="toast-message">Copied to Clipboard!</span>
   </div>
 
-  <!-- FLOATING QUICK-ACTION DOCK (MOBILE VIEW ONLY) -->
+  <!-- FLOATING QUICK-ACTION DOCK (MOBILE) -->
   <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 z-40 flex items-center justify-around shadow-lg">
     <a href="tel:+918787250550" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-blue-900">
       <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 mb-0.5">
@@ -724,26 +628,38 @@
     </a>
   </div>
 
-  <!-- FOOTER -->
+  <!-- FOOTER WITH VISITOR COUNTER -->
   <footer class="bg-blue-950 text-slate-300 border-t border-blue-900 py-6 text-center text-xs mt-auto">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2">
-      <p><strong>Deepankar Shukla</strong> • Lead – Global Command Center (MIS & WFM) © 2026</p>
-      <p class="text-slate-400">Pan-India & SEA Operations Analytics Infrastructure</p>
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="text-left">
+        <p><strong>Deepankar Shukla</strong> • Lead – Global Command Center (MIS & WFM) © 2026</p>
+        <p class="text-slate-400 text-[11px]">Pan-India & SEA Operations Analytics Infrastructure</p>
+      </div>
+
+      <!-- Live Public Visitor Counter Badge -->
+      <div class="bg-blue-900/60 border border-blue-800 px-3.5 py-1.5 rounded-lg flex items-center gap-2 shadow-inner">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="text-slate-300 font-medium text-[11px]">Total Views:</span>
+        <img src="https://hits.sh/wfmmisbiodeepankar.netlify.app.svg?style=flat-square&label=&extra=1&color=059669" alt="Live Visitors Count" class="h-4 rounded" />
+      </div>
     </div>
   </footer>
 
   <script>
-    // Ordinal Helper (e.g. 77th, 80th, 1st)
+    // Ordinal Helper
     function getOrdinalSuffix(n) {
       const s = ["th", "st", "nd", "rd"];
       const v = n % 100;
       return n + (s[(v - 20) % 10] || s[v] || s[0]);
     }
 
-    // Dynamic National Holiday Banner Checker
+    // Dynamic National Holiday Banner
     function checkNationalDay() {
       const now = new Date();
-      const month = now.getMonth() + 1; // 1-12
+      const month = now.getMonth() + 1;
       const day = now.getDate();
       const year = now.getFullYear();
 
@@ -770,7 +686,7 @@
       }
     }
 
-    // 1. Tab Switching Logic
+    // Tab Switching
     function showTab(tabId) {
       const allTabs = document.querySelectorAll('.tab-content');
       allTabs.forEach(tab => tab.classList.add('hidden'));
@@ -795,7 +711,7 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // 2. Clipboard Copy with Toast System
+    // Clipboard Copy
     function copyToClipboard(text, label) {
       navigator.clipboard.writeText(text).then(() => {
         showToast(`${label} copied to clipboard!`);
@@ -815,7 +731,7 @@
       }, 2500);
     }
 
-    // 3. WFM FTE Calculator Function
+    // Calculators & Models
     function runFteCalculator() {
       const volume = parseFloat(document.getElementById('calc-volume').value) || 0;
       const aht = parseFloat(document.getElementById('calc-aht').value) || 0;
@@ -830,7 +746,6 @@
       document.getElementById('res-gross-fte').innerText = grossFte.toFixed(1);
     }
 
-    // 4. "What-If" Scenario Simulation Engine
     function runWhatIfModel() {
       const baseVol = parseFloat(document.getElementById('calc-volume').value) || 450;
       const baseAht = parseFloat(document.getElementById('calc-aht').value) || 320;
@@ -854,7 +769,6 @@
       document.getElementById('res-surge-delta').innerText = (deltaFte >= 0 ? '+' : '') + deltaFte.toFixed(1) + ' FTE';
     }
 
-    // 5. 1-Click Excel / CSV Export Function
     function exportWfmToCsv() {
       const vol = document.getElementById('calc-volume').value;
       const aht = document.getElementById('calc-aht').value;
@@ -884,7 +798,6 @@
       showToast("Capacity spreadsheet exported!");
     }
 
-    // 6. Billing Model Simulator
     function runBillingSim() {
       const mins = parseFloat(document.getElementById('calc-mins').value) || 0;
       const rateMin = parseFloat(document.getElementById('calc-min-rate').value) || 0;
@@ -900,13 +813,12 @@
       document.getElementById('res-var-rev').innerText = (delta >= 0 ? '+₹' : '-₹') + Math.abs(delta).toLocaleString('en-IN');
     }
 
-    // 7. Render Chart.js Telemetry & Radar Visuals
+    // Chart.js Visuals
     let chartsRendered = false;
     function renderCharts() {
       if (chartsRendered) return;
       chartsRendered = true;
 
-      // SLA Curve Line Chart
       const ctx1 = document.getElementById('slaChart').getContext('2d');
       new Chart(ctx1, {
         type: 'line',
@@ -941,7 +853,6 @@
         }
       });
 
-      // Shrinkage Doughnut Chart
       const ctx2 = document.getElementById('shrinkageChart').getContext('2d');
       new Chart(ctx2, {
         type: 'doughnut',
@@ -961,7 +872,6 @@
         }
       });
 
-      // 5-Dimensional Competency Radar Chart
       const ctxRadar = document.getElementById('skillsRadarChart').getContext('2d');
       new Chart(ctxRadar, {
         type: 'radar',
@@ -1003,7 +913,6 @@
       });
     }
 
-    // Initialize National Day Check, Calculators, Models & Icons
     checkNationalDay();
     runFteCalculator();
     runWhatIfModel();
