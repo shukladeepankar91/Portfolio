@@ -108,13 +108,14 @@
         </div>
       </div>
 
-      <div class="flex items-center gap-2.5 w-full md:w-auto justify-end">
-        <button onclick="showTab('contact')" class="flex items-center gap-1.5 bg-blue-900 hover:bg-blue-800 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
-          <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
-        </button>
-        <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-sm">
-          <i data-lucide="file-text" class="w-4 h-4"></i> Download CV
-        </a>
+      <!-- LIVE TIME, DATE & DYNAMIC GREETING WIDGET -->
+      <div class="flex flex-col items-end justify-center bg-blue-50 border border-blue-200 px-4 py-2 rounded-xl text-right shadow-inner w-full md:w-auto flex-shrink-0">
+        <div class="flex items-center gap-1.5 text-xs font-bold text-blue-950">
+          <span id="dynamic-greeting">Hello</span>, Visitor! <span id="greeting-emoji">👋</span>
+        </div>
+        <div id="live-datetime" class="text-[11px] font-semibold text-slate-600 mt-0.5">
+          Loading time...
+        </div>
       </div>
 
     </div>
@@ -644,7 +645,7 @@
                 <span class="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Dec 2024 – Present</span>
               </div>
               <p class="text-xs font-semibold text-slate-700">Startek · Full-time</p>
-              <p class="text-[11px] text-slate-500">📍 Lucknow, Uttar Pradesh, India · On-site</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India · On-site</p>
               <p class="text-xs text-slate-600 leading-relaxed pt-1">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, automation pipelines, and multi-brand billing files.</p>
               <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
                 <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
@@ -979,7 +980,7 @@
       </div>
       LinkedIn
     </a>
-    <a href="https://facebook.com/deepankar.shukla.37" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-indigo-700">
+    <a href="https://facebook.com/deepankar-shukla-37" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-indigo-700">
       <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-[#1877f2] mb-0.5">
         <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
       </div>
@@ -1007,7 +1008,7 @@
           <span>•</span>
           <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">Instagram</a>
           <span>•</span>
-          <a href="https://facebook.com/deepankar.shukla.37" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">Facebook</a>
+          <a href="https://facebook.com/deepankar-shukla.37" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">Facebook</a>
         </p>
       </div>
 
@@ -1023,6 +1024,49 @@
   </footer>
 
   <script>
+    // LIVE DATE, TIME & DYNAMIC GREETING ENGINE
+    function updateLiveDateTime() {
+      const now = new Date();
+      
+      // Date formatting (e.g., Mon, Aug 17, 2026)
+      const optionsDate = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      const dateStr = now.toLocaleDateString('en-IN', optionsDate);
+      
+      // Time formatting (12-hour format with AM/PM)
+      const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      
+      // Dynamic Greeting based on hours
+      const hours = now.getHours();
+      let greeting = "Hello";
+      let emoji = "👋";
+
+      if (hours >= 3 && hours < 12) {
+        greeting = "Good Morning";
+        emoji = "🌅";
+      } else if (hours >= 12 && hours < 17) {
+        greeting = "Good Afternoon";
+        emoji = "☀️";
+      } else if (hours >= 17 && hours < 22) {
+        greeting = "Good Evening";
+        emoji = "🌆";
+      } else {
+        greeting = "Good Night";
+        emoji = "🌙";
+      }
+
+      const greetingElem = document.getElementById('dynamic-greeting');
+      const emojiElem = document.getElementById('greeting-emoji');
+      const datetimeElem = document.getElementById('live-datetime');
+
+      if (greetingElem) greetingElem.innerText = greeting;
+      if (emojiElem) emojiElem.innerText = emoji;
+      if (datetimeElem) datetimeElem.innerText = `${dateStr} | ${timeStr}`;
+    }
+
+    // Run immediately and update every second
+    updateLiveDateTime();
+    setInterval(updateLiveDateTime, 1000);
+
     // DYNAMIC PASSCODE ENGINE (Per-Request Unique OTP)
     let activeDynamicPasscode = ""; 
 
@@ -1063,7 +1107,7 @@
       }
     }
 
-    // Social Access Request Form Submission
+    // Social Access Request Form Submission (Clean Short Format to hide long URL texts)
     const socialReqForm = document.getElementById('social-request-form');
     if (socialReqForm) {
       socialReqForm.addEventListener('submit', async function(e) {
@@ -1086,25 +1130,23 @@
         btnText.innerText = 'Sending Request...';
         statusMsg.classList.add('hidden');
 
-        // 2. Short, Clean WhatsApp approval link using tiny.url alternative structure or pure short format
-        const waText = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's profiles is approved! Passcode: ${activeDynamicPasscode}`);
+        // 2. Short WhatsApp Link Format
+        const waText = encodeURIComponent(`Hi ${visitorName}, your passcode is ${activeDynamicPasscode}`);
         const shortWaLink = `https://wa.me/${visitorPhone}?text=${waText}`;
 
-        // 3. Clean Text Layout with short label instead of long raw URLs
-        const cleanEmailBody = `New Social Profile Access Request:
+        // 3. Compact text layout that won't look messy in emails
+        const cleanEmailBody = `New Access Request:
+Name: ${visitorName}
+Phone: +${visitorPhone}
+Reason: ${visitorReason}
+OTP Code: ${activeDynamicPasscode}
 
-- Visitor Name: ${visitorName}
-- WhatsApp No: +${visitorPhone}
-- Reason: ${visitorReason}
-- Generated OTP: ${activeDynamicPasscode}
-
-[ QUICK APPROVAL ACTION ]
-Click the link below to open WhatsApp with the passcode ready to send:
+WhatsApp Approve Link:
 ${shortWaLink}`;
 
         const reqData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
-          subject: `🔐 Access Request: ${visitorName} (OTP: ${activeDynamicPasscode})`,
+          subject: `🔐 Request: ${visitorName} [OTP: ${activeDynamicPasscode}]`,
           name: visitorName,
           phone: visitorPhone,
           message: cleanEmailBody
@@ -1118,7 +1160,7 @@ ${shortWaLink}`;
           });
           const json = await res.json();
           if (res.status === 200) {
-            statusMsg.innerText = '✅ Request sent to Deepankar! You will receive your passcode on WhatsApp once approved.';
+            statusMsg.innerText = '✅ Request sent! You will receive your passcode on WhatsApp once approved.';
             statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
             socialReqForm.reset();
           } else {
