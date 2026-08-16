@@ -832,7 +832,7 @@
                 </span>
               </div>
 
-              <!-- State A: Locked Form -->
+              <!-- State A: Locked Form (Har refresh par default dikhega) -->
               <div id="social-locked-container" class="space-y-3">
                 <p class="text-[11px] text-slate-600 leading-relaxed">
                   Social media profiles locked to prevent spam. Submit your name, phone & reason to request authorization.
@@ -1048,7 +1048,7 @@
       const msg = document.getElementById('passcode-msg');
 
       if (val === SECRET_PASSCODE) {
-        localStorage.setItem('deepankar_social_unlocked', 'true');
+        // Sirf is active session/page view ke liye unlock hoga, refresh par reset ho jayega
         unlockSocialGrid();
         showToast('Access Approved! Social profiles unlocked.');
       } else {
@@ -1059,12 +1059,7 @@
       }
     }
 
-    // Check if already unlocked in browser
-    if (localStorage.getItem('deepankar_social_unlocked') === 'true') {
-      unlockSocialGrid();
-    }
-
-    // Social Access Request Form Submission (Web3Forms to your email with direct approval link)
+    // Social Access Request Form Submission (Web3Forms to your email with direct 1-click WhatsApp approval link)
     const socialReqForm = document.getElementById('social-request-form');
     if (socialReqForm) {
       socialReqForm.addEventListener('submit', async function(e) {
