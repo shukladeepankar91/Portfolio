@@ -861,7 +861,7 @@
                       Unlock
                     </button>
                   </div>
-                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Received passcode on SMS/WhatsApp? Enter it above to view.</p>
+                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Received passcode on WhatsApp? Enter it above to view.</p>
                 </div>
               </div>
 
@@ -1024,7 +1024,7 @@
 
   <script>
     // ACCESS GATEKEEPER LOGIC FOR SOCIAL HANDLES
-    const SECRET_PASSCODE = "GCC2026"; // Aap is secret passcode ko badal bhi sakte hain
+    const SECRET_PASSCODE = "GCC2026"; // Secret approval passcode
 
     function unlockSocialGrid() {
       const lockedContainer = document.getElementById('social-locked-container');
@@ -1053,7 +1053,7 @@
         showToast('Access Approved! Social profiles unlocked.');
       } else {
         if (msg) {
-          msg.innerText = '❌ Invalid Passcode. Please contact Deepankar for approval.';
+          msg.innerText = '❌ Invalid Passcode. Please request approval.';
           msg.className = 'text-[10px] text-rose-600 font-bold mt-1';
         }
       }
@@ -1064,7 +1064,7 @@
       unlockSocialGrid();
     }
 
-    // Social Access Request Form Submission (Web3Forms to your email)
+    // Social Access Request Form Submission (Web3Forms to your email with direct approval link)
     const socialReqForm = document.getElementById('social-request-form');
     if (socialReqForm) {
       socialReqForm.addEventListener('submit', async function(e) {
@@ -1073,17 +1073,39 @@
         const btnText = document.getElementById('req-btn-text');
         const statusMsg = document.getElementById('req-status-msg');
 
+        const visitorName = document.getElementById('req-name').value.trim();
+        let visitorPhone = document.getElementById('req-phone').value.trim().replace(/[^0-9]/g, '');
+        if (visitorPhone.length === 10) {
+          visitorPhone = '91' + visitorPhone;
+        }
+        const visitorReason = document.getElementById('req-reason').value.trim();
+
         btn.disabled = true;
         btnText.innerText = 'Sending Request...';
         statusMsg.classList.add('hidden');
 
+        // Pre-composed WhatsApp approval link for 1-click reply from your email
+        const approvalMsg = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's verified social profiles is approved!\n\nYour Unlock Passcode: ${SECRET_PASSCODE}\n\nEnter it on the site to view.`);
+        const oneClickWaLink = `https://api.whatsapp.com/send?phone=${visitorPhone}&text=${approvalMsg}`;
+
+        const emailBody = `A visitor is requesting access to view your Social Media Handles:
+--------------------------------------------------
+👤 Visitor Name: ${visitorName}
+📱 Phone/WhatsApp: +${visitorPhone}
+📝 Reason: ${visitorReason}
+--------------------------------------------------
+
+👉 1-CLICK APPROVE & SEND PASSCODE VIA WHATSAPP:
+${oneClickWaLink}
+
+(Passcode: ${SECRET_PASSCODE})`;
+
         const reqData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
-          subject: `🔐 Social Profile Access Request from ${document.getElementById('req-name').value}`,
-          name: document.getElementById('req-name').value,
-          phone: document.getElementById('req-phone').value,
-          reason: document.getElementById('req-reason').value,
-          message: `Visitor Details requesting Social Media Handle Access:\n\nName: ${document.getElementById('req-name').value}\nPhone/WhatsApp: ${document.getElementById('req-phone').value}\nReason: ${document.getElementById('req-reason').value}\n\nApprove by sharing Passcode: ${SECRET_PASSCODE}`
+          subject: `🔐 Social Profile Access Request from ${visitorName}`,
+          name: visitorName,
+          phone: visitorPhone,
+          message: emailBody
         };
 
         try {
@@ -1094,7 +1116,7 @@
           });
           const json = await res.json();
           if (res.status === 200) {
-            statusMsg.innerText = '✅ Request sent to Deepankar! You will receive the passcode once approved.';
+            statusMsg.innerText = '✅ Request sent to Deepankar! You will receive the passcode on WhatsApp once approved.';
             statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
             socialReqForm.reset();
           } else {
