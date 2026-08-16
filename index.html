@@ -1063,7 +1063,7 @@
       }
     }
 
-    // Social Access Request Form Submission (Clean Notification + Hidden OTP on Screen)
+    // Social Access Request Form Submission
     const socialReqForm = document.getElementById('social-request-form');
     if (socialReqForm) {
       socialReqForm.addEventListener('submit', async function(e) {
@@ -1079,37 +1079,35 @@
         }
         const visitorReason = document.getElementById('req-reason').value.trim();
 
-        // 1. Generate unique passcode for this request
-        activeDynamicPasscode = "DS-" + Math.floor(1000 + Math.random() * 9000);
+        // 1. Generate unique 4-digit numeric passcode for simplicity
+        activeDynamicPasscode = "DS" + Math.floor(1000 + Math.random() * 9000);
 
         btn.disabled = true;
         btnText.innerText = 'Sending Request...';
         statusMsg.classList.add('hidden');
 
-        // 2. Pre-compose WhatsApp approval link
-        const approvalMsg = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's verified social profiles is approved!\n\nYour Dynamic Passcode: ${activeDynamicPasscode}\n\nEnter this code on the site to view.`);
-        const oneClickWaLink = `https://api.whatsapp.com/send?phone=${visitorPhone}&text=${approvalMsg}`;
+        // 2. Pre-compose clean WhatsApp approval link
+        const approvalMsg = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's verified social profiles is approved! Passcode: ${activeDynamicPasscode}`);
+        const waLink = `https://wa.me/${visitorPhone}?text=${approvalMsg}`;
 
-        // 3. Clean Text Email Format (No raw HTML tags)
-        const emailContent = `SOCIAL PROFILE ACCESS REQUEST
-========================================
-Visitor Name : ${visitorName}
-WhatsApp/Ph  : +${visitorPhone}
-Reason       : ${visitorReason}
-Generated OTP: ${activeDynamicPasscode}
-========================================
+        // 3. Simple, Clean text email without broken HTML tags
+        const emailText = `NEW ACCESS REQUEST
+------------------------------------
+Name     : ${visitorName}
+WhatsApp : +${visitorPhone}
+Reason   : ${visitorReason}
+Passcode : ${activeDynamicPasscode}
+------------------------------------
 
-👉 TAP HERE TO APPROVE & SEND OTP VIA WHATSAPP:
-${oneClickWaLink}
-
-(Clicking the link above opens WhatsApp with the OTP ready to send)`;
+CLICK BELOW TO SEND PASSCODE ON WHATSAPP:
+${waLink}`;
 
         const reqData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
-          subject: `🔐 Access Request from ${visitorName} (OTP: ${activeDynamicPasscode})`,
+          subject: `🔐 Access Request: ${visitorName} (Code: ${activeDynamicPasscode})`,
           name: visitorName,
           phone: visitorPhone,
-          message: emailContent
+          message: emailText
         };
 
         try {
@@ -1120,7 +1118,7 @@ ${oneClickWaLink}
           });
           const json = await res.json();
           if (res.status === 200) {
-            // Screen par OTP leak nahi hoga
+            // Screen par code leak nahi hoga
             statusMsg.innerText = '✅ Request sent to Deepankar! You will receive your passcode on WhatsApp once approved.';
             statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
             socialReqForm.reset();
