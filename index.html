@@ -821,51 +821,96 @@
               </div>
             </div>
 
-            <!-- Social Media Cards Grid (4 Channels) -->
-            <div class="grid grid-cols-2 gap-2.5">
-              <!-- LinkedIn Card -->
-              <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="p-3 bg-blue-50/70 hover:bg-blue-100 border border-blue-200 rounded-lg flex items-center gap-2.5 transition group">
-                <div class="w-7 h-7 rounded-lg bg-[#0a66c2] text-white flex items-center justify-center flex-shrink-0">
-                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="text-[10px] text-blue-800 font-bold uppercase">LinkedIn</p>
-                  <p class="text-xs font-bold text-slate-900 group-hover:text-blue-900 truncate">Deepankar</p>
-                </div>
-              </a>
+            <!-- GATEKEEPER PROTECTED SOCIAL HANDLES SECTION -->
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/70 space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                <span class="text-xs font-extrabold text-blue-950 flex items-center gap-1.5">
+                  <i data-lucide="share-2" class="w-4 h-4 text-blue-700"></i> Verified Social Profiles
+                </span>
+                <span id="social-status-badge" class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-300 flex items-center gap-1">
+                  <i data-lucide="lock" class="w-3 h-3"></i> Protected
+                </span>
+              </div>
 
-              <!-- X (Twitter) Card -->
-              <a href="https://x.com/shukladeepanka5" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg flex items-center gap-2.5 transition group">
-                <div class="w-7 h-7 rounded-lg bg-black text-white flex items-center justify-center flex-shrink-0">
-                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="text-[10px] text-slate-600 font-bold uppercase">X (Twitter)</p>
-                  <p class="text-xs font-bold text-slate-900 group-hover:text-black truncate">@shukladeepanka5</p>
-                </div>
-              </a>
+              <!-- State A: Locked Form -->
+              <div id="social-locked-container" class="space-y-3">
+                <p class="text-[11px] text-slate-600 leading-relaxed">
+                  Social media profiles locked to prevent spam. Submit your name, phone & reason to request authorization.
+                </p>
 
-              <!-- Instagram Card -->
-              <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="p-3 bg-rose-50/70 hover:bg-rose-100 border border-rose-200 rounded-lg flex items-center gap-2.5 transition group">
-                <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0">
-                  <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
-                </div>
-                <div class="overflow-hidden">
-                  <p class="text-[10px] text-rose-800 font-bold uppercase">Instagram</p>
-                  <p class="text-xs font-bold text-slate-900 group-hover:text-rose-900 truncate">@deepankar6479</p>
-                </div>
-              </a>
+                <form id="social-request-form" class="space-y-2 text-xs">
+                  <div>
+                    <input type="text" id="req-name" required placeholder="Your Full Name *" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs">
+                  </div>
+                  <div>
+                    <input type="tel" id="req-phone" required placeholder="Phone / WhatsApp Number *" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs">
+                  </div>
+                  <div>
+                    <textarea id="req-reason" rows="2" required placeholder="Reason for connecting (e.g. Hiring, WFM inquiry)..." class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs"></textarea>
+                  </div>
+                  <button type="submit" id="req-submit-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-3 rounded-lg shadow-sm transition flex items-center justify-center gap-1 text-xs">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i> <span id="req-btn-text">Send Access Request</span>
+                  </button>
+                  <p id="req-status-msg" class="text-center font-bold mt-1 text-[11px] hidden"></p>
+                </form>
 
-              <!-- Facebook Card -->
-              <a href="https://facebook.com/deepankar.shukla.37" target="_blank" rel="noopener noreferrer" class="p-3 bg-indigo-50/70 hover:bg-indigo-100 border border-indigo-200 rounded-lg flex items-center gap-2.5 transition group">
-                <div class="w-7 h-7 rounded-lg bg-[#1877f2] text-white flex items-center justify-center flex-shrink-0">
-                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <div class="pt-2 border-t border-slate-200/80">
+                  <div class="flex gap-2">
+                    <input type="text" id="access-passcode-input" placeholder="Enter Approved Passcode..." class="flex-1 p-2 rounded-lg border border-slate-300 bg-white font-semibold text-xs outline-none uppercase">
+                    <button onclick="verifyPasscode()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-2 rounded-lg text-xs transition">
+                      Unlock
+                    </button>
+                  </div>
+                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Received passcode on SMS/WhatsApp? Enter it above to view.</p>
                 </div>
-                <div class="overflow-hidden">
-                  <p class="text-[10px] text-indigo-800 font-bold uppercase">Facebook</p>
-                  <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-900 truncate">Deepankar Shukla</p>
-                </div>
-              </a>
+              </div>
+
+              <!-- State B: Unlocked Cards Grid (Hidden initially) -->
+              <div id="social-unlocked-grid" class="hidden grid grid-cols-2 gap-2.5">
+                <!-- LinkedIn Card -->
+                <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="p-3 bg-blue-50/70 hover:bg-blue-100 border border-blue-200 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-[#0a66c2] text-white flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-blue-800 font-bold uppercase">LinkedIn</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-blue-900 truncate">Deepankar</p>
+                  </div>
+                </a>
+
+                <!-- X (Twitter) Card -->
+                <a href="https://x.com/shukladeepanka5" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-black text-white flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-slate-600 font-bold uppercase">X (Twitter)</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-black truncate">@shukladeepanka5</p>
+                  </div>
+                </a>
+
+                <!-- Instagram Card -->
+                <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="p-3 bg-rose-50/70 hover:bg-rose-100 border border-rose-200 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-rose-800 font-bold uppercase">Instagram</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-rose-900 truncate">@deepankar6479</p>
+                  </div>
+                </a>
+
+                <!-- Facebook Card -->
+                <a href="https://facebook.com/deepankar.shukla.37" target="_blank" rel="noopener noreferrer" class="p-3 bg-indigo-50/70 hover:bg-indigo-100 border border-indigo-200 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-[#1877f2] text-white flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-indigo-800 font-bold uppercase">Facebook</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-900 truncate">Deepankar Shukla</p>
+                  </div>
+                </a>
+              </div>
             </div>
 
             <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
@@ -883,7 +928,7 @@
             </div>
           </div>
 
-          <!-- Web3Forms Powered Contact Form -->
+          <!-- Web3Forms Powered General Contact Form -->
           <form id="contact-form" class="space-y-3 bg-slate-50 p-6 rounded-xl border border-slate-200 text-xs">
             <div>
               <label class="font-bold text-slate-700 block mb-1">Your Name *</label>
@@ -978,7 +1023,96 @@
   </footer>
 
   <script>
-    // Web3Forms API Handler
+    // ACCESS GATEKEEPER LOGIC FOR SOCIAL HANDLES
+    const SECRET_PASSCODE = "GCC2026"; // Aap is secret passcode ko badal bhi sakte hain
+
+    function unlockSocialGrid() {
+      const lockedContainer = document.getElementById('social-locked-container');
+      const unlockedGrid = document.getElementById('social-unlocked-grid');
+      const statusBadge = document.getElementById('social-status-badge');
+
+      if (lockedContainer && unlockedGrid) {
+        lockedContainer.classList.add('hidden');
+        unlockedGrid.classList.remove('hidden');
+        if (statusBadge) {
+          statusBadge.className = 'bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-300 flex items-center gap-1';
+          statusBadge.innerHTML = '<i data-lucide="unlock" class="w-3 h-3 text-emerald-700"></i> Authorized';
+        }
+        lucide.createIcons();
+      }
+    }
+
+    function verifyPasscode() {
+      const input = document.getElementById('access-passcode-input');
+      const val = (input ? input.value : "").trim().toUpperCase();
+      const msg = document.getElementById('passcode-msg');
+
+      if (val === SECRET_PASSCODE) {
+        localStorage.setItem('deepankar_social_unlocked', 'true');
+        unlockSocialGrid();
+        showToast('Access Approved! Social profiles unlocked.');
+      } else {
+        if (msg) {
+          msg.innerText = '❌ Invalid Passcode. Please contact Deepankar for approval.';
+          msg.className = 'text-[10px] text-rose-600 font-bold mt-1';
+        }
+      }
+    }
+
+    // Check if already unlocked in browser
+    if (localStorage.getItem('deepankar_social_unlocked') === 'true') {
+      unlockSocialGrid();
+    }
+
+    // Social Access Request Form Submission (Web3Forms to your email)
+    const socialReqForm = document.getElementById('social-request-form');
+    if (socialReqForm) {
+      socialReqForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('req-submit-btn');
+        const btnText = document.getElementById('req-btn-text');
+        const statusMsg = document.getElementById('req-status-msg');
+
+        btn.disabled = true;
+        btnText.innerText = 'Sending Request...';
+        statusMsg.classList.add('hidden');
+
+        const reqData = {
+          access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
+          subject: `🔐 Social Profile Access Request from ${document.getElementById('req-name').value}`,
+          name: document.getElementById('req-name').value,
+          phone: document.getElementById('req-phone').value,
+          reason: document.getElementById('req-reason').value,
+          message: `Visitor Details requesting Social Media Handle Access:\n\nName: ${document.getElementById('req-name').value}\nPhone/WhatsApp: ${document.getElementById('req-phone').value}\nReason: ${document.getElementById('req-reason').value}\n\nApprove by sharing Passcode: ${SECRET_PASSCODE}`
+        };
+
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(reqData)
+          });
+          const json = await res.json();
+          if (res.status === 200) {
+            statusMsg.innerText = '✅ Request sent to Deepankar! You will receive the passcode once approved.';
+            statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
+            socialReqForm.reset();
+          } else {
+            statusMsg.innerText = '❌ ' + (json.message || 'Submission failed.');
+            statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-rose-600 block';
+          }
+        } catch (err) {
+          statusMsg.innerText = '❌ Network error. Please try again.';
+          statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-rose-600 block';
+        } finally {
+          btn.disabled = false;
+          btnText.innerText = 'Send Access Request';
+          lucide.createIcons();
+        }
+      });
+    }
+
+    // Web3Forms API Handler (General Contact Form)
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', async function(e) {
