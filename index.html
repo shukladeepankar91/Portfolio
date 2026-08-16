@@ -835,7 +835,7 @@
               <!-- State A: Locked Form -->
               <div id="social-locked-container" class="space-y-3">
                 <p class="text-[11px] text-slate-600 leading-relaxed">
-                  Social media profiles locked to prevent spam. Submit your name, phone & reason to request a dynamic one-time passcode.
+                  Social media profiles locked to prevent spam. Submit your name, phone & reason to request authorization.
                 </p>
 
                 <form id="social-request-form" class="space-y-2 text-xs">
@@ -861,7 +861,7 @@
                       Unlock
                     </button>
                   </div>
-                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Enter the unique passcode sent to your WhatsApp.</p>
+                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Enter the unique passcode received on WhatsApp.</p>
                 </div>
               </div>
 
@@ -1063,7 +1063,7 @@
       }
     }
 
-    // Social Access Request Form Submission (HTML Email with 1-Click Approve Button)
+    // Social Access Request Form Submission (Clean Notification + Hidden OTP on Screen)
     const socialReqForm = document.getElementById('social-request-form');
     if (socialReqForm) {
       socialReqForm.addEventListener('submit', async function(e) {
@@ -1079,41 +1079,37 @@
         }
         const visitorReason = document.getElementById('req-reason').value.trim();
 
-        // 1. Generate unique 6-digit passcode for this request
+        // 1. Generate unique passcode for this request
         activeDynamicPasscode = "DS-" + Math.floor(1000 + Math.random() * 9000);
 
         btn.disabled = true;
-        btnText.innerText = 'Generating Passcode & Sending...';
+        btnText.innerText = 'Sending Request...';
         statusMsg.classList.add('hidden');
 
         // 2. Pre-compose WhatsApp approval link
         const approvalMsg = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's verified social profiles is approved!\n\nYour Dynamic Passcode: ${activeDynamicPasscode}\n\nEnter this code on the site to view.`);
         const oneClickWaLink = `https://api.whatsapp.com/send?phone=${visitorPhone}&text=${approvalMsg}`;
 
-        // 3. Clean HTML formatted email template with Green Action Button
-        const emailHtmlBody = `
-          <div style="font-family: Arial, sans-serif; max-width: 550px; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; background-color: #f8fafc; color: #1e293b;">
-            <h2 style="color: #1e3a8a; margin-top: 0; font-size: 18px; border-bottom: 2px solid #cbd5e1; padding-bottom: 10px;">🔐 Social Profile Access Request</h2>
-            <table style="width: 100%; font-size: 13px; margin: 15px 0;">
-              <tr><td style="font-weight: bold; width: 130px; padding: 4px 0;">Visitor Name:</td><td>${visitorName}</td></tr>
-              <tr><td style="font-weight: bold; padding: 4px 0;">WhatsApp/Phone:</td><td>+${visitorPhone}</td></tr>
-              <tr><td style="font-weight: bold; padding: 4px 0;">Reason:</td><td>${visitorReason}</td></tr>
-              <tr><td style="font-weight: bold; padding: 4px 0;">Generated OTP:</td><td style="color: #059669; font-weight: bold; font-size: 14px;">${activeDynamicPasscode}</td></tr>
-            </table>
-            <div style="text-align: center; margin-top: 25px; margin-bottom: 10px;">
-              <a href="${oneClickWaLink}" target="_blank" style="background-color: #16a34a; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; font-size: 14px; display: inline-block; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                ✅ Approve & Send Passcode on WhatsApp
-              </a>
-            </div>
-          </div>
-        `;
+        // 3. Clean Text Email Format (No raw HTML tags)
+        const emailContent = `SOCIAL PROFILE ACCESS REQUEST
+========================================
+Visitor Name : ${visitorName}
+WhatsApp/Ph  : +${visitorPhone}
+Reason       : ${visitorReason}
+Generated OTP: ${activeDynamicPasscode}
+========================================
+
+👉 TAP HERE TO APPROVE & SEND OTP VIA WHATSAPP:
+${oneClickWaLink}
+
+(Clicking the link above opens WhatsApp with the OTP ready to send)`;
 
         const reqData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
           subject: `🔐 Access Request from ${visitorName} (OTP: ${activeDynamicPasscode})`,
           name: visitorName,
           phone: visitorPhone,
-          message: emailHtmlBody
+          message: emailContent
         };
 
         try {
@@ -1124,7 +1120,8 @@
           });
           const json = await res.json();
           if (res.status === 200) {
-            statusMsg.innerText = `✅ Request sent! Deepankar will send your approval passcode (${activeDynamicPasscode}) on WhatsApp.`;
+            // Screen par OTP leak nahi hoga
+            statusMsg.innerText = '✅ Request sent to Deepankar! You will receive your passcode on WhatsApp once approved.';
             statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
             socialReqForm.reset();
           } else {
