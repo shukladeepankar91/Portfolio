@@ -644,7 +644,7 @@
                 <span class="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Dec 2024 – Present</span>
               </div>
               <p class="text-xs font-semibold text-slate-700">Startek · Full-time</p>
-              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India · On-site</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, Uttar Pradesh, India · On-site</p>
               <p class="text-xs text-slate-600 leading-relaxed pt-1">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, automation pipelines, and multi-brand billing files.</p>
               <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
                 <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
@@ -710,7 +710,7 @@
                 <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2021 – Mar 2022 · 6 mos</span>
               </div>
               <p class="text-xs font-semibold text-slate-700">Technosys Pvt. Ltd. (UP Police Mission)</p>
-              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, Uttar Pradesh, India</p>
               <p class="text-xs text-slate-600 leading-relaxed pt-1">Spearheaded operational analytics, emergency call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.</p>
               <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
                 <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
@@ -1063,7 +1063,7 @@
       }
     }
 
-    // Social Access Request Form Submission
+    // Social Access Request Form Submission (Clean HTML Email with Action Button)
     const socialReqForm = document.getElementById('social-request-form');
     if (socialReqForm) {
       socialReqForm.addEventListener('submit', async function(e) {
@@ -1079,35 +1079,39 @@
         }
         const visitorReason = document.getElementById('req-reason').value.trim();
 
-        // 1. Generate unique 4-digit numeric passcode for simplicity
+        // 1. Generate unique passcode
         activeDynamicPasscode = "DS" + Math.floor(1000 + Math.random() * 9000);
 
         btn.disabled = true;
         btnText.innerText = 'Sending Request...';
         statusMsg.classList.add('hidden');
 
-        // 2. Pre-compose clean WhatsApp approval link
+        // 2. Pre-compose WhatsApp approval link
         const approvalMsg = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's verified social profiles is approved! Passcode: ${activeDynamicPasscode}`);
         const waLink = `https://wa.me/${visitorPhone}?text=${approvalMsg}`;
 
-        // 3. Simple, Clean text email without broken HTML tags
-        const emailText = `NEW ACCESS REQUEST
-------------------------------------
-Name     : ${visitorName}
-WhatsApp : +${visitorPhone}
-Reason   : ${visitorReason}
-Passcode : ${activeDynamicPasscode}
-------------------------------------
-
-CLICK BELOW TO SEND PASSCODE ON WHATSAPP:
-${waLink}`;
+        // 3. Clean HTML Email Body with a Button
+        const emailHtmlBody = `
+          <div style="font-family: Arial, sans-serif; max-width: 500px; padding: 20px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #f8fafc; color: #1e293b;">
+            <h3 style="color: #1e3a8a; margin-top: 0; border-bottom: 1px solid #cbd5e1; padding-bottom: 8px;">🔐 New Social Profile Access Request</h3>
+            <p><strong>Name:</strong> ${visitorName}</p>
+            <p><strong>WhatsApp:</strong> +${visitorPhone}</p>
+            <p><strong>Reason:</strong> ${visitorReason}</p>
+            <p><strong>Generated OTP:</strong> <span style="color: #059669; font-size: 16px; font-weight: bold;">${activeDynamicPasscode}</span></p>
+            <div style="text-align: center; margin-top: 25px;">
+              <a href="${waLink}" target="_blank" style="background-color: #16a34a; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; font-size: 14px; display: inline-block;">
+                ✅ Approve & Send Passcode on WhatsApp
+              </a>
+            </div>
+          </div>
+        `;
 
         const reqData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
           subject: `🔐 Access Request: ${visitorName} (Code: ${activeDynamicPasscode})`,
           name: visitorName,
           phone: visitorPhone,
-          message: emailText
+          message: emailHtmlBody
         };
 
         try {
@@ -1118,7 +1122,6 @@ ${waLink}`;
           });
           const json = await res.json();
           if (res.status === 200) {
-            // Screen par code leak nahi hoga
             statusMsg.innerText = '✅ Request sent to Deepankar! You will receive your passcode on WhatsApp once approved.';
             statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
             socialReqForm.reset();
