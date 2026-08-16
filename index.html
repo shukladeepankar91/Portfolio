@@ -396,8 +396,27 @@
       </div>
     </div>
 
-    <!-- TAB 3: TELEMETRY & VISUAL CHARTS + RADAR -->
+    <!-- TAB 3: TELEMETRY & VISUAL CHARTS + RADAR + LIVE GOOGLE ANALYTICS DASHBOARD -->
     <div id="tab-competencies" class="tab-content hidden space-y-6">
+      
+      <!-- Live Google Analytics Looker Studio Dashboard -->
+      <div class="bg-white rounded-xl border border-slate-200 p-5 sm:p-6 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+          <div>
+            <h3 class="font-bold text-slate-900 text-sm sm:text-base flex items-center gap-2">
+              <i data-lucide="activity" class="w-5 h-5 text-blue-700"></i> Live Portfolio Audience & Traffic Telemetry
+            </h3>
+            <p class="text-xs text-slate-500 mt-0.5">Real-time visitor geo-distribution and traffic metrics via Google Analytics 4 & Looker Studio</p>
+          </div>
+          <span class="bg-emerald-50 text-emerald-800 text-[11px] font-bold px-3 py-1 rounded-full border border-emerald-300 flex items-center gap-1.5 self-start sm:self-auto">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> GA4 Connected
+          </span>
+        </div>
+        <div class="w-full h-[450px] rounded-xl overflow-hidden border border-slate-200 bg-slate-50 shadow-inner">
+          <iframe width="100%" height="100%" src="https://datastudio.google.com/embed/reporting/a1237ef3-9ec5-48ba-b494-bf23206d9048/page/fFa6F" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
