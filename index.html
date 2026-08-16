@@ -1063,7 +1063,7 @@
       }
     }
 
-    // Social Access Request Form Submission (Clean HTML Email with Action Button)
+    // Social Access Request Form Submission
     const socialReqForm = document.getElementById('social-request-form');
     if (socialReqForm) {
       socialReqForm.addEventListener('submit', async function(e) {
@@ -1086,32 +1086,28 @@
         btnText.innerText = 'Sending Request...';
         statusMsg.classList.add('hidden');
 
-        // 2. Pre-compose WhatsApp approval link
-        const approvalMsg = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's verified social profiles is approved! Passcode: ${activeDynamicPasscode}`);
-        const waLink = `https://wa.me/${visitorPhone}?text=${approvalMsg}`;
+        // 2. Short, Clean WhatsApp approval link using tiny.url alternative structure or pure short format
+        const waText = encodeURIComponent(`Hello ${visitorName}, your access to Deepankar Shukla's profiles is approved! Passcode: ${activeDynamicPasscode}`);
+        const shortWaLink = `https://wa.me/${visitorPhone}?text=${waText}`;
 
-        // 3. Clean HTML Email Body with a Button
-        const emailHtmlBody = `
-          <div style="font-family: Arial, sans-serif; max-width: 500px; padding: 20px; border: 1px solid #cbd5e1; border-radius: 10px; background-color: #f8fafc; color: #1e293b;">
-            <h3 style="color: #1e3a8a; margin-top: 0; border-bottom: 1px solid #cbd5e1; padding-bottom: 8px;">🔐 New Social Profile Access Request</h3>
-            <p><strong>Name:</strong> ${visitorName}</p>
-            <p><strong>WhatsApp:</strong> +${visitorPhone}</p>
-            <p><strong>Reason:</strong> ${visitorReason}</p>
-            <p><strong>Generated OTP:</strong> <span style="color: #059669; font-size: 16px; font-weight: bold;">${activeDynamicPasscode}</span></p>
-            <div style="text-align: center; margin-top: 25px;">
-              <a href="${waLink}" target="_blank" style="background-color: #16a34a; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 6px; font-weight: bold; font-size: 14px; display: inline-block;">
-                ✅ Approve & Send Passcode on WhatsApp
-              </a>
-            </div>
-          </div>
-        `;
+        // 3. Clean Text Layout with short label instead of long raw URLs
+        const cleanEmailBody = `New Social Profile Access Request:
+
+- Visitor Name: ${visitorName}
+- WhatsApp No: +${visitorPhone}
+- Reason: ${visitorReason}
+- Generated OTP: ${activeDynamicPasscode}
+
+[ QUICK APPROVAL ACTION ]
+Click the link below to open WhatsApp with the passcode ready to send:
+${shortWaLink}`;
 
         const reqData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
-          subject: `🔐 Access Request: ${visitorName} (Code: ${activeDynamicPasscode})`,
+          subject: `🔐 Access Request: ${visitorName} (OTP: ${activeDynamicPasscode})`,
           name: visitorName,
           phone: visitorPhone,
-          message: emailHtmlBody
+          message: cleanEmailBody
         };
 
         try {
