@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Deepankar Shukla | Lead – Global Command Center (MIS & WFM)</title>
   
   <!-- Google tag (gtag.js) - Google Analytics -->
@@ -11,7 +11,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-14MSPNDFYJ');
   </script>
 
@@ -46,84 +45,93 @@
     #toast-notification {
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
+
+    /* Hide scrollbar for smooth horizontal nav on mobile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   </style>
 </head>
-<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-blue-600 selection:text-white pb-16 md:pb-0">
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-blue-600 selection:text-white pb-24 md:pb-8">
 
   <!-- DYNAMIC NATIONAL DAY BANNER -->
-  <div id="national-event-banner" class="hidden bg-gradient-to-r from-orange-500 via-white to-emerald-700 text-slate-900 border-b border-slate-300 py-2.5 px-4 shadow-md font-bold text-xs sm:text-sm">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-5 sm:w-10 sm:h-6 rounded shadow border border-slate-300 overflow-hidden flex-shrink-0 flex flex-col">
+  <div id="national-event-banner" class="hidden bg-gradient-to-r from-orange-500 via-white to-emerald-700 text-slate-900 border-b border-slate-300 py-2 px-3 sm:px-4 shadow-md font-bold text-xs">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 overflow-hidden">
+        <div class="w-7 h-4 sm:w-8 sm:h-5 rounded shadow border border-slate-300 overflow-hidden flex-shrink-0 flex flex-col">
           <div class="bg-[#FF9933] h-1/3 w-full"></div>
           <div class="bg-white h-1/3 w-full flex items-center justify-center relative">
-            <svg class="w-2.5 h-2.5 text-[#000080]" viewBox="0 0 24 24" fill="currentColor">
+            <svg class="w-2 h-2 text-[#000080]" viewBox="0 0 24 24" fill="currentColor">
               <circle cx="12" cy="12" r="10" stroke="#000080" stroke-width="1.5" fill="none"/>
               <circle cx="12" cy="2" fill="#000080"/>
-              <path d="M12 2 L12 22 M2 12 L22 12 M4.93 4.93 L19.07 19.07 M4.93 19.07 L19.07 4.93 M2.93 7.07 L21.07 16.93 M2.93 16.93 L21.07 7.07 M7.07 2.93 L16.93 21.07 M7.07 21.07 L16.93 2.93" stroke="#000080" stroke-width="0.8"/>
             </svg>
           </div>
           <div class="bg-[#128807] h-1/3 w-full"></div>
         </div>
-        <span id="national-event-text" class="text-blue-950 uppercase tracking-wide font-black"></span>
+        <span id="national-event-text" class="text-blue-950 uppercase tracking-wide font-black truncate text-[11px] sm:text-xs"></span>
       </div>
-      <span class="bg-blue-950 text-white text-[10px] sm:text-xs px-3 py-1 rounded-full shadow font-semibold flex-shrink-0">
+      <span class="bg-blue-950 text-white text-[10px] px-2.5 py-0.5 rounded-full shadow font-semibold flex-shrink-0">
         Jai Hind 🇮🇳
       </span>
     </div>
   </div>
 
-  <!-- TOP HEADER AREA -->
+  <!-- TOP HEADER AREA (MOBILE RESPONSIVE) -->
   <header class="bg-white border-b border-slate-200 py-4 px-4 sm:px-8 shadow-sm">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-4">
       
-      <div class="flex items-center gap-3">
-        <div class="w-14 h-14 rounded-xl bg-blue-950 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 flex-shrink-0 overflow-hidden">
+      <!-- Profile Info -->
+      <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-3.5 w-full lg:w-auto">
+        <div class="w-16 h-16 sm:w-14 sm:h-14 rounded-2xl sm:rounded-xl bg-blue-950 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 flex-shrink-0 overflow-hidden">
           <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-2xl">DS</span>
+          <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-xl">DS</span>
         </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-950 uppercase leading-none">
+        <div class="space-y-1">
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+            <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-blue-950 uppercase leading-none">
               Deepankar Shukla
             </h1>
-            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-300">
+            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-300">
               ● GCC LEAD
             </span>
           </div>
-          <p class="text-xs sm:text-sm font-semibold text-blue-700 mt-1">
-            Lead – Global Command Center (MIS & WFM) | Workforce Planning & Operations Analytics
+          <p class="text-xs sm:text-sm font-semibold text-blue-700">
+            Lead – Global Command Center (MIS & WFM) | Workforce Planning & Analytics
           </p>
-          <p class="text-[11px] text-slate-500 flex flex-wrap items-center gap-1.5 mt-0.5">
-            <span>📍 Lucknow, Uttar Pradesh, India</span>
+          <p class="text-[11px] text-slate-500 flex flex-wrap justify-center sm:justify-start items-center gap-2 pt-0.5">
+            <span>📍 Lucknow, UP, India</span>
             <span>•</span>
-            <button onclick="copyToClipboard('shukladeepankar91@gmail.com', 'Email ID')" class="hover:text-blue-700 underline font-medium flex items-center gap-0.5">
-              ✉️ shukladeepankar91@gmail.com
+            <button onclick="copyToClipboard('shukladeepankar91@gmail.com', 'Email ID')" class="hover:text-blue-700 underline font-medium">
+              ✉️ Email
             </button>
             <span>•</span>
-            <button onclick="copyToClipboard('+918787250550', 'Phone Number')" class="hover:text-emerald-700 underline font-medium flex items-center gap-0.5">
+            <button onclick="copyToClipboard('+918787250550', 'Phone Number')" class="hover:text-emerald-700 underline font-medium">
               📞 +91-8787250550
             </button>
           </p>
         </div>
       </div>
 
-      <!-- ACTION BUTTONS & LIVE TIME WIDGET -->
-      <div class="flex flex-col sm:flex-row items-center gap-3">
-        <div class="flex items-center gap-2">
-          <button onclick="showTab('contact')" class="bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2">
-            <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
+      <!-- Action Buttons & Live Widget -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 w-full lg:w-auto">
+        <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
+          <button onclick="showTab('contact')" class="w-full sm:w-auto justify-center bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-1.5">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i> Get in Touch
           </button>
-          <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2">
-            <i data-lucide="file-text" class="w-4 h-4"></i> Download CV
+          <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" class="w-full sm:w-auto justify-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-1.5 text-center">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i> Download CV
           </a>
         </div>
 
-        <div class="flex flex-col items-end justify-center bg-blue-50 border border-blue-200 px-4 py-2 rounded-xl text-right shadow-inner w-full md:w-auto flex-shrink-0">
-          <div class="flex items-center gap-1.5 text-xs font-bold text-blue-950">
+        <div class="flex flex-col items-center sm:items-end justify-center bg-blue-50 border border-blue-200 px-3.5 py-1.5 rounded-xl shadow-inner w-full sm:w-auto">
+          <div class="flex items-center gap-1 text-xs font-bold text-blue-950">
             <span id="dynamic-greeting">Hello</span>, Visitor! <span id="greeting-emoji">👋</span>
           </div>
-          <div id="live-datetime" class="text-[11px] font-semibold text-slate-600 mt-0.5">
+          <div id="live-datetime" class="text-[10px] sm:text-[11px] font-semibold text-slate-600">
             Loading time...
           </div>
         </div>
@@ -132,281 +140,269 @@
     </div>
   </header>
 
-  <!-- MAIN NAVIGATION BAR -->
+  <!-- MAIN NAVIGATION BAR (SMOOTH HORIZONTAL TOUCH SCROLL) -->
   <nav class="bg-blue-950 text-white shadow-md sticky top-0 z-40 border-b-2 border-blue-900">
-    <div class="max-w-7xl mx-auto flex overflow-x-auto text-xs sm:text-sm font-semibold whitespace-nowrap">
-      <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+    <div class="max-w-7xl mx-auto flex overflow-x-auto no-scrollbar text-xs sm:text-sm font-semibold whitespace-nowrap px-2">
+      <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-3.5 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 flex-shrink-0">
         <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Executive Dashboard
       </button>
-      <button id="nav-calculators" onclick="showTab('calculators')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 text-amber-300 font-bold">
+      <button id="nav-calculators" onclick="showTab('calculators')" class="nav-link px-3.5 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 text-amber-300 font-bold flex-shrink-0">
         <i data-lucide="cpu" class="w-4 h-4"></i> WFMengine 🚀
       </button>
-      <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-3.5 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 flex-shrink-0">
         <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Telemetry & Visuals
       </button>
-      <button id="nav-experience" onclick="showTab('experience')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-experience" onclick="showTab('experience')" class="nav-link px-3.5 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 flex-shrink-0">
         <i data-lucide="briefcase" class="w-4 h-4"></i> Career Milestones
       </button>
-      <button id="nav-about" onclick="showTab('about')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+      <button id="nav-about" onclick="showTab('about')" class="nav-link px-3.5 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 flex-shrink-0">
         <i data-lucide="user" class="w-4 h-4"></i> Comprehensive Bio
       </button>
-      <button id="nav-contact" onclick="showTab('contact')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition flex items-center gap-1.5">
+      <button id="nav-contact" onclick="showTab('contact')" class="nav-link px-3.5 sm:px-5 py-3 hover:bg-blue-800 transition flex items-center gap-1.5 flex-shrink-0">
         <i data-lucide="phone-call" class="w-4 h-4"></i> Connect & Inquiry
       </button>
     </div>
   </nav>
 
   <!-- MARQUEE TICKER -->
-  <div class="bg-white border-b border-slate-200 py-2 px-4 shadow-sm">
-    <div class="max-w-7xl mx-auto flex items-center gap-3 overflow-hidden text-xs sm:text-sm">
-      <span class="bg-red-600 text-white font-bold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider flex-shrink-0 animate-pulse">
+  <div class="bg-white border-b border-slate-200 py-1.5 px-3 sm:px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center gap-2.5 overflow-hidden text-xs">
+      <span class="bg-red-600 text-white font-bold px-2 py-0.5 rounded text-[10px] uppercase tracking-wider flex-shrink-0 animate-pulse">
         ● GCC UPDATE
       </span>
       <div class="overflow-hidden whitespace-nowrap w-full">
-        <div class="animate-marquee font-medium text-blue-950 space-x-8">
-          <span class="font-bold text-blue-900">🌐 Managing Pan-India & SEA (MY, ID, VN, TH) Command Center Operations</span>
+        <div class="animate-marquee font-medium text-blue-950 space-x-6 text-[11px] sm:text-xs">
+          <span class="font-bold text-blue-900">🌐 Pan-India & SEA Command Center Operations (IN, MY, ID, VN, TH)</span>
           <span>|</span>
-          <span class="text-emerald-700 font-semibold">📊 Financial Modeling: Connect-Minute, FTE & Per-Hour Billing</span>
+          <span class="text-emerald-700 font-semibold">📊 Invoicing: Connect-Minute, FTE & Per-Hour Billing</span>
           <span>|</span>
-          <span class="text-red-700 font-semibold">⚙️ Telephony & Telemetry: Avaya CMS, Cisco CUIC, IEX, SFTP</span>
-          <span>|</span>
-          <span class="text-indigo-800 font-semibold">🏢 Supporting: Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit & Zomato</span>
+          <span class="text-red-700 font-semibold">⚙️ Telephony: Avaya CMS, Cisco CUIC, IEX, SFTP Automation</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- MAIN CONTAINER -->
-  <main class="max-w-7xl mx-auto w-full p-4 sm:p-6 flex-1 space-y-6">
+  <main class="max-w-7xl mx-auto w-full p-3 sm:p-6 flex-1 space-y-6">
 
-    <!-- TAB 1: EXECUTIVE DASHBOARD (HOME) -->
-    <div id="tab-home" class="tab-content space-y-6">
-      <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
+    <!-- TAB 1: EXECUTIVE DASHBOARD -->
+    <div id="tab-home" class="tab-content space-y-5">
+      <section class="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-sm">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-3">
           <div>
-            <span class="text-[11px] font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
+            <span class="text-[10px] font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
               Executive Profile Summary
             </span>
-            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">Workforce Planning & Operations Analytics Leadership</h2>
+            <h2 class="text-lg sm:text-xl font-bold text-slate-900 mt-1">Workforce Planning & Operations Analytics Leadership</h2>
           </div>
-          <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg border border-slate-200 font-medium">
-            📍 Base: Lucknow, UP • Multi-Region Scope
+          <span class="text-[11px] bg-slate-100 text-slate-600 px-2.5 py-1 rounded border border-slate-200 font-medium">
+            📍 Base: Lucknow, UP • Global Scope
           </span>
         </div>
-        <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+        <p class="text-xs sm:text-sm text-slate-700 leading-relaxed">
           "Results-driven WFM & MIS professional with over <strong>9 years of cross-functional experience</strong> driving large-scale capacity planning, operational analytics, process automation, and multi-region command center operations across India and Southeast Asia (SEA). Specialized in financial modeling/invoicing (Connect-minute, FTE & Per-hour billing), complex dashboard architecture, and advanced VBA/Access solutions."
         </p>
       </section>
 
       <!-- Stats Grid -->
-      <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-blue-800">
-          <p class="text-3xl sm:text-4xl font-extrabold text-blue-950">9+ Years</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Experience in MIS & WFM</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">BPM & Public Sector Ops</p>
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div class="bg-white p-3.5 sm:p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-blue-800">
+          <p class="text-2xl sm:text-3xl font-extrabold text-blue-950">9+ Years</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-700 uppercase mt-0.5">Experience in MIS & WFM</p>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-emerald-700">
-          <p class="text-3xl sm:text-4xl font-extrabold text-emerald-700">11+ Members</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Team Leadership</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">Pan-India GCC MIS Operations</p>
+        <div class="bg-white p-3.5 sm:p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-emerald-700">
+          <p class="text-2xl sm:text-3xl font-extrabold text-emerald-700">11+ Members</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-700 uppercase mt-0.5">Team Leadership</p>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-cyan-700">
-          <p class="text-2xl sm:text-3xl font-extrabold text-cyan-800 pt-1">Pan-India & SEA</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Multi-Regional Scope</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">Malaysia, Indo, Vietnam, Thai</p>
+        <div class="bg-white p-3.5 sm:p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-cyan-700">
+          <p class="text-xl sm:text-2xl font-extrabold text-cyan-800 pt-0.5">Pan-India + SEA</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-700 uppercase mt-0.5">Multi-Regional Scope</p>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-amber-600">
-          <p class="text-3xl sm:text-4xl font-extrabold text-amber-700">End-to-End</p>
-          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Financial & Invoicing</p>
-          <p class="text-[11px] text-slate-500 mt-0.5">CBA, RPA & Capacity Planning</p>
+        <div class="bg-white p-3.5 sm:p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-amber-600">
+          <p class="text-2xl sm:text-3xl font-extrabold text-amber-700">End-to-End</p>
+          <p class="text-[10px] sm:text-xs font-bold text-slate-700 uppercase mt-0.5">Financial & Invoicing</p>
         </div>
       </section>
 
       <!-- 3 Key Columns -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
         <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-          <div class="bg-rose-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
-            🏆 GLOBAL COMMAND CENTER CORE
+          <div class="bg-rose-700 text-white text-center font-bold py-2 px-3 uppercase text-xs tracking-wide">
+            🏆 Global Command Center Core
           </div>
-          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
-            <li class="pt-2 text-slate-700">
-              <strong>Revenue Invoicing:</strong> Auditing and rolling out connect-minute based, FTE based, and per-hour based billing models with end-to-end revenue governance.
+          <ul class="p-3.5 space-y-2.5 text-xs divide-y divide-slate-100 flex-1">
+            <li class="pt-1 text-slate-700">
+              <strong>Revenue Invoicing:</strong> Auditing and rolling out connect-minute based, FTE based, and per-hour based billing models.
             </li>
             <li class="pt-2 text-slate-700">
-              <strong>Pan-India Dashboards & Multi-Country Sync:</strong> Daily Performance Reports (DPR), Agent Productivity, Unique Call & TNPS wallboards synchronized across 
-              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/in.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="India"> India</span>, 
-              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/my.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Malaysia"> Malaysia</span>, 
-              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/id.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Indonesia"> Indonesia</span>, 
-              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/vn.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Vietnam"> Vietnam</span>, and 
-              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/th.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Thailand"> Thailand</span>.
+              <strong>Pan-India & SEA Wallboards:</strong> DPR, Agent Productivity, and TNPS wallboards synced across IN 🇮🇳, MY 🇲🇾, ID 🇮🇩, VN 🇻🇳, and TH 🇹🇭.
             </li>
             <li class="pt-2 text-slate-700">
-              <strong>Headcount Planning & Attrition:</strong> Precision attrition, shrinkage, AL/SL monitoring, daily attendance, and RnP analysis across multi-site 24/7 rosters.
+              <strong>Headcount & Roster Planning:</strong> Attrition, shrinkage, AL/SL monitoring, and RnP analysis across multi-site 24/7 rosters.
             </li>
           </ul>
         </div>
         <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-          <div class="bg-amber-600 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
+          <div class="bg-amber-600 text-white text-center font-bold py-2 px-3 uppercase text-xs tracking-wide">
             🌐 Global Client Accounts
           </div>
-          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
-            <li class="pt-2 text-slate-700 font-semibold">• Uber & Blinkit (On-Demand Quick Ops)</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Vodafone Idea & Canon</li>
-            <li class="pt-2 text-slate-700 font-semibold">• AJIO & Zomato Delivery Ecosystems</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Star Health & Allied Insurance</li>
+          <ul class="p-3.5 space-y-2 text-xs divide-y divide-slate-100 flex-1 font-semibold text-slate-700">
+            <li class="pt-1">• Uber & Blinkit (On-Demand Quick Ops)</li>
+            <li class="pt-2">• Vodafone Idea & Canon</li>
+            <li class="pt-2">• AJIO & Zomato Delivery Ecosystems</li>
+            <li class="pt-2">• Star Health & Allied Insurance</li>
           </ul>
         </div>
         <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
-          <div class="bg-emerald-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
+          <div class="bg-emerald-700 text-white text-center font-bold py-2 px-3 uppercase text-xs tracking-wide">
             ⚙️ Engineering & Automation
           </div>
-          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
-            <li class="pt-2 text-slate-700 font-semibold">• Automated ETL pipelines via PowerShell & SFTP</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Advanced dynamic matrix modeling in Excel</li>
-            <li class="pt-2 text-slate-700 font-semibold">• Real-time telemetry ingestion into MS Access & NAV</li>
+          <ul class="p-3.5 space-y-2 text-xs divide-y divide-slate-100 flex-1 font-semibold text-slate-700">
+            <li class="pt-1">• Automated ETL pipelines via PowerShell & SFTP</li>
+            <li class="pt-2">• Advanced dynamic matrix modeling in Excel</li>
+            <li class="pt-2">• Real-time telemetry ingestion into MS Access & NAV</li>
           </ul>
         </div>
       </div>
     </div>
 
     <!-- TAB 2: WFMENGINE HUB (CALCULATORS & SIMULATORS) -->
-    <div id="tab-calculators" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
+    <div id="tab-calculators" class="tab-content hidden space-y-5">
+      <div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-sm space-y-6">
         
-        <!-- HEADER WITH ACTION BUTTONS -->
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-200 pb-4">
+        <!-- Header Actions -->
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-200 pb-3">
           <div>
-            <h2 class="text-2xl font-extrabold text-blue-950 mb-2">WFMengine: Interactive Simulation Hub</h2>
-            <p class="text-sm text-slate-600">Advanced operational modeling, FTE equations, and telecom invoicing architecture.</p>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-blue-950">WFMengine: Simulation Hub</h2>
+            <p class="text-xs text-slate-600">Operational modeling, FTE equations, and formatted calculations.</p>
           </div>
-          <div class="flex items-center gap-2">
-            <button onclick="loadSampleData()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2 rounded border border-slate-300 transition flex items-center gap-1.5">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i> Load Sample Data
+          <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+            <button onclick="loadSampleData()" class="flex-1 sm:flex-none justify-center bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2 rounded border border-slate-300 transition flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i> Load Sample
             </button>
-            <button onclick="exportEngineReport()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2 rounded shadow-sm transition flex items-center gap-1.5">
-              <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Export Formulated Report (CSV)
+            <button onclick="exportEngineReport()" class="flex-1 sm:flex-none justify-center bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-3.5 py-2 rounded shadow-sm transition flex items-center gap-1.5">
+              <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5"></i> Export CSV
             </button>
           </div>
         </div>
 
         <!-- 1. CAPACITY PLANNING ENGINE -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm">
-          <div class="flex items-center gap-2 text-blue-900 font-bold text-base border-b border-slate-200 pb-3 mb-4">
-            <i data-lucide="cpu" class="w-5 h-5 text-amber-600"></i>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 shadow-sm space-y-3.5">
+          <div class="flex items-center gap-2 text-blue-900 font-bold text-sm sm:text-base border-b border-slate-200 pb-2">
+            <i data-lucide="cpu" class="w-4 h-4 text-amber-600"></i>
             <h3>Capacity Planning Engine & Headcount Projections</h3>
           </div>
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs mb-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
             <div>
               <label class="font-bold text-slate-700 block mb-1">Monthly Volume:</label>
-              <input type="number" id="eng-vol" value="55000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+              <input type="number" id="eng-vol" value="55000" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
             </div>
             <div>
               <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
-              <input type="number" id="eng-aht" value="300" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+              <input type="number" id="eng-aht" value="300" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
             </div>
             <div>
               <label class="font-bold text-slate-700 block mb-1">Total Shrinkage %:</label>
-              <input type="number" id="eng-shrink" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+              <input type="number" id="eng-shrink" value="30" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
             </div>
             <div>
               <label class="font-bold text-slate-700 block mb-1">Paid Hours/Month:</label>
-              <input type="number" id="eng-paidhrs" value="160" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+              <input type="number" id="eng-paidhrs" value="160" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
             </div>
             <div>
               <label class="font-bold text-slate-700 block mb-1">Buffer %:</label>
-              <input type="number" id="eng-buffer" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+              <input type="number" id="eng-buffer" value="30" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
             </div>
             <div>
               <label class="font-bold text-slate-700 block mb-1">Current Active HC:</label>
-              <input type="number" id="eng-currhc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+              <input type="number" id="eng-currhc" value="65" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
             </div>
-            <div>
+            <div class="sm:col-span-2">
               <label class="font-bold text-slate-700 block mb-1">Cost Per FTE (₹):</label>
-              <input type="number" id="eng-cost" value="50000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+              <input type="number" id="eng-cost" value="50000" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-            <div class="bg-blue-950 text-white p-4 rounded-xl">
-              <p class="text-[11px] text-blue-200 font-semibold uppercase">Required Gross FTE</p>
-              <p id="out-fte" class="text-2xl font-black text-amber-400 mt-1">--</p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-center pt-1">
+            <div class="bg-blue-950 text-white p-3 rounded-xl">
+              <p class="text-[10px] text-blue-200 font-semibold uppercase">Required Gross FTE</p>
+              <p id="out-fte" class="text-xl sm:text-2xl font-black text-amber-400 mt-0.5">--</p>
             </div>
-            <div class="bg-slate-900 text-white p-4 rounded-xl">
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Staffing Gap / Surplus</p>
-              <p id="out-gap" class="text-2xl font-black text-emerald-400 mt-1">--</p>
+            <div class="bg-slate-900 text-white p-3 rounded-xl">
+              <p class="text-[10px] text-slate-300 font-semibold uppercase">Staffing Gap / Surplus</p>
+              <p id="out-gap" class="text-xl sm:text-2xl font-black text-emerald-400 mt-0.5">--</p>
             </div>
-            <div class="bg-slate-900 text-white p-4 rounded-xl">
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Est. Monthly Payroll</p>
-              <p id="out-cost" class="text-2xl font-black text-cyan-400 mt-1">--</p>
+            <div class="bg-slate-900 text-white p-3 rounded-xl">
+              <p class="text-[10px] text-slate-300 font-semibold uppercase">Est. Monthly Payroll</p>
+              <p id="out-cost" class="text-xl sm:text-2xl font-black text-cyan-400 mt-0.5">--</p>
             </div>
           </div>
           
-          <div class="mt-4 bg-white border border-slate-200 rounded p-3 text-xs text-slate-600">
-            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition & Calculation Model:</p>
+          <div class="bg-white border border-slate-200 rounded p-2.5 text-[11px] text-slate-600">
+            <p class="font-bold text-blue-900">📌 Mathematical Definition:</p>
             <p><strong>Gross Required FTE</strong> = ((Monthly Volume × AHT / 3600) / Paid Hours) / (1 - Shrinkage%) × (1 + Buffer%)</p>
-            <p class="mt-0.5"><strong>Staffing Gap/Surplus</strong> = Current Active HC - Required Gross FTE</p>
           </div>
         </div>
 
         <!-- 2. MODEL OCCUPANCY -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm">
-          <div class="flex items-center gap-2 text-cyan-900 font-bold text-base border-b border-slate-200 pb-3 mb-4">
-            <i data-lucide="activity" class="w-5 h-5 text-cyan-700"></i>
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 shadow-sm space-y-3.5">
+          <div class="flex items-center gap-2 text-cyan-900 font-bold text-sm sm:text-base border-b border-slate-200 pb-2">
+            <i data-lucide="activity" class="w-4 h-4 text-cyan-700"></i>
             <h3>Model Occupancy Calculator (New Business Impact)</h3>
           </div>
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs mb-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div>
               <label class="font-bold text-slate-700 block mb-1">Simulate New Business Volume:</label>
-              <input type="number" id="occ-vol" value="65000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
+              <input type="number" id="occ-vol" value="65000" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
             </div>
             <div>
               <label class="font-bold text-slate-700 block mb-1">Available Staff Headcount:</label>
-              <input type="number" id="occ-hc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
+              <input type="number" id="occ-hc" value="65" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
             </div>
           </div>
 
-          <div class="bg-slate-900 text-white rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="bg-slate-900 text-white rounded-lg p-3.5 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
             <div>
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Calculated Model Occupancy:</p>
-              <p id="out-occupancy" class="text-3xl font-black text-cyan-400 mt-0.5">--</p>
+              <p class="text-[10px] text-slate-300 font-semibold uppercase">Calculated Model Occupancy:</p>
+              <p id="out-occupancy" class="text-2xl font-black text-cyan-400 mt-0.5">--</p>
             </div>
-            <div id="out-occupancy-status" class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg text-amber-400 text-xs font-bold">
+            <div id="out-occupancy-status" class="bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg text-amber-400 text-xs font-bold">
               Target: 80% - 85%
             </div>
           </div>
 
-          <div class="mt-4 bg-white border border-slate-200 rounded p-3 text-xs text-slate-600">
-            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition & Calculation Model:</p>
+          <div class="bg-white border border-slate-200 rounded p-2.5 text-[11px] text-slate-600">
+            <p class="font-bold text-blue-900">📌 Mathematical Definition:</p>
             <p><strong>Model Occupancy %</strong> = ((New Business Volume × AHT / 3600) / (Available Headcount × Paid Hours × (1 - Shrinkage%))) × 100</p>
           </div>
         </div>
 
         <!-- 3 & 4. Erlang C & Billing Simulator -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- 3. Erlang-C / FTE Capacity Estimator -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
-            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-              <div class="flex items-center gap-2 text-blue-900 font-bold text-base">
-                <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i>
-                <h3>Erlang-C / FTE Capacity Estimator</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          <!-- Erlang-C -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3 shadow-sm">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+              <div class="flex items-center gap-1.5 text-blue-900 font-bold text-xs sm:text-sm">
+                <i data-lucide="calculator" class="w-4 h-4 text-blue-700"></i>
+                <h3>Erlang-C / Interval FTE Estimator</h3>
               </div>
             </div>
 
-            <div class="space-y-3 text-xs">
+            <div class="space-y-2.5 text-xs">
               <div>
-                <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
-                <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runFteCalculator(); runWhatIfModel();">
+                <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Interval):</label>
+                <input type="number" id="calc-volume" value="450" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runFteCalculator(); runWhatIfModel();">
               </div>
-              <div class="grid grid-cols-2 gap-3">
+              <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
-                  <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runFteCalculator(); runWhatIfModel();">
+                  <input type="number" id="calc-aht" value="320" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runFteCalculator(); runWhatIfModel();">
                 </div>
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
-                  <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator(); runWhatIfModel();">
+                  <label class="font-bold text-slate-700 block mb-1">Interval Window:</label>
+                  <select id="calc-interval" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator(); runWhatIfModel();">
                     <option value="1800">30 Mins (1800s)</option>
                     <option value="3600">60 Mins (3600s)</option>
                   </select>
@@ -419,74 +415,74 @@
               </div>
             </div>
 
-            <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
+            <div class="bg-blue-950 text-white rounded-lg p-3 grid grid-cols-2 gap-2 text-center mt-2">
               <div>
-                <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
-                <p id="res-net-fte" class="text-2xl font-black text-emerald-400">80.0</p>
+                <p class="text-[10px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
+                <p id="res-net-fte" class="text-lg sm:text-xl font-black text-emerald-400">80.0</p>
               </div>
               <div>
-                <p class="text-[11px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
-                <p id="res-gross-fte" class="text-2xl font-black text-amber-400">102.6</p>
+                <p class="text-[10px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
+                <p id="res-gross-fte" class="text-lg sm:text-xl font-black text-amber-400">102.6</p>
               </div>
             </div>
           </div>
 
-          <!-- 4. Billing Model Simulator -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
-            <div class="flex items-center gap-2 text-emerald-900 font-bold text-base border-b border-slate-200 pb-3">
-              <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i>
+          <!-- Billing Model Simulator -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3 shadow-sm">
+            <div class="flex items-center gap-1.5 text-emerald-900 font-bold text-xs sm:text-sm border-b border-slate-200 pb-2">
+              <i data-lucide="badge-percent" class="w-4 h-4 text-emerald-700"></i>
               <h3>Connect-Minute vs FTE Billing Simulator</h3>
             </div>
 
-            <div class="space-y-3 text-xs">
-              <div class="grid grid-cols-2 gap-3">
+            <div class="space-y-2.5 text-xs">
+              <div class="grid grid-cols-2 gap-2">
                 <div>
                   <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
-                  <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <input type="number" id="calc-mins" value="450000" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
                 </div>
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
-                  <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <label class="font-bold text-slate-700 block mb-1">Rate / Min (₹):</label>
+                  <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-3">
+              <div class="grid grid-cols-2 gap-2">
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
-                  <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <label class="font-bold text-slate-700 block mb-1">Billable FTEs:</label>
+                  <input type="number" id="calc-bill-fte" value="28" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
                 </div>
                 <div>
-                  <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
-                  <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                  <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Mo (₹):</label>
+                  <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
                 </div>
               </div>
             </div>
 
-            <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
-              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-                <span>Connect-Minute Revenue:</span>
-                <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
+            <div class="bg-slate-900 text-white rounded-lg p-3 space-y-1.5 text-xs">
+              <div class="flex justify-between items-center border-b border-slate-700 pb-1">
+                <span>Connect-Minute Rev:</span>
+                <span id="res-min-rev" class="font-bold text-emerald-400">₹8,32,500</span>
               </div>
-              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-                <span>FTE Retainer Revenue:</span>
-                <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
+              <div class="flex justify-between items-center border-b border-slate-700 pb-1">
+                <span>FTE Retainer Rev:</span>
+                <span id="res-fte-rev" class="font-bold text-cyan-400">₹8,96,000</span>
               </div>
-              <div class="flex justify-between items-center pt-1 font-bold">
-                <span>Variance (Model Delta):</span>
-                <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
+              <div class="flex justify-between items-center font-bold pt-0.5">
+                <span>Variance:</span>
+                <span id="res-var-rev" class="text-amber-400">-₹63,500</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 5. What-If Modeler -->
-        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
-          <div class="flex items-center gap-2 text-indigo-950 font-bold text-base border-b border-slate-200 pb-3">
-            <i data-lucide="sliders" class="w-5 h-5 text-indigo-700"></i>
+        <!-- What-If Modeler -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 sm:p-5 space-y-3 shadow-sm">
+          <div class="flex items-center gap-1.5 text-indigo-950 font-bold text-xs sm:text-sm border-b border-slate-200 pb-2">
+            <i data-lucide="sliders" class="w-4 h-4 text-indigo-700"></i>
             <h3>Interactive "What-If" Capacity & Surge Impact Modeler</h3>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div>
-              <label class="font-bold text-slate-700 block mb-1">Simulate Surge Volume (% Increase):</label>
+              <label class="font-bold text-slate-700 block mb-1">Surge Volume (% Increase):</label>
               <input type="range" id="whatif-surge" min="0" max="60" value="25" step="5" class="w-full" oninput="document.getElementById('surge-val').innerText = '+' + this.value + '%'; runWhatIfModel();">
               <span id="surge-val" class="text-indigo-700 font-bold text-xs">+25%</span>
             </div>
@@ -496,18 +492,18 @@
               <span id="aht-delta-val" class="text-indigo-700 font-bold text-xs">+15s</span>
             </div>
           </div>
-          <div class="bg-indigo-950 text-white rounded-lg p-4 grid grid-cols-3 gap-2 text-center text-xs">
+          <div class="bg-indigo-950 text-white rounded-lg p-3 grid grid-cols-3 gap-2 text-center text-xs">
             <div>
-              <p class="text-[10px] text-indigo-300 uppercase">Surge Load Volume</p>
-              <p id="res-surge-vol" class="text-lg font-black text-white">563 calls</p>
+              <p class="text-[9px] text-indigo-300 uppercase">Surge Volume</p>
+              <p id="res-surge-vol" class="text-sm sm:text-base font-black text-white">563 calls</p>
             </div>
             <div>
-              <p class="text-[10px] text-indigo-300 uppercase">Surge Gross FTE</p>
-              <p id="res-surge-fte" class="text-lg font-black text-amber-400">134.1 FTE</p>
+              <p class="text-[9px] text-indigo-300 uppercase">Surge FTE</p>
+              <p id="res-surge-fte" class="text-sm sm:text-base font-black text-amber-400">134.1 FTE</p>
             </div>
             <div>
-              <p class="text-[10px] text-indigo-300 uppercase">Additional Buffer Needed</p>
-              <p id="res-surge-delta" class="text-lg font-black text-emerald-400">+31.5 FTE</p>
+              <p class="text-[9px] text-indigo-300 uppercase">Buffer Delta</p>
+              <p id="res-surge-delta" class="text-sm sm:text-base font-black text-emerald-400">+31.5 FTE</p>
             </div>
           </div>
         </div>
@@ -516,129 +512,103 @@
     </div>
 
     <!-- TAB 3: TELEMETRY & VISUAL CHARTS -->
-    <div id="tab-competencies" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-6">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
+    <div id="tab-competencies" class="tab-content hidden space-y-5">
+      <div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-sm space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
           <div>
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-              <h3 class="font-extrabold text-blue-950 text-lg">Realtime Command Center & Audience Telemetry</h3>
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+              <h3 class="font-extrabold text-blue-950 text-base sm:text-lg">Realtime Command Center Telemetry</h3>
             </div>
-            <p class="text-xs text-slate-500 mt-0.5">Live operational performance, traffic origin routing, and multi-country node activity</p>
+            <p class="text-xs text-slate-500">Live operational performance and routing nodes.</p>
           </div>
-          <span class="bg-emerald-50 text-emerald-800 border border-emerald-300 px-3 py-1 rounded-full text-xs font-bold self-start sm:self-auto flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> GA4 Active Telemetry
+          <span class="bg-emerald-50 text-emerald-800 border border-emerald-300 px-2.5 py-0.5 rounded-full text-[11px] font-bold self-start sm:self-auto flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> GA4 Active
           </span>
         </div>
 
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
-              Live Total Views <i data-lucide="eye" class="w-3.5 h-3.5 text-blue-700"></i>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
+            <p class="text-[10px] sm:text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+              Total Views <i data-lucide="eye" class="w-3.5 h-3.5 text-blue-700"></i>
             </p>
-            <div class="flex items-baseline gap-1.5 mt-1">
-              <p class="text-2xl sm:text-3xl font-black text-blue-950">
-                <img src="https://hits.sh/wfmmisbiodeepankar.netlify.app.svg?style=flat-square&label=&extra=1&color=1e3a8a" alt="Live Views" class="h-7 inline-block rounded" />
-              </p>
+            <div class="mt-1">
+              <img src="https://hits.sh/wfmmisbiodeepankar.netlify.app.svg?style=flat-square&label=&extra=1&color=1e3a8a" alt="Live Views" class="h-6 inline-block rounded" />
             </div>
-            <p class="text-[10px] text-emerald-700 font-semibold mt-0.5">● Realtime visitor tracking</p>
           </div>
 
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+          <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
+            <p class="text-[10px] sm:text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
               Avg SLA Index <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-700"></i>
             </p>
-            <p class="text-2xl sm:text-3xl font-black text-emerald-700 mt-1">94.8%</p>
-            <p class="text-[10px] text-slate-500 font-semibold mt-0.5">Target: ≥ 85.0%</p>
+            <p class="text-xl sm:text-2xl font-black text-emerald-700 mt-1">94.8%</p>
           </div>
 
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+          <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
+            <p class="text-[10px] sm:text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
               Active Regions <i data-lucide="globe-2" class="w-3.5 h-3.5 text-cyan-700"></i>
             </p>
-            <p class="text-2xl sm:text-3xl font-black text-cyan-800 mt-1">Pan-India + SEA</p>
-            <p class="text-[10px] text-slate-500 font-semibold mt-0.5">IN, MY, ID, VN, TH</p>
+            <p class="text-lg sm:text-xl font-black text-cyan-800 mt-1 truncate">Pan-India + SEA</p>
           </div>
 
-          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+          <div class="bg-slate-50 p-3 sm:p-4 rounded-xl border border-slate-200">
+            <p class="text-[10px] sm:text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
               Switch Ingestion <i data-lucide="server" class="w-3.5 h-3.5 text-amber-700"></i>
             </p>
-            <p class="text-2xl sm:text-3xl font-black text-amber-700 mt-1">Avaya CMS</p>
-            <p class="text-[10px] text-emerald-700 font-semibold mt-0.5">● 100% Online Feeds</p>
+            <p class="text-lg sm:text-xl font-black text-amber-700 mt-1">Avaya CMS</p>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
-          <div class="lg:col-span-2 bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-xl p-5 shadow-sm space-y-4">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div class="flex items-center gap-2">
-                <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
-                <h4 class="font-bold text-xs sm:text-sm">Active Command Center Geo-Distribution Nodes</h4>
-              </div>
-              <span class="text-[10px] bg-emerald-900/60 text-emerald-300 font-bold px-2 py-0.5 rounded border border-emerald-700">Live Traffic</span>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div class="lg:col-span-2 bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-xl p-4 sm:p-5 shadow-sm space-y-3">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <h4 class="font-bold text-xs sm:text-sm flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i> Geo-Distribution Nodes
+              </h4>
+              <span class="text-[9px] bg-emerald-900/60 text-emerald-300 font-bold px-2 py-0.5 rounded border border-emerald-700">Live Traffic</span>
             </div>
 
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
-              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
-                <div class="flex items-center justify-between">
-                  <span class="font-bold text-white flex items-center gap-1.5"><img src="https://flagcdn.com/w20/in.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="India"> India (HQ)</span>
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                </div>
-                <p class="text-emerald-400 font-black text-lg mt-1">82%</p>
-                <p class="text-[10px] text-slate-400">Lucknow / NCR Hubs</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+              <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+                <p class="font-bold text-white flex items-center gap-1 text-[11px]"><img src="https://flagcdn.com/w20/in.png" class="w-3.5 h-2.5 rounded-sm" alt="India"> India</p>
+                <p class="text-emerald-400 font-black text-base sm:text-lg mt-0.5">82%</p>
               </div>
-
-              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
-                <div class="flex items-center justify-between">
-                  <span class="font-bold text-white flex items-center gap-1.5"><img src="https://flagcdn.com/w20/my.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Malaysia"> Malaysia</span>
-                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                </div>
-                <p class="text-cyan-400 font-black text-lg mt-1">8%</p>
-                <p class="text-[10px] text-slate-400">SEA Routing Node</p>
+              <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+                <p class="font-bold text-white flex items-center gap-1 text-[11px]"><img src="https://flagcdn.com/w20/my.png" class="w-3.5 h-2.5 rounded-sm" alt="Malaysia"> Malaysia</p>
+                <p class="text-cyan-400 font-black text-base sm:text-lg mt-0.5">8%</p>
               </div>
-
-              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
-                <div class="flex items-center justify-between">
-                  <span class="font-bold text-white flex items-center gap-1.5"><img src="https://flagcdn.com/w20/id.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Indonesia"> Indonesia</span>
-                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                </div>
-                <p class="text-cyan-400 font-black text-lg mt-1">6%</p>
-                <p class="text-[10px] text-slate-400">BPM Operations</p>
+              <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+                <p class="font-bold text-white flex items-center gap-1 text-[11px]"><img src="https://flagcdn.com/w20/id.png" class="w-3.5 h-2.5 rounded-sm" alt="Indonesia"> Indonesia</p>
+                <p class="text-cyan-400 font-black text-base sm:text-lg mt-0.5">6%</p>
               </div>
-
-              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
-                <div class="flex items-center justify-between">
-                  <span class="font-bold text-white flex items-center gap-1.5"><i data-lucide="globe-2" class="w-3.5 h-3.5 text-amber-400 inline-block"></i> Global</span>
-                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                </div>
-                <p class="text-amber-400 font-black text-lg mt-1">4%</p>
-                <p class="text-[10px] text-slate-400">US / EMEA</p>
+              <div class="bg-slate-800/80 p-2.5 rounded-lg border border-slate-700">
+                <p class="font-bold text-white flex items-center gap-1 text-[11px]"><i data-lucide="globe-2" class="w-3 h-3 text-amber-400"></i> Global</p>
+                <p class="text-amber-400 font-black text-base sm:text-lg mt-0.5">4%</p>
               </div>
             </div>
           </div>
 
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4">
-            <h4 class="font-bold text-slate-900 text-xs sm:text-sm border-b border-slate-200 pb-2 flex items-center justify-between">
-              <span>Traffic Acquisition</span>
-              <i data-lucide="compass" class="w-4 h-4 text-blue-700"></i>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
+            <h4 class="font-bold text-slate-900 text-xs border-b border-slate-200 pb-1.5 flex items-center justify-between">
+              <span>Traffic Sources</span>
+              <i data-lucide="compass" class="w-3.5 h-3.5 text-blue-700"></i>
             </h4>
-            <div class="space-y-3 text-xs">
+            <div class="space-y-2 text-xs">
               <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span class="text-slate-700">LinkedIn & Links</span>
-                  <span class="text-blue-900 font-bold">58%</span>
+                <div class="flex justify-between font-semibold mb-0.5 text-[11px]">
+                  <span>LinkedIn & Links</span>
+                  <span class="font-bold">58%</span>
                 </div>
-                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
                   <div class="bg-blue-800 h-full rounded-full" style="width: 58%"></div>
                 </div>
               </div>
               <div>
-                <div class="flex justify-between font-semibold mb-1">
-                  <span class="text-slate-700">Direct Access</span>
-                  <span class="text-emerald-800 font-bold">26%</span>
+                <div class="flex justify-between font-semibold mb-0.5 text-[11px]">
+                  <span>Direct Access</span>
+                  <span class="font-bold">26%</span>
                 </div>
-                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                <div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
                   <div class="bg-emerald-600 h-full rounded-full" style="width: 26%"></div>
                 </div>
               </div>
@@ -646,194 +616,154 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
-          <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-            <h3 class="font-bold text-slate-900 text-sm mb-4">Intraday Call Flow & SLA Response Curve</h3>
-            <div class="h-64"><canvas id="slaChart"></canvas></div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-xs sm:text-sm mb-3">Intraday Call Flow & SLA Response Curve</h3>
+            <div class="h-56 sm:h-64"><canvas id="slaChart"></canvas></div>
           </div>
-          <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-            <h3 class="font-bold text-slate-900 text-sm mb-4">Multi-Regional Shrinkage Breakdown</h3>
-            <div class="h-64 flex items-center justify-center"><canvas id="shrinkageChart"></canvas></div>
+          <div class="bg-white rounded-xl border border-slate-200 p-4 shadow-sm">
+            <h3 class="font-bold text-slate-900 text-xs sm:text-sm mb-3">Multi-Regional Shrinkage Breakdown</h3>
+            <div class="h-56 sm:h-64 flex items-center justify-center"><canvas id="shrinkageChart"></canvas></div>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-          <h3 class="font-bold text-base text-slate-900 mb-4 flex items-center gap-2">
-            <i data-lucide="crosshair" class="w-5 h-5 text-indigo-700"></i> 5-Dimensional WFM Competency Matrix (Radar Analysis)
+        <div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-5 shadow-sm">
+          <h3 class="font-bold text-xs sm:text-sm text-slate-900 mb-3 flex items-center gap-1.5">
+            <i data-lucide="crosshair" class="w-4 h-4 text-indigo-700"></i> 5-Dimensional WFM Competency Matrix (Radar)
           </h3>
-          <div class="h-80 flex items-center justify-center"><canvas id="skillsRadarChart"></canvas></div>
+          <div class="h-64 sm:h-80 flex items-center justify-center"><canvas id="skillsRadarChart"></canvas></div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 4: CAREER MILESTONES (ALL 5 RESTORED FULLY) -->
-    <div id="tab-experience" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
-        <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
+    <!-- TAB 4: CAREER MILESTONES (ALL 5 COMPLETE) -->
+    <div id="tab-experience" class="tab-content hidden space-y-5">
+      <div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-sm">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-200 pb-3 mb-5 gap-2">
           <div>
-            <h2 class="text-2xl font-extrabold text-blue-950 flex items-center gap-2.5">
-              <i data-lucide="briefcase" class="w-6 h-6 text-blue-800"></i> Experience & Career Milestones
+            <h2 class="text-xl sm:text-2xl font-extrabold text-blue-950 flex items-center gap-2">
+              <i data-lucide="briefcase" class="w-5 h-5 text-blue-800"></i> Career Milestones
             </h2>
-            <p class="text-xs text-slate-500 mt-0.5">Track record of leadership across global BPM, Workforce Operations & Command Centers</p>
+            <p class="text-xs text-slate-500 mt-0.5">Leadership track record across BPM & Command Center deployments</p>
           </div>
-          <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-1.5 bg-[#0a66c2] hover:bg-[#004182] text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-sm transition">
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
+          <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 bg-[#0a66c2] hover:bg-[#004182] text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-sm transition">
             LinkedIn Profile
           </a>
         </div>
 
-        <div class="space-y-8">
+        <div class="space-y-6">
           <!-- 1. Startek -->
-          <div class="flex items-start gap-4 group">
-            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
-              <img src="https://logo.clearbit.com/startek.com" alt="Startek Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-rose-600 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>S</div>';" />
-            </div>
-            <div class="flex-1 space-y-1.5">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Lead MIS & GCC Operations</h3>
-                <span class="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Dec 2024 – Present</span>
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold text-base flex-shrink-0 shadow-sm">S</div>
+            <div class="flex-1 space-y-1 text-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+                <h3 class="text-sm font-bold text-slate-900">Lead MIS & GCC Operations</h3>
+                <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full self-start">Dec 2024 – Present</span>
               </div>
-              <p class="text-xs font-semibold text-slate-700">Startek · Full-time</p>
-              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India · On-site</p>
-              <p class="text-xs text-slate-600 leading-relaxed pt-1">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, automation pipelines, and multi-brand billing files.</p>
-              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
-                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
-                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Business Analysis, Erlang-C Capacity Planning, Microsoft Office, Multi-Country Governance</span>
-              </div>
+              <p class="font-semibold text-slate-700">Startek · Full-time (Lucknow, UP, India)</p>
+              <p class="text-slate-600 leading-relaxed pt-0.5">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, and billing files.</p>
             </div>
           </div>
 
           <hr class="border-slate-100" />
 
           <!-- 2. Concentrix -->
-          <div class="flex items-start gap-4 group">
-            <div class="w-12 h-12 rounded-xl bg-[#002f3a] border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
-              <img src="https://logo.clearbit.com/concentrix.com" alt="Concentrix Logo" class="w-full h-full object-contain brightness-150" onerror="this.outerHTML='<div class=\'w-full h-full bg-[#002f3a] text-cyan-400 rounded-lg flex items-center justify-center font-bold text-lg\'>C</div>';" />
-            </div>
-            <div class="flex-1 space-y-1.5">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Associate Manager / Assistant Manager WFM</h3>
-                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2022 – Jul 2024 · 1 yr 10 mos</span>
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-[#002f3a] text-cyan-400 flex items-center justify-center font-bold text-base flex-shrink-0 shadow-sm">C</div>
+            <div class="flex-1 space-y-1 text-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+                <h3 class="text-sm font-bold text-slate-900">Associate Manager / Assistant Manager WFM</h3>
+                <span class="text-[10px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full self-start">Oct 2022 – Jul 2024</span>
               </div>
-              <p class="text-xs font-semibold text-slate-700">Concentrix Daksh India Pvt. Ltd. · Full-time</p>
-              <p class="text-[11px] text-slate-500">📍 Gurugram, Haryana, India · Remote</p>
-              <p class="text-xs text-slate-600 leading-relaxed pt-1">Drove capacity planning, interval scheduling, cost-benefit analyses, and multi-country operational reporting across Southeast Asian BPM deployments.</p>
-              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
-                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
-                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Capacity Planning, WFM Modeling, Operations Analytics, Remote Team Leadership</span>
-              </div>
+              <p class="font-semibold text-slate-700">Concentrix Daksh India Pvt. Ltd. · Full-time (Gurugram)</p>
+              <p class="text-slate-600 leading-relaxed pt-0.5">Drove capacity planning, interval scheduling, cost-benefit analyses, and multi-country reporting.</p>
             </div>
           </div>
 
           <hr class="border-slate-100" />
 
           <!-- 3. Cognizant -->
-          <div class="flex items-start gap-4 group">
-            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
-              <img src="https://logo.clearbit.com/cognizant.com" alt="Cognizant Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-blue-900 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>CTS</div>';" />
-            </div>
-            <div class="flex-1 space-y-1.5">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Process Specialist</h3>
-                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Mar 2022 – Oct 2022 · 7 mos</span>
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-900 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-sm">CTS</div>
+            <div class="flex-1 space-y-1 text-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+                <h3 class="text-sm font-bold text-slate-900">Process Specialist</h3>
+                <span class="text-[10px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full self-start">Mar 2022 – Oct 2022</span>
               </div>
-              <p class="text-xs font-semibold text-slate-700">Cognizant Technology Solutions · Full-time</p>
-              <p class="text-[11px] text-slate-500">📍 India · On-site</p>
-              <p class="text-xs text-slate-600 leading-relaxed pt-1">Managed process analytics, performance scorecards, SLA governance, and workflow optimization standards.</p>
-              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
-                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
-                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Process Automation, KPI Scorecards, Workflow Governance</span>
-              </div>
+              <p class="font-semibold text-slate-700">Cognizant Technology Solutions · Full-time</p>
+              <p class="text-slate-600 leading-relaxed pt-0.5">Managed process analytics, scorecards, SLA governance, and workflow optimization standards.</p>
             </div>
           </div>
 
           <hr class="border-slate-100" />
 
-          <!-- 4. UP Police Technosys -->
-          <div class="flex items-start gap-4 group">
-            <div class="w-12 h-12 rounded-xl bg-blue-950 border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1 overflow-hidden">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Uttar_Pradesh_Police_Logo.png/120px-Uttar_Pradesh_Police_Logo.png" alt="UP Police Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-blue-950 text-amber-400 rounded-lg flex items-center justify-center font-bold text-lg\'>1090</div>';" />
-            </div>
-            <div class="flex-1 space-y-1.5">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Data Analyst (Women Power Line 1090)</h3>
-                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2021 – Mar 2022 · 6 mos</span>
+          <!-- 4. UP Police 1090 -->
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-950 text-amber-400 flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-sm">1090</div>
+            <div class="flex-1 space-y-1 text-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+                <h3 class="text-sm font-bold text-slate-900">Data Analyst (Women Power Line 1090)</h3>
+                <span class="text-[10px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full self-start">Oct 2021 – Mar 2022</span>
               </div>
-              <p class="text-xs font-semibold text-slate-700">Technosys Pvt. Ltd. (UP Police Mission)</p>
-              <p class="text-[11px] text-slate-500">📍 Lucknow, Uttar Pradesh, India</p>
-              <p class="text-xs text-slate-600 leading-relaxed pt-1">Spearheaded operational analytics, emergency call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.</p>
-              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
-                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
-                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Public Sector Telemetry, Emergency Incident Flow Analytics, Database Ingestion</span>
-              </div>
+              <p class="font-semibold text-slate-700">Technosys Pvt. Ltd. (UP Police Mission) · Lucknow</p>
+              <p class="text-slate-600 leading-relaxed pt-0.5">Spearheaded operational analytics, emergency call volumes, and response telemetry reporting.</p>
             </div>
           </div>
 
           <hr class="border-slate-100" />
 
           <!-- 5. Aegis -->
-          <div class="flex items-start gap-4 group">
-            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
-              <img src="https://logo.clearbit.com/startek.com" alt="Aegis Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-slate-800 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>A</div>';" />
-            </div>
-            <div class="flex-1 space-y-1.5">
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Senior MIS Executive (Promoted Mar-2018)</h3>
-                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2016 – Oct 2021 · 5 yrs 1 mo</span>
+          <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-slate-800 text-white flex items-center justify-center font-bold text-base flex-shrink-0 shadow-sm">A</div>
+            <div class="flex-1 space-y-1 text-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-0.5">
+                <h3 class="text-sm font-bold text-slate-900">Senior MIS Executive (Promoted Mar-2018)</h3>
+                <span class="text-[10px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded-full self-start">Oct 2016 – Oct 2021</span>
               </div>
-              <p class="text-xs font-semibold text-slate-700">Aegis Customer Support Services (Startek)</p>
-              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India</p>
-              <p class="text-xs text-slate-600 leading-relaxed pt-1">Developed automated DPR/WPR/MPR reports, automated data ingestion with VBA, and maintained telephony database health.</p>
-              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
-                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
-                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Advanced VBA Automation, Telecom DPR/WPR Reporting, MS Access Architecture</span>
-              </div>
+              <p class="font-semibold text-slate-700">Aegis Customer Support Services (Startek) · Lucknow</p>
+              <p class="text-slate-600 leading-relaxed pt-0.5">Developed automated DPR/WPR reports and maintained telephony database health.</p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
 
     <!-- TAB 5: COMPREHENSIVE BIO -->
-    <div id="tab-about" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
-        <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-6">
-          <div class="w-40 h-40 bg-blue-950 text-white rounded-2xl flex items-center justify-center shadow-lg border-4 border-blue-100 mb-4 overflow-hidden">
+    <div id="tab-about" class="tab-content hidden space-y-5">
+      <div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-sm flex flex-col md:flex-row gap-6">
+        <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-5 md:pb-0 md:pr-5">
+          <div class="w-32 h-32 sm:w-36 sm:h-36 bg-blue-950 text-white rounded-2xl flex items-center justify-center shadow-md border-4 border-blue-100 mb-3 overflow-hidden">
             <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-5xl">DS</span>
+            <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-4xl">DS</span>
           </div>
-          <h2 class="text-2xl font-bold text-slate-900">Deepankar Shukla</h2>
-          <p class="text-xs font-bold text-blue-700 mt-0.5">Lead – Global Command Center (MIS & WFM)</p>
-          <span class="mt-3 bg-blue-50 text-blue-900 border border-blue-200 px-3 py-1 rounded-full text-[11px] font-bold">
-            9+ Years of Industry Mastery
+          <h2 class="text-xl font-bold text-slate-900">Deepankar Shukla</h2>
+          <p class="text-xs font-bold text-blue-700">Lead – GCC (MIS & WFM)</p>
+          <span class="mt-2 bg-blue-50 text-blue-900 border border-blue-200 px-2.5 py-0.5 rounded-full text-[10px] font-bold">
+            9+ Years Industry Mastery
           </span>
-          <div class="w-full mt-6 pt-4 border-t border-slate-100 text-left text-xs space-y-2 text-slate-600">
+          <div class="w-full mt-4 pt-3 border-t border-slate-100 text-left text-[11px] space-y-1.5 text-slate-600">
             <p><strong>Location:</strong> Lucknow, UP, India</p>
             <p><strong>Education:</strong> BA – Integral University</p>
             <p><strong>Languages:</strong> English, Hindi</p>
-            <p><strong>Specialization:</strong> Financial Invoicing & WFM Capacity</p>
           </div>
         </div>
-        <div class="w-full md:w-2/3 space-y-4 text-slate-700">
-          <h3 class="text-xl font-bold text-blue-950 border-b border-slate-100 pb-2">Professional Biography</h3>
-          <p class="text-sm leading-relaxed">
+        <div class="w-full md:w-2/3 space-y-3.5 text-slate-700 text-xs sm:text-sm">
+          <h3 class="text-base sm:text-lg font-bold text-blue-950 border-b border-slate-100 pb-1.5">Professional Biography</h3>
+          <p class="leading-relaxed">
             "I am a seasoned <strong>Lead – MIS & Workforce Management professional with 9+ years of industry experience</strong> across global BPM and analytics environments, including Startek, Concentrix, Cognizant, and public sector operations (UP Police WPL 1090)."
           </p>
-          <p class="text-sm leading-relaxed">
-            "Currently heading Pan-India GCC MIS & reporting operations at Startek, I manage capacity planning, cost-benefit analyses (CBA), and high-impact dashboards for major global brands (<strong>Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit, and Zomato</strong>). My core expertise lies in transforming raw ERP/telephony data (CMS, CUIC, IEX, SFTP) into actionable business intelligence, engineering custom automation pipelines using VBA, PowerShell, & MS Access, and driving cost efficiencies through precision workforce optimization."
+          <p class="leading-relaxed">
+            "Currently heading Pan-India GCC MIS & reporting operations at Startek, I manage capacity planning, cost-benefit analyses (CBA), and high-impact dashboards for major global brands (<strong>Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit, and Zomato</strong>). My core expertise lies in transforming raw ERP/telephony data into actionable business intelligence."
           </p>
-          <div class="pt-4 border-t border-slate-100">
-            <h4 class="font-bold text-sm text-blue-950 mb-2">Key Technical Skills:</h4>
-            <div class="flex flex-wrap gap-2 text-xs">
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">VBA & Macro Automation</span>
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">PowerShell Scripting</span>
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Microsoft Access</span>
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Microsoft NAV 2016</span>
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Batch Command</span>
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Advanced Excel & Dashboards</span>
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Erlang-C & Capacity Planning</span>
-              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Avaya CMS & Cisco CUIC</span>
+          <div class="pt-2 border-t border-slate-100">
+            <h4 class="font-bold text-xs text-blue-950 mb-1.5">Key Technical Skills:</h4>
+            <div class="flex flex-wrap gap-1.5 text-[11px]">
+              <span class="bg-slate-100 px-2 py-0.5 rounded border">VBA & Macro</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded border">PowerShell</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded border">MS Access</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded border">Microsoft NAV</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded border">Erlang-C Modeling</span>
+              <span class="bg-slate-100 px-2 py-0.5 rounded border">Avaya CMS & CUIC</span>
             </div>
           </div>
         </div>
@@ -841,153 +771,110 @@
     </div>
 
     <!-- TAB 6: CONNECT -->
-    <div id="tab-contact" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto space-y-6">
-        <div class="text-center mb-8">
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-950">Let's Connect & Collaborate</h2>
-          <p class="text-slate-600 text-xs sm:text-sm mt-1">Available for executive WFM consultations, Command Center architecture discussions, and leadership opportunities.</p>
+    <div id="tab-contact" class="tab-content hidden space-y-5">
+      <div class="bg-white rounded-xl border border-slate-200 p-4 sm:p-8 shadow-sm max-w-4xl mx-auto">
+        <div class="text-center mb-6">
+          <h2 class="text-xl sm:text-2xl font-extrabold text-blue-950">Let's Connect & Collaborate</h2>
+          <p class="text-slate-600 text-xs mt-1">Available for executive WFM consultations and leadership opportunities.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="space-y-4">
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-              <i data-lucide="mail" class="w-5 h-5 text-blue-700 flex-shrink-0"></i>
-              <div>
-                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Email</p>
-                <button onclick="copyToClipboard('shukladeepankar91@gmail.com', 'Email Address')" class="text-xs font-bold text-slate-900 hover:text-blue-700 text-left">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-3.5">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-2.5">
+              <i data-lucide="mail" class="w-4 h-4 text-blue-700 flex-shrink-0"></i>
+              <div class="overflow-hidden">
+                <p class="text-[10px] text-slate-500 font-semibold uppercase">Email</p>
+                <button onclick="copyToClipboard('shukladeepankar91@gmail.com', 'Email Address')" class="text-xs font-bold text-slate-900 truncate block">
                   shukladeepankar91@gmail.com
                 </button>
               </div>
             </div>
 
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-              <i data-lucide="phone" class="w-5 h-5 text-emerald-700 flex-shrink-0"></i>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-2.5">
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-700 flex-shrink-0"></i>
               <div>
-                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Phone</p>
-                <button onclick="copyToClipboard('+918787250550', 'Phone Number')" class="text-xs font-bold text-slate-900 hover:text-emerald-700 text-left">
+                <p class="text-[10px] text-slate-500 font-semibold uppercase">Phone</p>
+                <button onclick="copyToClipboard('+918787250550', 'Phone Number')" class="text-xs font-bold text-slate-900">
                   +91-8787250550
                 </button>
               </div>
             </div>
 
-            <!-- GATEKEEPER PROTECTED SOCIAL HANDLES SECTION -->
-            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/70 space-y-3">
-              <div class="flex items-center justify-between border-b border-slate-200 pb-2">
-                <span class="text-xs font-extrabold text-blue-950 flex items-center gap-1.5">
-                  <i data-lucide="share-2" class="w-4 h-4 text-blue-700"></i> Verified Social Profiles
+            <!-- GATEKEEPER PASSCODE SECTION -->
+            <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/70 space-y-2.5 text-xs">
+              <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                <span class="font-extrabold text-blue-950 flex items-center gap-1">
+                  <i data-lucide="share-2" class="w-3.5 h-3.5 text-blue-700"></i> Social Profiles
                 </span>
-                <span id="social-status-badge" class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-300 flex items-center gap-1">
-                  <i data-lucide="lock" class="w-3 h-3"></i> Protected
+                <span id="social-status-badge" class="bg-amber-100 text-amber-900 text-[9px] font-bold px-2 py-0.5 rounded border border-amber-300">
+                  Protected
                 </span>
               </div>
 
-              <!-- State A: Locked Form -->
-              <div id="social-locked-container" class="space-y-3">
+              <div id="social-locked-container" class="space-y-2">
                 <p class="text-[11px] text-slate-600 leading-relaxed">
-                  Social media profiles locked to prevent spam. Submit your name, phone & reason to request authorization.
+                  Submit details to request authorization passcode.
                 </p>
-
-                <form id="social-request-form" class="space-y-2 text-xs">
-                  <div>
-                    <input type="text" id="req-name" required placeholder="Your Full Name *" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs">
-                  </div>
-                  <div>
-                    <input type="tel" id="req-phone" required placeholder="Phone / WhatsApp Number *" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs">
-                  </div>
-                  <div>
-                    <textarea id="req-reason" rows="2" required placeholder="Reason for connecting (e.g. Hiring, WFM inquiry)..." class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs"></textarea>
-                  </div>
-                  <button type="submit" id="req-submit-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-3 rounded-lg shadow-sm transition flex items-center justify-center gap-1 text-xs">
-                    <i data-lucide="send" class="w-3.5 h-3.5"></i> <span id="req-btn-text">Send Access Request</span>
+                <form id="social-request-form" class="space-y-2">
+                  <input type="text" id="req-name" required placeholder="Full Name *" class="w-full p-2 rounded-lg border border-slate-300 bg-white outline-none text-xs">
+                  <input type="tel" id="req-phone" required placeholder="WhatsApp Number *" class="w-full p-2 rounded-lg border border-slate-300 bg-white outline-none text-xs">
+                  <textarea id="req-reason" rows="2" required placeholder="Reason for connecting..." class="w-full p-2 rounded-lg border border-slate-300 bg-white outline-none text-xs"></textarea>
+                  <button type="submit" id="req-submit-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 rounded-lg text-xs transition">
+                    <span id="req-btn-text">Send Request</span>
                   </button>
-                  <p id="req-status-msg" class="text-center font-bold mt-1 text-[11px] hidden"></p>
+                  <p id="req-status-msg" class="text-center font-bold mt-1 text-[10px] hidden"></p>
                 </form>
 
-                <div class="pt-2 border-t border-slate-200/80">
-                  <div class="flex gap-2">
-                    <input type="text" id="access-passcode-input" placeholder="Enter Dynamic Passcode..." class="flex-1 p-2 rounded-lg border border-slate-300 bg-white font-semibold text-xs outline-none uppercase tracking-wider">
+                <div class="pt-2 border-t border-slate-200">
+                  <div class="flex gap-1.5">
+                    <input type="text" id="access-passcode-input" placeholder="Enter Passcode..." class="flex-1 p-2 rounded-lg border border-slate-300 bg-white font-semibold text-xs outline-none uppercase">
                     <button onclick="verifyPasscode()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-2 rounded-lg text-xs transition">
                       Unlock
                     </button>
                   </div>
-                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Enter the unique passcode received on WhatsApp.</p>
+                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Enter passcode received on WhatsApp.</p>
                 </div>
               </div>
 
-              <!-- State B: Unlocked Cards Grid -->
-              <div id="social-unlocked-grid" class="hidden grid grid-cols-2 gap-2.5">
-                <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="p-3 bg-blue-50/70 hover:bg-blue-100 border border-blue-200 rounded-lg flex items-center gap-2.5 transition group">
-                  <div class="w-7 h-7 rounded-lg bg-[#0a66c2] text-white flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
-                  </div>
-                  <div class="overflow-hidden">
-                    <p class="text-[10px] text-blue-800 font-bold uppercase">LinkedIn</p>
-                    <p class="text-xs font-bold text-slate-900 group-hover:text-blue-900 truncate">Deepankar</p>
-                  </div>
+              <div id="social-unlocked-grid" class="hidden grid grid-cols-2 gap-2">
+                <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="p-2 bg-blue-50 border border-blue-200 rounded-lg flex items-center gap-1.5">
+                  <div class="w-5 h-5 rounded bg-[#0a66c2] text-white flex items-center justify-center text-[10px] font-bold">in</div>
+                  <span class="text-xs font-bold text-slate-900 truncate">LinkedIn</span>
                 </a>
-                <a href="https://x.com/shukladeepanka5" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg flex items-center gap-2.5 transition group">
-                  <div class="w-7 h-7 rounded-lg bg-black text-white flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                  </div>
-                  <div class="overflow-hidden">
-                    <p class="text-[10px] text-slate-600 font-bold uppercase">X (Twitter)</p>
-                    <p class="text-xs font-bold text-slate-900 group-hover:text-black truncate">@shukladeepanka5</p>
-                  </div>
+                <a href="https://x.com/shukladeepanka5" target="_blank" rel="noopener noreferrer" class="p-2 bg-slate-100 border border-slate-300 rounded-lg flex items-center gap-1.5">
+                  <div class="w-5 h-5 rounded bg-black text-white flex items-center justify-center text-[10px] font-bold">𝕏</div>
+                  <span class="text-xs font-bold text-slate-900 truncate">Twitter</span>
                 </a>
-                <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="p-3 bg-rose-50/70 hover:bg-rose-100 border border-rose-200 rounded-lg flex items-center gap-2.5 transition group">
-                  <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0">
-                    <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
-                  </div>
-                  <div class="overflow-hidden">
-                    <p class="text-[10px] text-rose-800 font-bold uppercase">Instagram</p>
-                    <p class="text-xs font-bold text-slate-900 group-hover:text-rose-900 truncate">@deepankar6479</p>
-                  </div>
+                <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="p-2 bg-rose-50 border border-rose-200 rounded-lg flex items-center gap-1.5">
+                  <div class="w-5 h-5 rounded bg-rose-500 text-white flex items-center justify-center text-[10px] font-bold">IG</div>
+                  <span class="text-xs font-bold text-slate-900 truncate">Instagram</span>
                 </a>
-                <a href="https://facebook.com/deepankar.shukla.37" target="_blank" rel="noopener noreferrer" class="p-3 bg-indigo-50/70 hover:bg-indigo-100 border border-indigo-200 rounded-lg flex items-center gap-2.5 transition group">
-                  <div class="w-7 h-7 rounded-lg bg-[#1877f2] text-white flex items-center justify-center flex-shrink-0">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                  </div>
-                  <div class="overflow-hidden">
-                    <p class="text-[10px] text-indigo-800 font-bold uppercase">Facebook</p>
-                    <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-900 truncate">Deepankar Shukla</p>
-                  </div>
+                <a href="https://facebook.com/deepankar-shukla-37" target="_blank" rel="noopener noreferrer" class="p-2 bg-indigo-50 border border-indigo-200 rounded-lg flex items-center gap-1.5">
+                  <div class="w-5 h-5 rounded bg-[#1877f2] text-white flex items-center justify-center text-[10px] font-bold">f</div>
+                  <span class="text-xs font-bold text-slate-900 truncate">Facebook</span>
                 </a>
               </div>
-            </div>
-
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
-              <i data-lucide="map-pin" class="w-5 h-5 text-indigo-700 flex-shrink-0"></i>
-              <div>
-                <p class="text-[11px] text-slate-500 font-semibold uppercase">Location</p>
-                <p class="text-xs font-bold text-slate-900">Lucknow, Uttar Pradesh, India</p>
-              </div>
-            </div>
-
-            <div class="pt-2">
-              <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-xs">
-                <i data-lucide="download" class="w-4 h-4"></i> Download Full Resume (PDF)
-              </a>
             </div>
           </div>
 
-          <!-- Web3Forms Powered General Contact Form -->
-          <form id="contact-form" class="space-y-3 bg-slate-50 p-6 rounded-xl border border-slate-200 text-xs">
+          <!-- General Form -->
+          <form id="contact-form" class="space-y-2.5 bg-slate-50 p-4 sm:p-5 rounded-xl border border-slate-200 text-xs">
             <div>
               <label class="font-bold text-slate-700 block mb-1">Your Name *</label>
-              <input type="text" id="form-name" required placeholder="John Doe" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
+              <input type="text" id="form-name" required placeholder="John Doe" class="w-full p-2 rounded-lg border border-slate-300 bg-white outline-none">
             </div>
             <div>
               <label class="font-bold text-slate-700 block mb-1">Email Address *</label>
-              <input type="email" id="form-email" required placeholder="john@company.com" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
+              <input type="email" id="form-email" required placeholder="john@company.com" class="w-full p-2 rounded-lg border border-slate-300 bg-white outline-none">
             </div>
             <div>
-              <label class="font-bold text-slate-700 block mb-1">Message / Consultation Query *</label>
-              <textarea id="form-message" rows="3" required placeholder="Tell me about your project or opportunity..." class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+              <label class="font-bold text-slate-700 block mb-1">Message *</label>
+              <textarea id="form-message" rows="3" required placeholder="Your message..." class="w-full p-2 rounded-lg border border-slate-300 bg-white outline-none"></textarea>
             </div>
-            <button type="submit" id="submit-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-lg shadow transition flex items-center justify-center gap-1.5">
-              <i data-lucide="send" class="w-4 h-4"></i> <span id="btn-text">Send Message Directly</span>
+            <button type="submit" id="submit-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 rounded-lg shadow transition flex items-center justify-center gap-1.5">
+              <i data-lucide="send" class="w-3.5 h-3.5"></i> <span id="btn-text">Send Message Directly</span>
             </button>
-            <p id="form-status" class="text-center font-bold mt-2 hidden"></p>
+            <p id="form-status" class="text-center font-bold mt-1.5 text-xs hidden"></p>
           </form>
         </div>
       </div>
@@ -996,76 +883,60 @@
   </main>
 
   <!-- TOAST NOTIFICATION -->
-  <div id="toast-notification" class="fixed bottom-20 md:bottom-6 right-6 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-2xl z-50 opacity-0 pointer-events-none transform translate-y-2 flex items-center gap-2 border border-slate-700">
+  <div id="toast-notification" class="fixed bottom-20 md:bottom-6 right-4 sm:right-6 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-2xl z-50 opacity-0 pointer-events-none transform translate-y-2 flex items-center gap-2 border border-slate-700">
     <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
     <span id="toast-message">Copied to Clipboard!</span>
   </div>
 
-  <!-- FLOATING QUICK-ACTION DOCK (MOBILE) -->
-  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 z-40 flex items-center justify-around shadow-lg">
-    <a href="tel:+918787250550" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-blue-900">
-      <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 mb-0.5">
-        <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+  <!-- FLOATING QUICK-ACTION DOCK (MOBILE EXCLUSIVE) -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-1.5 z-40 flex items-center justify-around shadow-lg">
+    <a href="tel:+918787250550" class="flex flex-col items-center text-[9px] font-bold text-slate-700 hover:text-blue-900">
+      <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 mb-0.5">
+        <i data-lucide="phone" class="w-3 h-3"></i>
       </div>
       Call
     </a>
-    <a href="https://wa.me/918787250550?text=Hello%20Deepankar,%20saw%20your%20WFM%20Portfolio" target="_blank" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-emerald-900">
-      <div class="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 mb-0.5">
-        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+    <a href="https://wa.me/918787250550?text=Hello%20Deepankar,%20saw%20your%20WFM%20Portfolio" target="_blank" class="flex flex-col items-center text-[9px] font-bold text-slate-700 hover:text-emerald-900">
+      <div class="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 mb-0.5">
+        <i data-lucide="message-circle" class="w-3 h-3"></i>
       </div>
       WhatsApp
     </a>
-    <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-blue-700">
-      <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-[#0a66c2] mb-0.5">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
+    <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[9px] font-bold text-slate-700 hover:text-blue-700">
+      <div class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center text-[#0a66c2] mb-0.5 text-[10px] font-bold">
+        in
       </div>
       LinkedIn
     </a>
-    <a href="https://facebook.com/deepankar-shukla-37" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-indigo-700">
-      <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-[#1877f2] mb-0.5">
-        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </div>
-      Facebook
-    </a>
-    <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-slate-900">
-      <div class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 mb-0.5">
-        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+    <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" class="flex flex-col items-center text-[9px] font-bold text-slate-700 hover:text-slate-900">
+      <div class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 mb-0.5">
+        <i data-lucide="download" class="w-3 h-3"></i>
       </div>
       CV PDF
     </a>
   </div>
 
-  <!-- FOOTER WITH VISITOR COUNTER & SOCIAL LINKS -->
-  <footer class="bg-blue-950 text-slate-300 border-t border-blue-900 py-6 text-center text-xs mt-auto">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div class="text-left">
+  <!-- FOOTER -->
+  <footer class="bg-blue-950 text-slate-300 border-t border-blue-900 py-5 text-center text-xs mt-auto">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="text-center sm:text-left">
         <p><strong>Deepankar Shukla</strong> • Lead – Global Command Center (MIS & WFM) © 2026</p>
-        <p class="text-slate-400 text-[11px] flex flex-wrap items-center gap-2 mt-0.5">
-          <span>Pan-India & SEA Operations Analytics Infrastructure</span>
-          <span>•</span>
-          <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">LinkedIn</a>
-          <span>•</span>
-          <a href="https://x.com/shukladeepanka5" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">X (@shukladeepanka5)</a>
-          <span>•</span>
-          <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">Instagram</a>
-          <span>•</span>
-          <a href="https://facebook.com/deepankar-shukla.37" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">Facebook</a>
-        </p>
+        <p class="text-slate-400 text-[10px] sm:text-[11px] mt-0.5">Pan-India & SEA Operations Analytics Infrastructure</p>
       </div>
 
-      <div class="bg-blue-900/60 border border-blue-800 px-3.5 py-1.5 rounded-lg flex items-center gap-2 shadow-inner">
+      <div class="bg-blue-900/60 border border-blue-800 px-3 py-1 rounded-lg flex items-center gap-2 shadow-inner">
         <span class="flex h-2 w-2 relative">
           <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
           <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        <span class="text-slate-300 font-medium text-[11px]">Total Views:</span>
+        <span class="text-slate-300 font-medium text-[10px] sm:text-[11px]">Total Views:</span>
         <img src="https://hits.sh/wfmmisbiodeepankar.netlify.app.svg?style=flat-square&label=&extra=1&color=059669" alt="Live Visitors Count" class="h-4 rounded" />
       </div>
     </div>
   </footer>
 
   <script>
-    // LIVE DATE, TIME & DYNAMIC GREETING ENGINE
+    // Live Clock & Greeting
     function updateLiveDateTime() {
       const now = new Date();
       const optionsDate = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
@@ -1076,19 +947,10 @@
       let greeting = "Hello";
       let emoji = "👋";
 
-      if (hours >= 3 && hours < 12) {
-        greeting = "Good Morning";
-        emoji = "🌅";
-      } else if (hours >= 12 && hours < 17) {
-        greeting = "Good Afternoon";
-        emoji = "☀️";
-      } else if (hours >= 17 && hours < 22) {
-        greeting = "Good Evening";
-        emoji = "🌆";
-      } else {
-        greeting = "Good Night";
-        emoji = "🌙";
-      }
+      if (hours >= 3 && hours < 12) { greeting = "Good Morning"; emoji = "🌅"; }
+      else if (hours >= 12 && hours < 17) { greeting = "Good Afternoon"; emoji = "☀️"; }
+      else if (hours >= 17 && hours < 22) { greeting = "Good Evening"; emoji = "🌆"; }
+      else { greeting = "Good Night"; emoji = "🌙"; }
 
       const greetingElem = document.getElementById('dynamic-greeting');
       const emojiElem = document.getElementById('greeting-emoji');
@@ -1098,11 +960,10 @@
       if (emojiElem) emojiElem.innerText = emoji;
       if (datetimeElem) datetimeElem.innerText = `${dateStr} | ${timeStr}`;
     }
-
     updateLiveDateTime();
     setInterval(updateLiveDateTime, 1000);
 
-    // DYNAMIC PASSCODE ENGINE
+    // Passcode Verification
     let activeDynamicPasscode = ""; 
 
     function unlockSocialGrid() {
@@ -1114,8 +975,8 @@
         lockedContainer.classList.add('hidden');
         unlockedGrid.classList.remove('hidden');
         if (statusBadge) {
-          statusBadge.className = 'bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-300 flex items-center gap-1';
-          statusBadge.innerHTML = '<i data-lucide="unlock" class="w-3 h-3 text-emerald-700"></i> Authorized';
+          statusBadge.className = 'bg-emerald-100 text-emerald-900 text-[9px] font-bold px-2 py-0.5 rounded border border-emerald-300';
+          statusBadge.innerText = 'Authorized';
         }
         lucide.createIcons();
       }
@@ -1131,12 +992,12 @@
         showToast('Access Approved! Social profiles unlocked.');
       } else if (!activeDynamicPasscode) {
         if (msg) {
-          msg.innerText = '⚠️ Please send an access request first to get a passcode.';
+          msg.innerText = '⚠️ Please send an access request first.';
           msg.className = 'text-[10px] text-amber-700 font-bold mt-1';
         }
       } else {
         if (msg) {
-          msg.innerText = '❌ Invalid Passcode. Please check the code sent to your WhatsApp.';
+          msg.innerText = '❌ Invalid Passcode. Check WhatsApp.';
           msg.className = 'text-[10px] text-rose-600 font-bold mt-1';
         }
       }
@@ -1158,13 +1019,12 @@
         activeDynamicPasscode = "DS" + Math.floor(1000 + Math.random() * 9000);
 
         btn.disabled = true;
-        btnText.innerText = 'Sending Request...';
+        btnText.innerText = 'Sending...';
         statusMsg.classList.add('hidden');
 
         const waText = encodeURIComponent(`Hi ${visitorName}, your passcode is ${activeDynamicPasscode}`);
         const shortWaLink = `https://wa.me/${visitorPhone}?text=${waText}`;
-
-        const cleanEmailBody = `New Access Request:\nName: ${visitorName}\nPhone: +${visitorPhone}\nReason: ${visitorReason}\nOTP Code: ${activeDynamicPasscode}\n\nWhatsApp Approve Link:\n${shortWaLink}`;
+        const cleanEmailBody = `New Access Request:\nName: ${visitorName}\nPhone: +${visitorPhone}\nReason: ${visitorReason}\nOTP: ${activeDynamicPasscode}\nWhatsApp: ${shortWaLink}`;
 
         const reqData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
@@ -1180,21 +1040,20 @@
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(reqData)
           });
-          const json = await res.json();
           if (res.status === 200) {
-            statusMsg.innerText = '✅ Request sent! You will receive your passcode on WhatsApp once approved.';
-            statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
+            statusMsg.innerText = '✅ Request sent! You will receive passcode on WhatsApp.';
+            statusMsg.className = 'text-center font-bold mt-1 text-[10px] text-emerald-700 block';
             socialReqForm.reset();
           } else {
-            statusMsg.innerText = '❌ ' + (json.message || 'Submission failed.');
-            statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-rose-600 block';
+            statusMsg.innerText = '❌ Submission failed.';
+            statusMsg.className = 'text-center font-bold mt-1 text-[10px] text-rose-600 block';
           }
         } catch (err) {
-          statusMsg.innerText = '❌ Network error. Please try again.';
-          statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-rose-600 block';
+          statusMsg.innerText = '❌ Network error.';
+          statusMsg.className = 'text-center font-bold mt-1 text-[10px] text-rose-600 block';
         } finally {
           btn.disabled = false;
-          btnText.innerText = 'Send Access Request';
+          btnText.innerText = 'Send Request';
           lucide.createIcons();
         }
       });
@@ -1210,7 +1069,6 @@
 
         submitBtn.disabled = true;
         btnText.innerText = 'Sending...';
-        formStatus.classList.add('hidden');
 
         const formData = {
           access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
@@ -1226,56 +1084,23 @@
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(formData)
           });
-
-          const json = await response.json();
           if (response.status === 200) {
-            formStatus.innerText = '✅ Message sent successfully! I will reach out soon.';
-            formStatus.className = 'text-center font-bold mt-2 text-emerald-600 text-xs block';
+            formStatus.innerText = '✅ Message sent successfully!';
+            formStatus.className = 'text-center font-bold mt-1.5 text-emerald-600 text-xs block';
             contactForm.reset();
           } else {
-            formStatus.innerText = '❌ ' + (json.message || 'Failed to send.');
-            formStatus.className = 'text-center font-bold mt-2 text-rose-600 text-xs block';
+            formStatus.innerText = '❌ Failed to send.';
+            formStatus.className = 'text-center font-bold mt-1.5 text-rose-600 text-xs block';
           }
         } catch (err) {
-          formStatus.innerText = '❌ Network error. Please try again.';
-          formStatus.className = 'text-center font-bold mt-2 text-rose-600 text-xs block';
+          formStatus.innerText = '❌ Network error.';
+          formStatus.className = 'text-center font-bold mt-1.5 text-rose-600 text-xs block';
         } finally {
           submitBtn.disabled = false;
           btnText.innerText = 'Send Message Directly';
           lucide.createIcons();
         }
       });
-    }
-
-    function getOrdinalSuffix(n) {
-      const s = ["th", "st", "nd", "rd"];
-      const v = n % 100;
-      return n + (s[(v - 20) % 10] || s[v] || s[0]);
-    }
-
-    function checkNationalDay() {
-      const now = new Date();
-      const month = now.getMonth() + 1;
-      const day = now.getDate();
-      const year = now.getFullYear();
-      let eventGreeting = "";
-
-      if (month === 1 && day === 26) {
-        eventGreeting = `Happy ${getOrdinalSuffix(year - 1950 + 1)} Republic Day (${year})! Celebrating the Democratic Spirit of India`;
-      } else if (month === 8 && day === 15) {
-        eventGreeting = `Happy ${getOrdinalSuffix(year - 1947 + 1)} Independence Day (${year})! Celebrating Freedom & Global Leadership`;
-      } else if (month === 10 && day === 2) {
-        eventGreeting = `Remembering Mahatma Gandhi on his ${getOrdinalSuffix(year - 1869)} Birth Anniversary | International Day of Non-Violence`;
-      }
-
-      if (eventGreeting) {
-        const banner = document.getElementById('national-event-banner');
-        const bannerText = document.getElementById('national-event-text');
-        if (banner && bannerText) {
-          bannerText.innerText = eventGreeting;
-          banner.classList.remove('hidden');
-        }
-      }
     }
 
     function showTab(tabId) {
@@ -1306,7 +1131,7 @@
       }, 2500);
     }
 
-    // WFM ENGINE & FORMULATED EXCEL EXPORT
+    // WFM Engine Calculations
     function loadSampleData() {
       if(document.getElementById('eng-vol')) document.getElementById('eng-vol').value = 55000;
       if(document.getElementById('eng-aht')) document.getElementById('eng-aht').value = 300;
@@ -1378,18 +1203,17 @@
       if (occStatus) {
         if (modelOccupancy > 85) {
           occStatus.innerText = "⚠️ Overloaded (>85% Risk)";
-          occStatus.className = "bg-rose-950 border border-rose-800 px-4 py-2 rounded-lg text-rose-400 text-xs font-bold text-center";
+          occStatus.className = "bg-rose-950 border border-rose-800 px-3 py-1.5 rounded-lg text-rose-400 text-xs font-bold text-center";
         } else if (modelOccupancy < 75) {
           occStatus.innerText = "💤 Underutilized (<75%)";
-          occStatus.className = "bg-amber-950 border border-amber-800 px-4 py-2 rounded-lg text-amber-400 text-xs font-bold text-center";
+          occStatus.className = "bg-amber-950 border border-amber-800 px-3 py-1.5 rounded-lg text-amber-400 text-xs font-bold text-center";
         } else {
           occStatus.innerText = "✅ Optimal Range (75%-85%)";
-          occStatus.className = "bg-emerald-950 border border-emerald-800 px-4 py-2 rounded-lg text-emerald-400 text-xs font-bold text-center";
+          occStatus.className = "bg-emerald-950 border border-emerald-800 px-3 py-1.5 rounded-lg text-emerald-400 text-xs font-bold text-center";
         }
       }
     }
 
-    // FORMULATED EXCEL EXPORT (100% Correct Cell Mapping)
     function exportEngineReport() {
       runCapacityEngine();
       runOccupancySim();
@@ -1403,22 +1227,6 @@
       const occVol = document.getElementById('occ-vol')?.value || 65000;
       const occHC = document.getElementById('occ-hc')?.value || 65;
 
-      // Row mapping:
-      // Row 1: Title
-      // Row 2: Header
-      // Row 3: Monthly Volume (B3)
-      // Row 4: AHT (B4)
-      // Row 5: Shrinkage % (B5)
-      // Row 6: Paid Hours/Month (B6)
-      // Row 7: Buffer % (B7)
-      // Row 8: Current Active HC (B8)
-      // Row 9: Cost Per FTE (B9)
-      // Row 10: New Business Volume (B10)
-      // Row 11: New Business Headcount (B11)
-      // Row 12: Required Gross FTE (B12)
-      // Row 13: Staffing Gap/Surplus (B13)
-      // Row 14: Model Occupancy % (B14)
-      // Row 15: Estimated Payroll (B15)
       const csvContent = "\uFEFF" + "Deepankar Shukla - WFMengine Formulated Report\n"
         + "Parameter,Value / Excel Formula\n"
         + `Monthly Volume,${vol}\n`
@@ -1498,7 +1306,7 @@
       if(document.getElementById('res-var-rev')) document.getElementById('res-var-rev').innerText = (delta >= 0 ? '+₹' : '-₹') + Math.abs(delta).toLocaleString('en-IN');
     }
 
-    // Chart.js Visuals
+    // Charts Render
     let chartsRendered = false;
     function renderCharts() {
       if (chartsRendered) return;
@@ -1511,32 +1319,11 @@
           data: {
             labels: ['09:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:00'],
             datasets: [
-              {
-                label: 'Call Volume',
-                data: [120, 380, 490, 420, 510, 320, 180],
-                borderColor: '#1e40af',
-                backgroundColor: 'rgba(30, 64, 175, 0.1)',
-                yAxisID: 'y',
-                tension: 0.3,
-                fill: true
-              },
-              {
-                label: 'SLA Achieved %',
-                data: [94, 88, 82, 85, 81, 91, 95],
-                borderColor: '#059669',
-                yAxisID: 'y1',
-                tension: 0.3
-              }
+              { label: 'Call Volume', data: [120, 380, 490, 420, 510, 320, 180], borderColor: '#1e40af', backgroundColor: 'rgba(30, 64, 175, 0.1)', yAxisID: 'y', tension: 0.3, fill: true },
+              { label: 'SLA %', data: [94, 88, 82, 85, 81, 91, 95], borderColor: '#059669', yAxisID: 'y1', tension: 0.3 }
             ]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              y: { position: 'left', title: { display: true, text: 'Calls' } },
-              y1: { position: 'right', max: 100, min: 50, title: { display: true, text: 'SLA %' } }
-            }
-          }
+          options: { responsive: true, maintainAspectRatio: false }
         });
       }
 
@@ -1545,19 +1332,10 @@
         new Chart(ctx2, {
           type: 'doughnut',
           data: {
-            labels: ['Planned Leave (AL/SL)', 'Unplanned Attrition', 'Training & Coaching', 'Meeting / RnP Loss'],
-            datasets: [{
-              data: [9.5, 4.2, 3.8, 2.5],
-              backgroundColor: ['#1e3a8a', '#dc2626', '#0284c7', '#f59e0b']
-            }]
+            labels: ['Leave (AL/SL)', 'Attrition', 'Training', 'Meetings'],
+            datasets: [{ data: [9.5, 4.2, 3.8, 2.5], backgroundColor: ['#1e3a8a', '#dc2626', '#0284c7', '#f59e0b'] }]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
-            }
-          }
+          options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } } }
         });
       }
 
@@ -1566,45 +1344,14 @@
         new Chart(ctxRadar, {
           type: 'radar',
           data: {
-            labels: [
-              'Workforce Planning & Erlang-C',
-              'Switch Telemetry (Avaya / CUIC)',
-              'Financial Invoicing (Connect-Min/FTE)',
-              'ETL & Automation (PowerShell/VBA)',
-              'Database & ERP (MS Access/NAV)'
-            ],
-            datasets: [{
-              label: 'Mastery Level (%)',
-              data: [98, 95, 96, 94, 92],
-              backgroundColor: 'rgba(30, 58, 138, 0.25)',
-              borderColor: '#1e40af',
-              pointBackgroundColor: '#2563eb',
-              pointBorderColor: '#fff',
-              pointHoverBackgroundColor: '#fff',
-              pointHoverBorderColor: '#2563eb'
-            }]
+            labels: ['WFM & Erlang-C', 'Switch Telemetry', 'Financial Invoicing', 'ETL Automation', 'Database / ERP'],
+            datasets: [{ label: 'Mastery (%)', data: [98, 95, 96, 94, 92], backgroundColor: 'rgba(30, 58, 138, 0.25)', borderColor: '#1e40af', pointBackgroundColor: '#2563eb' }]
           },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              r: {
-                angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
-                suggestedMin: 50,
-                suggestedMax: 100,
-                ticks: { stepSize: 10, backdropColor: 'transparent', font: { size: 9 } },
-                pointLabels: { font: { size: 10, weight: 'bold' }, color: '#1e293b' }
-              }
-            },
-            plugins: {
-              legend: { display: false }
-            }
-          }
+          options: { responsive: true, maintainAspectRatio: false, scales: { r: { suggestedMin: 50, suggestedMax: 100, ticks: { stepSize: 10, backdropColor: 'transparent', font: { size: 8 } }, pointLabels: { font: { size: 9, weight: 'bold' } } } }, plugins: { legend: { display: false } } }
         });
       }
     }
 
-    checkNationalDay();
     runCapacityEngine();
     runOccupancySim();
     runFteCalculator();
