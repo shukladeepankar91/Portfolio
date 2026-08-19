@@ -127,11 +127,8 @@
       <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
         <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Executive Dashboard
       </button>
-      <button id="nav-calculators" onclick="showTab('calculators')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
-        <i data-lucide="calculator" class="w-4 h-4"></i> WFM Calculators
-      </button>
       <button id="nav-engine" onclick="showTab('engine')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 text-amber-300 font-bold">
-        <i data-lucide="cpu" class="w-4 h-4"></i> WFM Capacity Engine 🚀
+        <i data-lucide="cpu" class="w-4 h-4"></i> WFMengine 🚀
       </button>
       <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
         <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Telemetry & Visuals
@@ -256,119 +253,17 @@
       </div>
     </div>
 
-    <!-- TAB 2: INTERACTIVE WFM CALCULATORS -->
-    <div id="tab-calculators" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
-        <div>
-          <h2 class="text-2xl font-extrabold text-blue-950 mb-2">Interactive WFM & Financial Simulation Engines</h2>
-          <p class="text-sm text-slate-600">Live operational modeling tools showcasing mathematical workforce planning, FTE equations, and telecom invoicing architecture.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Calculator 1: Capacity & FTE Modeler -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
-            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-              <div class="flex items-center gap-2 text-blue-900 font-bold text-base">
-                <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i>
-                <h3>Erlang-C / FTE Capacity Estimator</h3>
-              </div>
-            </div>
-
-            <div class="space-y-3 text-xs">
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
-                <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
-              </div>
-              <div class="grid grid-cols-2 gap-3">
-                <div>
-                  <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
-                  <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
-                </div>
-                <div>
-                  <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
-                  <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator()">
-                    <option value="1800">30 Mins (1800s)</option>
-                    <option value="3600">60 Mins (3600s)</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">Total Shrinkage %:</label>
-                <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator();">
-                <span id="shrink-val" class="text-blue-700 font-bold text-xs">22%</span>
-              </div>
-            </div>
-
-            <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
-              <div>
-                <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
-                <p id="res-net-fte" class="text-2xl font-black text-emerald-400">80.0</p>
-              </div>
-              <div>
-                <p class="text-[11px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
-                <p id="res-gross-fte" class="text-2xl font-black text-amber-400">102.6</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Calculator 2: Billing Model Comparison -->
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
-            <div class="flex items-center gap-2 text-emerald-900 font-bold text-base border-b border-slate-200 pb-3">
-              <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i>
-              <h3>Connect-Minute vs FTE Billing Simulator</h3>
-            </div>
-
-            <div class="space-y-3 text-xs">
-              <div class="grid grid-cols-2 gap-3">
-                <div>
-                  <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
-                  <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-                </div>
-                <div>
-                  <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
-                  <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-                </div>
-              </div>
-              <div class="grid grid-cols-2 gap-3">
-                <div>
-                  <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
-                  <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-                </div>
-                <div>
-                  <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
-                  <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
-              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-                <span>Connect-Minute Revenue:</span>
-                <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
-              </div>
-              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-                <span>FTE Retainer Revenue:</span>
-                <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
-              </div>
-              <div class="flex justify-between items-center pt-1 font-bold">
-                <span>Variance (Model Delta):</span>
-                <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 3: WFM CAPACITY PLANNING ENGINE (WITH MODEL OCCUPANCY) -->
-    <div id="tab-engine" class="tab-content hidden space-y-6">
+    <!-- TAB 2: WFMENGINE HUB (ALL SIMULATORS INTEGRATED) -->
+    <div id="tab-engine" class="tab-content hidden space-y-8">
+      
+      <!-- Section A: Advanced Capacity Planning & Occupancy Engine -->
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div>
             <span class="text-[11px] font-extrabold uppercase tracking-widest text-amber-700 bg-amber-50 px-2.5 py-1 rounded border border-amber-200">
-              Advanced Workforce Simulation
+              Master Simulation Hub
             </span>
-            <h2 class="text-2xl font-extrabold text-blue-950 mt-1">WFM Capacity Planning & Occupancy Engine</h2>
+            <h2 class="text-2xl font-extrabold text-blue-950 mt-1">WFMengine: Capacity Planning & Model Occupancy</h2>
             <p class="text-xs text-slate-600 mt-0.5">Computes required FTE, headcount gaps, agent occupancy impact for new business, and financial payroll.</p>
           </div>
           <div class="flex items-center gap-2">
@@ -385,35 +280,35 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           <div>
             <label class="font-bold text-slate-700 block mb-1">Monthly Volume (Calls/Transactions):</label>
-            <input type="number" id="eng-vol" value="55000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-vol" value="55000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
           <div>
             <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
-            <input type="number" id="eng-aht" value="300" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-aht" value="300" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
           <div>
             <label class="font-bold text-slate-700 block mb-1">Shrinkage %:</label>
-            <input type="number" id="eng-shrink" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-shrink" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
           <div>
             <label class="font-bold text-slate-700 block mb-1">Paid Hours / Month per FTE:</label>
-            <input type="number" id="eng-paidhrs" value="160" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-paidhrs" value="160" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
           <div>
             <label class="font-bold text-slate-700 block mb-1">Buffer %:</label>
-            <input type="number" id="eng-buffer" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-buffer" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
           <div>
             <label class="font-bold text-slate-700 block mb-1">Current Active HC (Agents):</label>
-            <input type="number" id="eng-currhc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-currhc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
           <div>
             <label class="font-bold text-slate-700 block mb-1">Monthly Attrition %:</label>
-            <input type="number" id="eng-attr" value="5" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-attr" value="5" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
           <div>
             <label class="font-bold text-slate-700 block mb-1">Cost Per FTE / Month (₹):</label>
-            <input type="number" id="eng-cost" value="50000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
+            <input type="number" id="eng-cost" value="50000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600" oninput="runCapacityEngine()">
           </div>
         </div>
 
@@ -446,17 +341,107 @@
               <p id="out-cost" class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">--</p>
             </div>
           </div>
-
-          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-900 space-y-1">
-            <p class="font-bold">💡 How Model Occupancy is Calculated for New Business:</p>
-            <p>• <strong>Formula:</strong> $\text{Occupancy} = (\text{Net Workload Hours} / \text{Available Staffed Hours}) \times 100$</p>
-            <p>• When new business volume increases, if headcount is not scaled accordingly, occupancy spikes above 85%, leading to agent burn-out and SLA breaches. This engine factors in your shrinkage and buffer to maintain optimal occupancy.</p>
-          </div>
         </div>
       </div>
+
+      <!-- Section B: Erlang-C & Billing Model Simulators -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Calculator 1: Erlang-C / FTE Capacity Estimator -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 space-y-4 shadow-sm">
+          <div class="flex items-center gap-2 text-blue-900 font-bold text-base border-b border-slate-200 pb-3">
+            <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i>
+            <h3>Erlang-C / Interval FTE Estimator</h3>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
+              <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
+                <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
+              </div>
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
+                <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator()">
+                  <option value="1800">30 Mins (1800s)</option>
+                  <option value="3600">60 Mins (3600s)</option>
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Total Shrinkage %:</label>
+              <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator();">
+              <span id="shrink-val" class="text-blue-700 font-bold text-xs">22%</span>
+            </div>
+          </div>
+
+          <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
+            <div>
+              <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
+              <p id="res-net-fte" class="text-2xl font-black text-emerald-400">80.0</p>
+            </div>
+            <div>
+              <p class="text-[11px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
+              <p id="res-gross-fte" class="text-2xl font-black text-amber-400">102.6</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculator 2: Connect-Minute vs FTE Billing Simulator -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 space-y-4 shadow-sm">
+          <div class="flex items-center gap-2 text-emerald-900 font-bold text-base border-b border-slate-200 pb-3">
+            <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i>
+            <h3>Connect-Minute vs FTE Billing Simulator</h3>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
+                <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+              </div>
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
+                <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
+                <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+              </div>
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
+                <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
+            <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+              <span>Connect-Minute Revenue:</span>
+              <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+              <span>FTE Retainer Revenue:</span>
+              <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
+            </div>
+            <div class="flex justify-between items-center pt-1 font-bold">
+              <span>Variance (Model Delta):</span>
+              <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- TAB 4: TELEMETRY & VISUAL CHARTS -->
+    <!-- TAB 3: TELEMETRY & VISUAL CHARTS -->
     <div id="tab-competencies" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
@@ -520,7 +505,7 @@
       </div>
     </div>
 
-    <!-- TAB 5: CAREER MILESTONES -->
+    <!-- TAB 4: CAREER MILESTONES -->
     <div id="tab-experience" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
         <h2 class="text-2xl font-extrabold text-blue-950 flex items-center gap-2.5">
@@ -542,7 +527,7 @@
       </div>
     </div>
 
-    <!-- TAB 6: COMPREHENSIVE BIO -->
+    <!-- TAB 5: COMPREHENSIVE BIO -->
     <div id="tab-about" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
         <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-6">
@@ -562,7 +547,7 @@
       </div>
     </div>
 
-    <!-- TAB 7: CONNECT -->
+    <!-- TAB 6: CONNECT -->
     <div id="tab-contact" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto space-y-6">
         <div class="text-center">
@@ -635,7 +620,7 @@
     updateLiveDateTime();
     setInterval(updateLiveDateTime, 1000);
 
-    // WFM CAPACITY PLANNING & OCCUPANCY ENGINE LOGIC
+    // WFMENGINE HUB LOGIC
     function loadSampleData() {
       document.getElementById('eng-vol').value = 55000;
       document.getElementById('eng-aht').value = 300;
@@ -656,7 +641,6 @@
       const paidHrs = parseFloat(document.getElementById('eng-paidhrs').value) || 160;
       const buffer = (parseFloat(document.getElementById('eng-buffer').value) || 0) / 100;
       const currHC = parseFloat(document.getElementById('eng-currhc').value) || 0;
-      const attr = (parseFloat(document.getElementById('eng-attr').value) || 0) / 100;
       const costPerFte = parseFloat(document.getElementById('eng-cost').value) || 0;
 
       // Mathematical Calculations
@@ -669,10 +653,10 @@
       const gapOrSurplus = currHC - finalRequiredFte;
       const monthlyPayroll = finalRequiredFte * costPerFte;
 
-      // Model Occupancy Calculation (Workload Hours / Available Staffed Staff Hours)
+      // Model Occupancy Calculation
       const availableStaffedHours = currHC * paidHrs * (1 - shrink);
       let modelOccupancy = availableStaffedHours > 0 ? (totalWorkloadHours / availableStaffedHours) * 100 : 0;
-      if (modelOccupancy > 100) modelOccupancy = 100; // cap at 100%
+      if (modelOccupancy > 100) modelOccupancy = 100;
 
       document.getElementById('out-fte').innerText = finalRequiredFte.toFixed(1) + " FTE";
       document.getElementById('out-gap').innerText = (gapOrSurplus >= 0 ? "+" : "") + gapOrSurplus.toFixed(1) + " FTE";
@@ -704,7 +688,7 @@
       const payroll = document.getElementById('out-cost').innerText;
 
       const csvContent = "data:text/csv;charset=utf-8," 
-        + "Deepankar Shukla - WFM Capacity & Occupancy Engine Report\n"
+        + "Deepankar Shukla - WFMengine Report\n"
         + "Parameter,Value\n"
         + `Monthly Volume,${vol}\n`
         + `AHT (Seconds),${aht}\n`
@@ -718,11 +702,11 @@
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", `WFM_Capacity_Occupancy_Report.csv`);
+      link.setAttribute("download", `WFMengine_Capacity_Report.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast("Engine report exported to Excel!");
+      showToast("WFMengine report exported to Excel!");
     }
 
     // Run engine on load
