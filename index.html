@@ -1,51 +1,1669 @@
-# Create an Excel file with formulas, styled professionally.
-import pandas as pd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deepankar Shukla | Lead – Global Command Center (MIS & WFM)</title>
+  
+  <!-- Google tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-14MSPNDFYJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-# Data for the report
-data = {
-    'Parameter': [
-        'Monthly Volume', 'AHT (Seconds)', 'Shrinkage %', 'Paid Hours/Month', 
-        'Buffer %', 'Current HC', 'Monthly Attrition %', 'Cost Per FTE',
-        '', 
-        'Required Gross FTE', 'Staffing Gap/Surplus', 'Model Occupancy %', 'Estimated Payroll'
-    ],
-    'Value': [
-        55000, 300, 30, 160, 
-        30, 65, 5, 50000,
-        '',
-        '=((B1*B2/3600)/B4)/(1-(B3/100))*(1+(B5/100))',
-        '=B6-B10',
-        '=((B1*B2/3600)/(B6*B4*(1-(B3/100))))*100',
-        '=B10*B8'
-    ]
-}
+    gtag('config', 'G-14MSPNDFYJ');
+  </script>
 
-df = pd.DataFrame(data)
+  <!-- OpenGraph / Social Meta Tags -->
+  <meta property="og:title" content="Deepankar Shukla | Lead – Global Command Center (MIS & WFM)" />
+  <meta property="og:description" content="9+ Years of expertise in WFM Capacity Planning, Operations Analytics, Erlang-C modeling, and Multi-Country Command Center Governance." />
+  <meta property="og:image" content="profile.jpg" />
+  <meta property="og:type" content="website" />
 
-# Generate the Excel file
-file_path = 'WFMengine_Report_Formulated.xlsx'
-writer = pd.ExcelWriter(file_path, engine='openpyxl')
-df.to_excel(writer, index=False, sheet_name='WFM Report')
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Chart.js for Telemetry & Radar Visuals -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-# Accessing the workbook and sheet
-wb = writer.book
-ws = writer.sheets['WFM Report']
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+    .hidden { display: none !important; }
+    
+    #toast-notification {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col selection:bg-blue-600 selection:text-white pb-16 md:pb-0">
 
-# Basic Formatting
-from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
+  <!-- DYNAMIC NATIONAL DAY BANNER -->
+  <div id="national-event-banner" class="hidden bg-gradient-to-r from-orange-500 via-white to-emerald-700 text-slate-900 border-b border-slate-300 py-2.5 px-4 shadow-md font-bold text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-5 sm:w-10 sm:h-6 rounded shadow border border-slate-300 overflow-hidden flex-shrink-0 flex flex-col">
+          <div class="bg-[#FF9933] h-1/3 w-full"></div>
+          <div class="bg-white h-1/3 w-full flex items-center justify-center relative">
+            <svg class="w-2.5 h-2.5 text-[#000080]" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="#000080" stroke-width="1.5" fill="none"/>
+              <circle cx="12" cy="2" fill="#000080"/>
+              <path d="M12 2 L12 22 M2 12 L22 12 M4.93 4.93 L19.07 19.07 M4.93 19.07 L19.07 4.93 M2.93 7.07 L21.07 16.93 M2.93 16.93 L21.07 7.07 M7.07 2.93 L16.93 21.07 M7.07 21.07 L16.93 2.93" stroke="#000080" stroke-width="0.8"/>
+            </svg>
+          </div>
+          <div class="bg-[#128807] h-1/3 w-full"></div>
+        </div>
+        <span id="national-event-text" class="text-blue-950 uppercase tracking-wide font-black"></span>
+      </div>
+      <span class="bg-blue-950 text-white text-[10px] sm:text-xs px-3 py-1 rounded-full shadow font-semibold flex-shrink-0">
+        Jai Hind 🇮🇳
+      </span>
+    </div>
+  </div>
 
-header_font = Font(bold=True, color="FFFFFF")
-header_fill = PatternFill(start_color="1e3a8a", end_color="1e3a8a", fill_type="solid")
-center_alignment = Alignment(horizontal="center")
+  <!-- TOP HEADER AREA -->
+  <header class="bg-white border-b border-slate-200 py-4 px-4 sm:px-8 shadow-sm">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-14 h-14 rounded-xl bg-blue-950 text-white flex items-center justify-center font-black text-2xl shadow-md border-2 border-blue-800 flex-shrink-0 overflow-hidden">
+          <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-2xl">DS</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-blue-950 uppercase leading-none">
+              Deepankar Shukla
+            </h1>
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2 py-0.5 rounded border border-emerald-300">
+              ● GCC LEAD
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm font-semibold text-blue-700 mt-1">
+            Lead – Global Command Center (MIS & WFM) | Workforce Planning & Operations Analytics
+          </p>
+          <p class="text-[11px] text-slate-500 flex flex-wrap items-center gap-1.5 mt-0.5">
+            <span>📍 Lucknow, Uttar Pradesh, India</span>
+            <span>•</span>
+            <button onclick="copyToClipboard('shukladeepankar91@gmail.com', 'Email ID')" class="hover:text-blue-700 underline font-medium flex items-center gap-0.5">
+              ✉️ shukladeepankar91@gmail.com
+            </button>
+            <span>•</span>
+            <button onclick="copyToClipboard('+918787250550', 'Phone Number')" class="hover:text-emerald-700 underline font-medium flex items-center gap-0.5">
+              📞 +91-8787250550
+            </button>
+          </p>
+        </div>
+      </div>
 
-# Apply styles
-for cell in ws[1]:
-    cell.font = header_font
-    cell.fill = header_fill
-    cell.alignment = center_alignment
+      <!-- ACTION BUTTONS & LIVE TIME WIDGET -->
+      <div class="flex flex-col sm:flex-row items-center gap-3">
+        <!-- RESTORED ACTION BUTTONS -->
+        <div class="flex items-center gap-2">
+          <button onclick="showTab('contact')" class="bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4"></i> Get in Touch
+          </button>
+          <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow transition flex items-center gap-2">
+            <i data-lucide="file-text" class="w-4 h-4"></i> Download CV
+          </a>
+        </div>
 
-ws.column_dimensions['A'].width = 30
-ws.column_dimensions['B'].width = 20
+        <div class="flex flex-col items-end justify-center bg-blue-50 border border-blue-200 px-4 py-2 rounded-xl text-right shadow-inner w-full md:w-auto flex-shrink-0">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-blue-950">
+            <span id="dynamic-greeting">Hello</span>, Visitor! <span id="greeting-emoji">👋</span>
+          </div>
+          <div id="live-datetime" class="text-[11px] font-semibold text-slate-600 mt-0.5">
+            Loading time...
+          </div>
+        </div>
+      </div>
 
-writer.close()
-print(file_path)
+    </div>
+  </header>
+
+  <!-- MAIN NAVIGATION BAR -->
+  <nav class="bg-blue-950 text-white shadow-md sticky top-0 z-40 border-b-2 border-blue-900">
+    <div class="max-w-7xl mx-auto flex overflow-x-auto text-xs sm:text-sm font-semibold whitespace-nowrap">
+      <button id="nav-home" onclick="showTab('home')" class="nav-link bg-blue-800 px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Executive Dashboard
+      </button>
+      <button id="nav-calculators" onclick="showTab('calculators')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5 text-amber-300 font-bold">
+        <i data-lucide="cpu" class="w-4 h-4"></i> WFMengine 🚀
+      </button>
+      <button id="nav-competencies" onclick="showTab('competencies')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+        <i data-lucide="bar-chart-3" class="w-4 h-4"></i> Telemetry & Visuals
+      </button>
+      <button id="nav-experience" onclick="showTab('experience')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+        <i data-lucide="briefcase" class="w-4 h-4"></i> Career Milestones
+      </button>
+      <button id="nav-about" onclick="showTab('about')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition border-r border-blue-900 flex items-center gap-1.5">
+        <i data-lucide="user" class="w-4 h-4"></i> Comprehensive Bio
+      </button>
+      <button id="nav-contact" onclick="showTab('contact')" class="nav-link px-4 sm:px-5 py-3 hover:bg-blue-800 transition flex items-center gap-1.5">
+        <i data-lucide="phone-call" class="w-4 h-4"></i> Connect & Inquiry
+      </button>
+    </div>
+  </nav>
+
+  <!-- MARQUEE TICKER -->
+  <div class="bg-white border-b border-slate-200 py-2 px-4 shadow-sm">
+    <div class="max-w-7xl mx-auto flex items-center gap-3 overflow-hidden text-xs sm:text-sm">
+      <span class="bg-red-600 text-white font-bold px-2.5 py-0.5 rounded text-[10px] uppercase tracking-wider flex-shrink-0 animate-pulse">
+        ● GCC UPDATE
+      </span>
+      <div class="overflow-hidden whitespace-nowrap w-full">
+        <div class="animate-marquee font-medium text-blue-950 space-x-8">
+          <span class="font-bold text-blue-900">🌐 Managing Pan-India & SEA (MY, ID, VN, TH) Command Center Operations</span>
+          <span>|</span>
+          <span class="text-emerald-700 font-semibold">📊 Financial Modeling: Connect-Minute, FTE & Per-Hour Billing</span>
+          <span>|</span>
+          <span class="text-red-700 font-semibold">⚙️ Telephony & Telemetry: Avaya CMS, Cisco CUIC, IEX, SFTP</span>
+          <span>|</span>
+          <span class="text-indigo-800 font-semibold">🏢 Supporting: Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit & Zomato</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto w-full p-4 sm:p-6 flex-1 space-y-6">
+
+    <!-- TAB 1: EXECUTIVE DASHBOARD (HOME) -->
+    <div id="tab-home" class="tab-content space-y-6">
+      <section class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-4">
+          <div>
+            <span class="text-[11px] font-extrabold uppercase tracking-widest text-blue-700 bg-blue-50 px-2.5 py-1 rounded border border-blue-200">
+              Executive Profile Summary
+            </span>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">Workforce Planning & Operations Analytics Leadership</h2>
+          </div>
+          <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1.5 rounded-lg border border-slate-200 font-medium">
+            📍 Base: Lucknow, UP • Multi-Region Scope
+          </span>
+        </div>
+        <p class="text-sm sm:text-base text-slate-700 leading-relaxed">
+          "Results-driven WFM & MIS professional with over <strong>9 years of cross-functional experience</strong> driving large-scale capacity planning, operational analytics, process automation, and multi-region command center operations across India and Southeast Asia (SEA). Specialized in financial modeling/invoicing (Connect-minute, FTE & Per-hour billing), complex dashboard architecture, and advanced VBA/Access solutions."
+        </p>
+      </section>
+
+      <!-- Stats Grid -->
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-blue-800">
+          <p class="text-3xl sm:text-4xl font-extrabold text-blue-950">9+ Years</p>
+          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Experience in MIS & WFM</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">BPM & Public Sector Ops</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-emerald-700">
+          <p class="text-3xl sm:text-4xl font-extrabold text-emerald-700">11+ Members</p>
+          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Team Leadership</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">Pan-India GCC MIS Operations</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-cyan-700">
+          <p class="text-2xl sm:text-3xl font-extrabold text-cyan-800 pt-1">Pan-India & SEA</p>
+          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Multi-Regional Scope</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">Malaysia, Indo, Vietnam, Thai</p>
+        </div>
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm text-center border-t-4 border-t-amber-600">
+          <p class="text-3xl sm:text-4xl font-extrabold text-amber-700">End-to-End</p>
+          <p class="text-xs font-bold text-slate-700 uppercase mt-1">Financial & Invoicing</p>
+          <p class="text-[11px] text-slate-500 mt-0.5">CBA, RPA & Capacity Planning</p>
+        </div>
+      </section>
+
+      <!-- 3 Key Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+          <div class="bg-rose-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
+            🏆 GLOBAL COMMAND CENTER CORE
+          </div>
+          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
+            <li class="pt-2 text-slate-700">
+              <strong>Revenue Invoicing:</strong> Auditing and rolling out connect-minute based, FTE based, and per-hour based billing models with end-to-end revenue governance.
+            </li>
+            <li class="pt-2 text-slate-700">
+              <strong>Pan-India Dashboards & Multi-Country Sync:</strong> Daily Performance Reports (DPR), Agent Productivity, Unique Call & TNPS wallboards synchronized across 
+              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/in.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="India"> India</span>, 
+              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/my.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Malaysia"> Malaysia</span>, 
+              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/id.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Indonesia"> Indonesia</span>, 
+              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/vn.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Vietnam"> Vietnam</span>, and 
+              <span class="inline-flex items-center gap-1"><img src="https://flagcdn.com/w20/th.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Thailand"> Thailand</span>.
+            </li>
+            <li class="pt-2 text-slate-700">
+              <strong>Headcount Planning & Attrition:</strong> Precision attrition, shrinkage, AL/SL monitoring, daily attendance, and RnP analysis across multi-site 24/7 rosters.
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+          <div class="bg-amber-600 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
+            🌐 Global Client Accounts
+          </div>
+          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
+            <li class="pt-2 text-slate-700 font-semibold">• Uber & Blinkit (On-Demand Quick Ops)</li>
+            <li class="pt-2 text-slate-700 font-semibold">• Vodafone Idea & Canon</li>
+            <li class="pt-2 text-slate-700 font-semibold">• AJIO & Zomato Delivery Ecosystems</li>
+            <li class="pt-2 text-slate-700 font-semibold">• Star Health & Allied Insurance</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+          <div class="bg-emerald-700 text-white text-center font-bold py-2.5 px-4 uppercase text-xs sm:text-sm tracking-wide">
+            ⚙️ Engineering & Automation
+          </div>
+          <ul class="p-4 space-y-3 text-xs divide-y divide-slate-100 flex-1">
+            <li class="pt-2 text-slate-700 font-semibold">• Automated ETL pipelines via PowerShell & SFTP</li>
+            <li class="pt-2 text-slate-700 font-semibold">• Advanced dynamic matrix modeling in Excel</li>
+            <li class="pt-2 text-slate-700 font-semibold">• Real-time telemetry ingestion into MS Access & NAV</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: WFMENGINE HUB (CALCULATORS & SIMULATORS) -->
+    <div id="tab-calculators" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
+        
+        <!-- HEADER WITH ACTION BUTTONS -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-200 pb-4">
+          <div>
+            <h2 class="text-2xl font-extrabold text-blue-950 mb-2">WFMengine: Interactive Simulation Hub</h2>
+            <p class="text-sm text-slate-600">Advanced operational modeling, FTE equations, and telecom invoicing architecture.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="loadSampleData()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2 rounded border border-slate-300 transition flex items-center gap-1.5">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-600"></i> Load Sample Data
+            </button>
+            <button onclick="exportEngineReport()" class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2 rounded shadow-sm transition flex items-center gap-1.5">
+              <i data-lucide="file-spreadsheet" class="w-4 h-4"></i> Export WFM Report (CSV)
+            </button>
+          </div>
+        </div>
+
+        <!-- NEW ADDITION 1: CAPACITY PLANNING ENGINE -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm">
+          <div class="flex items-center gap-2 text-blue-900 font-bold text-base border-b border-slate-200 pb-3 mb-4">
+            <i data-lucide="cpu" class="w-5 h-5 text-amber-600"></i>
+            <h3>Capacity Planning Engine & Headcount Projections</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs mb-4">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Monthly Volume:</label>
+              <input type="number" id="eng-vol" value="55000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
+              <input type="number" id="eng-aht" value="300" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Total Shrinkage %:</label>
+              <input type="number" id="eng-shrink" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Paid Hours/Month:</label>
+              <input type="number" id="eng-paidhrs" value="160" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Buffer %:</label>
+              <input type="number" id="eng-buffer" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Current Active HC:</label>
+              <input type="number" id="eng-currhc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Cost Per FTE (₹):</label>
+              <input type="number" id="eng-cost" value="50000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runCapacityEngine()">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+            <div class="bg-blue-950 text-white p-4 rounded-xl">
+              <p class="text-[11px] text-blue-200 font-semibold uppercase">Required Gross FTE</p>
+              <p id="out-fte" class="text-2xl font-black text-amber-400 mt-1">--</p>
+            </div>
+            <div class="bg-slate-900 text-white p-4 rounded-xl">
+              <p class="text-[11px] text-slate-300 font-semibold uppercase">Staffing Gap / Surplus</p>
+              <p id="out-gap" class="text-2xl font-black text-emerald-400 mt-1">--</p>
+            </div>
+            <div class="bg-slate-900 text-white p-4 rounded-xl">
+              <p class="text-[11px] text-slate-300 font-semibold uppercase">Est. Monthly Payroll</p>
+              <p id="out-cost" class="text-2xl font-black text-cyan-400 mt-1">--</p>
+            </div>
+          </div>
+          
+          <div class="mt-4 bg-white border border-slate-200 rounded p-3 text-xs text-slate-600">
+            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition:</p>
+            <p><strong>Net FTE</strong> = ((Volume × AHT) / 3600) / Paid Hours. <strong>Gross Required FTE</strong> factors in Shrinkage and Buffer. <strong>Gap/Surplus</strong> evaluates existing headcount vs required target.</p>
+          </div>
+        </div>
+
+        <!-- NEW ADDITION 2: MODEL OCCUPANCY -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 shadow-sm">
+          <div class="flex items-center gap-2 text-cyan-900 font-bold text-base border-b border-slate-200 pb-3 mb-4">
+            <i data-lucide="activity" class="w-5 h-5 text-cyan-700"></i>
+            <h3>Model Occupancy Calculator (New Business Impact)</h3>
+          </div>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs mb-4">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Simulate New Business Volume:</label>
+              <input type="number" id="occ-vol" value="65000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Available Staff Headcount:</label>
+              <input type="number" id="occ-hc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
+            </div>
+          </div>
+
+          <div class="bg-slate-900 text-white rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <p class="text-[11px] text-slate-300 font-semibold uppercase">Calculated Model Occupancy:</p>
+              <p id="out-occupancy" class="text-3xl font-black text-cyan-400 mt-0.5">--</p>
+            </div>
+            <div id="out-occupancy-status" class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg text-amber-400 text-xs font-bold">
+              Target: 80% - 85%
+            </div>
+          </div>
+
+          <div class="mt-4 bg-white border border-slate-200 rounded p-3 text-xs text-slate-600">
+            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition:</p>
+            <p><strong>Occupancy %</strong> = (Net Workload Hours / Available Staffed Hours) × 100. Benchmarks suggest 80-85%. >85% leads to SLA breaches & burnout; <75% indicates overstaffing.</p>
+          </div>
+        </div>
+
+        <!-- EXISTING GRID: Erlang C & Billing Simulator -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Calculator 1: Erlang-C / FTE Capacity Estimator -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
+            <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+              <div class="flex items-center gap-2 text-blue-900 font-bold text-base">
+                <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i>
+                <h3>Erlang-C / FTE Capacity Estimator</h3>
+              </div>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
+                <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator(); runWhatIfModel();">
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
+                  <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator(); runWhatIfModel();">
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
+                  <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator(); runWhatIfModel();">
+                    <option value="1800">30 Mins (1800s)</option>
+                    <option value="3600">60 Mins (3600s)</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="font-bold text-slate-700 block mb-1">Total Shrinkage % (Planned + Unplanned):</label>
+                <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator(); runWhatIfModel();">
+                <span id="shrink-val" class="text-blue-700 font-bold text-xs">22%</span>
+              </div>
+            </div>
+
+            <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
+              <div>
+                <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
+                <p id="res-net-fte" class="text-2xl font-black text-emerald-400">80.0</p>
+              </div>
+              <div>
+                <p class="text-[11px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
+                <p id="res-gross-fte" class="text-2xl font-black text-amber-400">102.6</p>
+              </div>
+            </div>
+            
+            <div class="mt-2 bg-white border border-slate-200 rounded p-2 text-[10px] text-slate-600">
+              <strong>Formula:</strong> Net FTE = (Volume × AHT) / Interval Secs
+            </div>
+          </div>
+
+          <!-- Calculator 2: Billing Model Comparison -->
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
+            <div class="flex items-center gap-2 text-emerald-900 font-bold text-base border-b border-slate-200 pb-3">
+              <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i>
+              <h3>Connect-Minute vs FTE Billing Simulator</h3>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
+                  <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
+                  <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
+                  <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+                <div>
+                  <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
+                  <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
+              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+                <span>Connect-Minute Revenue:</span>
+                <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
+              </div>
+              <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+                <span>FTE Retainer Revenue:</span>
+                <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
+              </div>
+              <div class="flex justify-between items-center pt-1 font-bold">
+                <span>Variance (Model Delta):</span>
+                <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
+              </div>
+            </div>
+            
+            <div class="mt-2 bg-white border border-slate-200 rounded p-2 text-[10px] text-slate-600">
+              <strong>Formula:</strong> Connect-Min Rev = Mins × Rate. Retainer = FTE × Rate.
+            </div>
+          </div>
+        </div>
+
+        <!-- EXISTING: "What-If" Scenario Modeler -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 shadow-sm">
+          <div class="flex items-center gap-2 text-indigo-950 font-bold text-base border-b border-slate-200 pb-3">
+            <i data-lucide="sliders" class="w-5 h-5 text-indigo-700"></i>
+            <h3>Interactive "What-If" Capacity & Surge Impact Modeler</h3>
+          </div>
+          <p class="text-xs text-slate-600">Simulate volume surges (Festival sales / Outages) and AHT fluctuations against base interval workload.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Simulate Surge Volume (% Increase):</label>
+              <input type="range" id="whatif-surge" min="0" max="60" value="25" step="5" class="w-full" oninput="document.getElementById('surge-val').innerText = '+' + this.value + '%'; runWhatIfModel();">
+              <span id="surge-val" class="text-indigo-700 font-bold text-xs">+25%</span>
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">AHT Variance Delta (Seconds):</label>
+              <input type="range" id="whatif-aht-delta" min="-40" max="60" value="15" step="5" class="w-full" oninput="document.getElementById('aht-delta-val').innerText = (this.value >= 0 ? '+' : '') + this.value + 's'; runWhatIfModel();">
+              <span id="aht-delta-val" class="text-indigo-700 font-bold text-xs">+15s</span>
+            </div>
+          </div>
+
+          <div class="bg-indigo-950 text-white rounded-lg p-4 grid grid-cols-3 gap-2 text-center text-xs">
+            <div>
+              <p class="text-[10px] text-indigo-300 uppercase">Surge Load Volume</p>
+              <p id="res-surge-vol" class="text-lg font-black text-white">563 calls</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-indigo-300 uppercase">Surge Gross FTE</p>
+              <p id="res-surge-fte" class="text-lg font-black text-amber-400">134.1 FTE</p>
+            </div>
+            <div>
+              <p class="text-[10px] text-indigo-300 uppercase">Additional Buffer Needed</p>
+              <p id="res-surge-delta" class="text-lg font-black text-emerald-400">+31.5 FTE</p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- TAB 3: TELEMETRY & VISUAL CHARTS -->
+    <div id="tab-competencies" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+              <h3 class="font-extrabold text-blue-950 text-lg">Realtime Command Center & Audience Telemetry</h3>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">Live operational performance, traffic origin routing, and multi-country node activity</p>
+          </div>
+          <span class="bg-emerald-50 text-emerald-800 border border-emerald-300 px-3 py-1 rounded-full text-xs font-bold self-start sm:self-auto flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> GA4 Active Telemetry
+          </span>
+        </div>
+
+        <!-- 4 Realtime KPI Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+              Live Total Views <i data-lucide="eye" class="w-3.5 h-3.5 text-blue-700"></i>
+            </p>
+            <div class="flex items-baseline gap-1.5 mt-1">
+              <p class="text-2xl sm:text-3xl font-black text-blue-950">
+                <img src="https://hits.sh/wfmmisbiodeepankar.netlify.app.svg?style=flat-square&label=&extra=1&color=1e3a8a" alt="Live Views" class="h-7 inline-block rounded" />
+              </p>
+            </div>
+            <p class="text-[10px] text-emerald-700 font-semibold mt-0.5">● Realtime visitor tracking</p>
+          </div>
+
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+              Avg SLA Index <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-700"></i>
+            </p>
+            <p class="text-2xl sm:text-3xl font-black text-emerald-700 mt-1">94.8%</p>
+            <p class="text-[10px] text-slate-500 font-semibold mt-0.5">Target: ≥ 85.0%</p>
+          </div>
+
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+              Active Regions <i data-lucide="globe-2" class="w-3.5 h-3.5 text-cyan-700"></i>
+            </p>
+            <p class="text-2xl sm:text-3xl font-black text-cyan-800 mt-1">Pan-India + SEA</p>
+            <p class="text-[10px] text-slate-500 font-semibold mt-0.5">IN, MY, ID, VN, TH</p>
+          </div>
+
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
+              Switch Ingestion <i data-lucide="server" class="w-3.5 h-3.5 text-amber-700"></i>
+            </p>
+            <p class="text-2xl sm:text-3xl font-black text-amber-700 mt-1">Avaya CMS</p>
+            <p class="text-[10px] text-emerald-700 font-semibold mt-0.5">● 100% Online Feeds</p>
+          </div>
+        </div>
+
+        <!-- Geo Routing & Traffic Origin Distribution -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
+          
+          <div class="lg:col-span-2 bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-xl p-5 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+                <h4 class="font-bold text-xs sm:text-sm">Active Command Center Geo-Distribution Nodes</h4>
+              </div>
+              <span class="text-[10px] bg-emerald-900/60 text-emerald-300 font-bold px-2 py-0.5 rounded border border-emerald-700">Live Traffic</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">
+                    <img src="https://flagcdn.com/w20/in.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="India"> India (HQ)
+                  </span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                </div>
+                <p class="text-emerald-400 font-black text-lg mt-1">82%</p>
+                <p class="text-[10px] text-slate-400">Lucknow / NCR Hubs</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">
+                    <img src="https://flagcdn.com/w20/my.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Malaysia"> Malaysia
+                  </span>
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                </div>
+                <p class="text-cyan-400 font-black text-lg mt-1">8%</p>
+                <p class="text-[10px] text-slate-400">SEA Routing Node</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">
+                    <img src="https://flagcdn.com/w20/id.png" class="w-4 h-3 rounded-sm inline-block shadow-sm" alt="Indonesia"> Indonesia
+                  </span>
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                </div>
+                <p class="text-cyan-400 font-black text-lg mt-1">6%</p>
+                <p class="text-[10px] text-slate-400">BPM Operations</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">
+                    <i data-lucide="globe-2" class="w-3.5 h-3.5 text-amber-400 inline-block"></i> Global / Other
+                  </span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                </div>
+                <p class="text-amber-400 font-black text-lg mt-1">4%</p>
+                <p class="text-[10px] text-slate-400">US / EMEA Recruiters</p>
+              </div>
+            </div>
+
+            <p class="text-[11px] text-slate-400 leading-relaxed">
+              *Realtime routing telemetry synchronizes telemetry feeds from Pan-India call networks (Lucknow, Gurugram, Bengaluru) and Southeast Asian multilingual queues (Kuala Lumpur, Jakarta, Manila).
+            </p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4">
+            <h4 class="font-bold text-slate-900 text-xs sm:text-sm border-b border-slate-200 pb-2 flex items-center justify-between">
+              <span>Traffic Acquisition</span>
+              <i data-lucide="compass" class="w-4 h-4 text-blue-700"></i>
+            </h4>
+            
+            <div class="space-y-3 text-xs">
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-700">LinkedIn & Professional Links</span>
+                  <span class="text-blue-900 font-bold">58%</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                  <div class="bg-blue-800 h-full rounded-full" style="width: 58%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-700">Direct Portfolio Access</span>
+                  <span class="text-emerald-800 font-bold">26%</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                  <div class="bg-emerald-600 h-full rounded-full" style="width: 26%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-700">Organic & Recruiter Search</span>
+                  <span class="text-indigo-800 font-bold">16%</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                  <div class="bg-indigo-600 h-full rounded-full" style="width: 16%"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
+              <span>Desktop: <strong>62%</strong></span>
+              <span>Mobile: <strong>38%</strong></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Intraday Call Flow & Shrinkage Breakdown -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <i data-lucide="trending-up" class="w-4 h-4 text-blue-700"></i> Intraday Call Flow & SLA Response Curve
+            </h3>
+            <span class="text-[10px] bg-blue-50 text-blue-800 font-bold px-2 py-0.5 rounded">Avaya CMS Sync</span>
+          </div>
+          <div class="h-64">
+            <canvas id="slaChart"></canvas>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+              <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-700"></i> Multi-Regional Shrinkage Breakdown
+            </h3>
+            <span class="text-[10px] bg-emerald-50 text-emerald-800 font-bold px-2 py-0.5 rounded">IEX TotalView</span>
+          </div>
+          <div class="h-64 flex items-center justify-center">
+            <canvas id="shrinkageChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radar Analysis Matrix -->
+      <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4 mb-4">
+          <div>
+            <h3 class="font-bold text-base text-slate-900 flex items-center gap-2">
+              <i data-lucide="crosshair" class="w-5 h-5 text-indigo-700"></i> 5-Dimensional WFM Competency Matrix (Radar Analysis)
+            </h3>
+            <p class="text-xs text-slate-500">Holistic executive operational depth across telecom, capacity modeling, and pipeline development.</p>
+          </div>
+          <span class="bg-indigo-50 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full border border-indigo-200">
+            ● Mastery Index
+          </span>
+        </div>
+        <div class="h-80 flex items-center justify-center">
+          <canvas id="skillsRadarChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: CAREER MILESTONES -->
+    <div id="tab-experience" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
+          <div>
+            <h2 class="text-2xl font-extrabold text-blue-950 flex items-center gap-2.5">
+              <i data-lucide="briefcase" class="w-6 h-6 text-blue-800"></i> Experience & Career Milestones
+            </h2>
+            <p class="text-xs text-slate-500 mt-0.5">Track record of leadership across global BPM, Workforce Operations & Command Centers</p>
+          </div>
+          <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="hidden sm:flex items-center gap-1.5 bg-[#0a66c2] hover:bg-[#004182] text-white text-xs font-bold px-3.5 py-1.5 rounded-lg shadow-sm transition">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
+            LinkedIn Profile
+          </a>
+        </div>
+
+        <div class="space-y-8">
+          <!-- Startek -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
+              <img src="https://logo.clearbit.com/startek.com" alt="Startek Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-rose-600 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>S</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Lead MIS & GCC Operations</h3>
+                <span class="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Dec 2024 – Present</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Startek · Full-time</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India · On-site</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Leading an 11-member command center team managing Pan-India & SEA reporting, capacity modeling, automation pipelines, and multi-brand billing files.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Business Analysis, Erlang-C Capacity Planning, Microsoft Office, Multi-Country Governance</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <!-- Concentrix -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-[#002f3a] border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
+              <img src="https://logo.clearbit.com/concentrix.com" alt="Concentrix Logo" class="w-full h-full object-contain brightness-150" onerror="this.outerHTML='<div class=\'w-full h-full bg-[#002f3a] text-cyan-400 rounded-lg flex items-center justify-center font-bold text-lg\'>C</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Associate Manager / Assistant Manager WFM</h3>
+                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2022 – Jul 2024 · 1 yr 10 mos</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Concentrix Daksh India Pvt. Ltd. · Full-time</p>
+              <p class="text-[11px] text-slate-500">📍 Gurugram, Haryana, India · Remote</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Drove capacity planning, interval scheduling, cost-benefit analyses, and multi-country operational reporting across Southeast Asian BPM deployments.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Capacity Planning, WFM Modeling, Operations Analytics, Remote Team Leadership</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <!-- Cognizant -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
+              <img src="https://logo.clearbit.com/cognizant.com" alt="Cognizant Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-blue-900 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>CTS</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Process Specialist</h3>
+                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Mar 2022 – Oct 2022 · 7 mos</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Cognizant Technology Solutions · Full-time</p>
+              <p class="text-[11px] text-slate-500">📍 India · On-site</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Managed process analytics, performance scorecards, SLA governance, and workflow optimization standards.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Process Automation, KPI Scorecards, Workflow Governance</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <!-- UP Police Technosys -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-blue-950 border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1 overflow-hidden">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Uttar_Pradesh_Police_Logo.png/120px-Uttar_Pradesh_Police_Logo.png" alt="UP Police Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-blue-950 text-amber-400 rounded-lg flex items-center justify-center font-bold text-lg\'>1090</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Data Analyst (Women Power Line 1090)</h3>
+                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2021 – Mar 2022 · 6 mos</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Technosys Pvt. Ltd. (UP Police Mission)</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, Uttar Pradesh, India</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Spearheaded operational analytics, emergency call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Public Sector Telemetry, Emergency Incident Flow Analytics, Database Ingestion</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <!-- Aegis -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
+              <img src="https://logo.clearbit.com/startek.com" alt="Aegis Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-slate-800 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>A</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Senior MIS Executive (Promoted Mar-2018)</h3>
+                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2016 – Oct 2021 · 5 yrs 1 mo</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Aegis Customer Support Services (Startek)</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Developed automated DPR/WPR/MPR reports, automated data ingestion with VBA, and maintained telephony database health.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Advanced VBA Automation, Telecom DPR/WPR Reporting, MS Access Architecture</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: COMPREHENSIVE BIO -->
+    <div id="tab-about" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm flex flex-col md:flex-row gap-8">
+        <div class="w-full md:w-1/3 flex flex-col items-center text-center border-b md:border-b-0 md:border-r border-slate-200 pb-6 md:pb-0 md:pr-6">
+          <div class="w-40 h-40 bg-blue-950 text-white rounded-2xl flex items-center justify-center shadow-lg border-4 border-blue-100 mb-4 overflow-hidden">
+            <img src="profile.jpg" alt="Deepankar Shukla" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <span style="display:none;" class="w-full h-full flex items-center justify-center font-black text-5xl">DS</span>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900">Deepankar Shukla</h2>
+          <p class="text-xs font-bold text-blue-700 mt-0.5">Lead – Global Command Center (MIS & WFM)</p>
+          <span class="mt-3 bg-blue-50 text-blue-900 border border-blue-200 px-3 py-1 rounded-full text-[11px] font-bold">
+            9+ Years of Industry Mastery
+          </span>
+          <div class="w-full mt-6 pt-4 border-t border-slate-100 text-left text-xs space-y-2 text-slate-600">
+            <p><strong>Location:</strong> Lucknow, UP, India</p>
+            <p><strong>Education:</strong> BA – Integral University</p>
+            <p><strong>Languages:</strong> English, Hindi</p>
+            <p><strong>Specialization:</strong> Financial Invoicing & WFM Capacity</p>
+          </div>
+        </div>
+        <div class="w-full md:w-2/3 space-y-4 text-slate-700">
+          <h3 class="text-xl font-bold text-blue-950 border-b border-slate-100 pb-2">Professional Biography</h3>
+          <p class="text-sm leading-relaxed">
+            "I am a seasoned <strong>Lead – MIS & Workforce Management professional with 9+ years of industry experience</strong> across global BPM and analytics environments, including Startek, Concentrix, Cognizant, and public sector operations (UP Police WPL 1090)."
+          </p>
+          <p class="text-sm leading-relaxed">
+            "Currently heading Pan-India GCC MIS & reporting operations at Startek, I manage capacity planning, cost-benefit analyses (CBA), and high-impact dashboards for major global brands (<strong>Uber, Vodafone Idea, AJIO, Star Health, Canon, Blinkit, and Zomato</strong>). My core expertise lies in transforming raw ERP/telephony data (CMS, CUIC, IEX, SFTP) into actionable business intelligence, engineering custom automation pipelines using VBA, PowerShell, & MS Access, and driving cost efficiencies through precision workforce optimization."
+          </p>
+
+          <div class="pt-4 border-t border-slate-100">
+            <h4 class="font-bold text-sm text-blue-950 mb-2">Key Technical Skills:</h4>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">VBA & Macro Automation</span>
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">PowerShell Scripting</span>
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Microsoft Access</span>
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Microsoft NAV 2016</span>
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Batch Command</span>
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Advanced Excel & Dashboards</span>
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Erlang-C & Capacity Planning</span>
+              <span class="bg-slate-100 text-slate-800 px-2.5 py-1 rounded font-semibold border border-slate-200">Avaya CMS & Cisco CUIC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 6: CONNECT -->
+    <div id="tab-contact" class="tab-content hidden space-y-6">
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-10 shadow-sm max-w-4xl mx-auto">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-950">Let's Connect & Collaborate</h2>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1">Available for executive WFM consultations, Command Center architecture discussions, and leadership opportunities.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
+              <i data-lucide="mail" class="w-5 h-5 text-blue-700 flex-shrink-0"></i>
+              <div>
+                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Email</p>
+                <button onclick="copyToClipboard('shukladeepankar91@gmail.com', 'Email Address')" class="text-xs font-bold text-slate-900 hover:text-blue-700 text-left">
+                  shukladeepankar91@gmail.com
+                </button>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
+              <i data-lucide="phone" class="w-5 h-5 text-emerald-700 flex-shrink-0"></i>
+              <div>
+                <p class="text-[11px] text-slate-500 font-semibold uppercase">Direct Phone</p>
+                <button onclick="copyToClipboard('+918787250550', 'Phone Number')" class="text-xs font-bold text-slate-900 hover:text-emerald-700 text-left">
+                  +91-8787250550
+                </button>
+              </div>
+            </div>
+
+            <!-- GATEKEEPER PROTECTED SOCIAL HANDLES SECTION -->
+            <div class="border border-slate-200 rounded-xl p-4 bg-slate-50/70 space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                <span class="text-xs font-extrabold text-blue-950 flex items-center gap-1.5">
+                  <i data-lucide="share-2" class="w-4 h-4 text-blue-700"></i> Verified Social Profiles
+                </span>
+                <span id="social-status-badge" class="bg-amber-100 text-amber-900 text-[10px] font-bold px-2 py-0.5 rounded border border-amber-300 flex items-center gap-1">
+                  <i data-lucide="lock" class="w-3 h-3"></i> Protected
+                </span>
+              </div>
+
+              <!-- State A: Locked Form -->
+              <div id="social-locked-container" class="space-y-3">
+                <p class="text-[11px] text-slate-600 leading-relaxed">
+                  Social media profiles locked to prevent spam. Submit your name, phone & reason to request authorization.
+                </p>
+
+                <form id="social-request-form" class="space-y-2 text-xs">
+                  <div>
+                    <input type="text" id="req-name" required placeholder="Your Full Name *" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs">
+                  </div>
+                  <div>
+                    <input type="tel" id="req-phone" required placeholder="Phone / WhatsApp Number *" class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs">
+                  </div>
+                  <div>
+                    <textarea id="req-reason" rows="2" required placeholder="Reason for connecting (e.g. Hiring, WFM inquiry)..." class="w-full p-2 rounded-lg border border-slate-300 bg-white font-medium outline-none focus:ring-1 focus:ring-blue-600 text-xs"></textarea>
+                  </div>
+                  <button type="submit" id="req-submit-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-3 rounded-lg shadow-sm transition flex items-center justify-center gap-1 text-xs">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i> <span id="req-btn-text">Send Access Request</span>
+                  </button>
+                  <p id="req-status-msg" class="text-center font-bold mt-1 text-[11px] hidden"></p>
+                </form>
+
+                <div class="pt-2 border-t border-slate-200/80">
+                  <div class="flex gap-2">
+                    <input type="text" id="access-passcode-input" placeholder="Enter Dynamic Passcode..." class="flex-1 p-2 rounded-lg border border-slate-300 bg-white font-semibold text-xs outline-none uppercase tracking-wider">
+                    <button onclick="verifyPasscode()" class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-3 py-2 rounded-lg text-xs transition">
+                      Unlock
+                    </button>
+                  </div>
+                  <p id="passcode-msg" class="text-[10px] text-slate-500 mt-1">Enter the unique passcode received on WhatsApp.</p>
+                </div>
+              </div>
+
+              <!-- State B: Unlocked Cards Grid -->
+              <div id="social-unlocked-grid" class="hidden grid grid-cols-2 gap-2.5">
+                <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="p-3 bg-blue-50/70 hover:bg-blue-100 border border-blue-200 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-[#0a66c2] text-white flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-blue-800 font-bold uppercase">LinkedIn</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-blue-900 truncate">Deepankar</p>
+                  </div>
+                </a>
+                <a href="https://x.com/shukladeepanka5" target="_blank" rel="noopener noreferrer" class="p-3 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-black text-white flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-slate-600 font-bold uppercase">X (Twitter)</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-black truncate">@shukladeepanka5</p>
+                  </div>
+                </a>
+                <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="p-3 bg-rose-50/70 hover:bg-rose-100 border border-rose-200 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="instagram" class="w-3.5 h-3.5"></i>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-rose-800 font-bold uppercase">Instagram</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-rose-900 truncate">@deepankar6479</p>
+                  </div>
+                </a>
+                <a href="https://facebook.com/deepankar.shukla.37" target="_blank" rel="noopener noreferrer" class="p-3 bg-indigo-50/70 hover:bg-indigo-100 border border-indigo-200 rounded-lg flex items-center gap-2.5 transition group">
+                  <div class="w-7 h-7 rounded-lg bg-[#1877f2] text-white flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  </div>
+                  <div class="overflow-hidden">
+                    <p class="text-[10px] text-indigo-800 font-bold uppercase">Facebook</p>
+                    <p class="text-xs font-bold text-slate-900 group-hover:text-indigo-900 truncate">Deepankar Shukla</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-5 h-5 text-indigo-700 flex-shrink-0"></i>
+              <div>
+                <p class="text-[11px] text-slate-500 font-semibold uppercase">Location</p>
+                <p class="text-xs font-bold text-slate-900">Lucknow, Uttar Pradesh, India</p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" target="_blank" class="w-full flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 px-6 rounded-lg shadow-md transition text-xs">
+                <i data-lucide="download" class="w-4 h-4"></i> Download Full Resume (PDF)
+              </a>
+            </div>
+          </div>
+
+          <!-- Web3Forms Powered General Contact Form -->
+          <form id="contact-form" class="space-y-3 bg-slate-50 p-6 rounded-xl border border-slate-200 text-xs">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Your Name *</label>
+              <input type="text" id="form-name" required placeholder="John Doe" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Email Address *</label>
+              <input type="email" id="form-email" required placeholder="john@company.com" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Message / Consultation Query *</label>
+              <textarea id="form-message" rows="3" required placeholder="Tell me about your project or opportunity..." class="w-full p-2.5 rounded-lg border border-slate-300 bg-white outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+            </div>
+            <button type="submit" id="submit-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-lg shadow transition flex items-center justify-center gap-1.5">
+              <i data-lucide="send" class="w-4 h-4"></i> <span id="btn-text">Send Message Directly</span>
+            </button>
+            <p id="form-status" class="text-center font-bold mt-2 hidden"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-notification" class="fixed bottom-20 md:bottom-6 right-6 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-lg shadow-2xl z-50 opacity-0 pointer-events-none transform translate-y-2 flex items-center gap-2 border border-slate-700">
+    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+    <span id="toast-message">Copied to Clipboard!</span>
+  </div>
+
+  <!-- FLOATING QUICK-ACTION DOCK (MOBILE) -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-3 py-2 z-40 flex items-center justify-around shadow-lg">
+    <a href="tel:+918787250550" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-blue-900">
+      <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-blue-900 mb-0.5">
+        <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+      </div>
+      Call
+    </a>
+    <a href="https://wa.me/918787250550?text=Hello%20Deepankar,%20saw%20your%20WFM%20Portfolio" target="_blank" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-emerald-900">
+      <div class="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800 mb-0.5">
+        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+      </div>
+      WhatsApp
+    </a>
+    <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-blue-700">
+      <div class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-[#0a66c2] mb-0.5">
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.2a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64A1.64 1.64 0 0 0 7.83 6.2Z"/></svg>
+      </div>
+      LinkedIn
+    </a>
+    <a href="https://facebook.com/deepankar-shukla-37" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-indigo-700">
+      <div class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-[#1877f2] mb-0.5">
+        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </div>
+      Facebook
+    </a>
+    <a href="Deepankar_Shukla_Resume.pdf" download="Deepankar_Shukla_Resume.pdf" class="flex flex-col items-center text-[10px] font-bold text-slate-700 hover:text-slate-900">
+      <div class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-900 mb-0.5">
+        <i data-lucide="download" class="w-3.5 h-3.5"></i>
+      </div>
+      CV PDF
+    </a>
+  </div>
+
+  <!-- FOOTER WITH VISITOR COUNTER & SOCIAL LINKS -->
+  <footer class="bg-blue-950 text-slate-300 border-t border-blue-900 py-6 text-center text-xs mt-auto">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div class="text-left">
+        <p><strong>Deepankar Shukla</strong> • Lead – Global Command Center (MIS & WFM) © 2026</p>
+        <p class="text-slate-400 text-[11px] flex flex-wrap items-center gap-2 mt-0.5">
+          <span>Pan-India & SEA Operations Analytics Infrastructure</span>
+          <span>•</span>
+          <a href="https://www.linkedin.com/in/deepankar-shukla-437784214" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">LinkedIn</a>
+          <span>•</span>
+          <a href="https://x.com/shukladeepanka5" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">X (@shukladeepanka5)</a>
+          <span>•</span>
+          <a href="https://instagram.com/deepankar6479" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">Instagram</a>
+          <span>•</span>
+          <a href="https://facebook.com/deepankar-shukla.37" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white underline">Facebook</a>
+        </p>
+      </div>
+
+      <div class="bg-blue-900/60 border border-blue-800 px-3.5 py-1.5 rounded-lg flex items-center gap-2 shadow-inner">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="text-slate-300 font-medium text-[11px]">Total Views:</span>
+        <img src="https://hits.sh/wfmmisbiodeepankar.netlify.app.svg?style=flat-square&label=&extra=1&color=059669" alt="Live Visitors Count" class="h-4 rounded" />
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // LIVE DATE, TIME & DYNAMIC GREETING ENGINE
+    function updateLiveDateTime() {
+      const now = new Date();
+      const optionsDate = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      const dateStr = now.toLocaleDateString('en-IN', optionsDate);
+      const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      
+      const hours = now.getHours();
+      let greeting = "Hello";
+      let emoji = "👋";
+
+      if (hours >= 3 && hours < 12) {
+        greeting = "Good Morning";
+        emoji = "🌅";
+      } else if (hours >= 12 && hours < 17) {
+        greeting = "Good Afternoon";
+        emoji = "☀️";
+      } else if (hours >= 17 && hours < 22) {
+        greeting = "Good Evening";
+        emoji = "🌆";
+      } else {
+        greeting = "Good Night";
+        emoji = "🌙";
+      }
+
+      const greetingElem = document.getElementById('dynamic-greeting');
+      const emojiElem = document.getElementById('greeting-emoji');
+      const datetimeElem = document.getElementById('live-datetime');
+
+      if (greetingElem) greetingElem.innerText = greeting;
+      if (emojiElem) emojiElem.innerText = emoji;
+      if (datetimeElem) datetimeElem.innerText = `${dateStr} | ${timeStr}`;
+    }
+
+    updateLiveDateTime();
+    setInterval(updateLiveDateTime, 1000);
+
+    // DYNAMIC PASSCODE ENGINE
+    let activeDynamicPasscode = ""; 
+
+    function unlockSocialGrid() {
+      const lockedContainer = document.getElementById('social-locked-container');
+      const unlockedGrid = document.getElementById('social-unlocked-grid');
+      const statusBadge = document.getElementById('social-status-badge');
+
+      if (lockedContainer && unlockedGrid) {
+        lockedContainer.classList.add('hidden');
+        unlockedGrid.classList.remove('hidden');
+        if (statusBadge) {
+          statusBadge.className = 'bg-emerald-100 text-emerald-900 text-[10px] font-bold px-2 py-0.5 rounded border border-emerald-300 flex items-center gap-1';
+          statusBadge.innerHTML = '<i data-lucide="unlock" class="w-3 h-3 text-emerald-700"></i> Authorized';
+        }
+        lucide.createIcons();
+      }
+    }
+
+    function verifyPasscode() {
+      const input = document.getElementById('access-passcode-input');
+      const val = (input ? input.value : "").trim().toUpperCase();
+      const msg = document.getElementById('passcode-msg');
+
+      if (activeDynamicPasscode && val === activeDynamicPasscode) {
+        unlockSocialGrid();
+        showToast('Access Approved! Social profiles unlocked.');
+      } else if (!activeDynamicPasscode) {
+        if (msg) {
+          msg.innerText = '⚠️ Please send an access request first to get a passcode.';
+          msg.className = 'text-[10px] text-amber-700 font-bold mt-1';
+        }
+      } else {
+        if (msg) {
+          msg.innerText = '❌ Invalid Passcode. Please check the code sent to your WhatsApp.';
+          msg.className = 'text-[10px] text-rose-600 font-bold mt-1';
+        }
+      }
+    }
+
+    const socialReqForm = document.getElementById('social-request-form');
+    if (socialReqForm) {
+      socialReqForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('req-submit-btn');
+        const btnText = document.getElementById('req-btn-text');
+        const statusMsg = document.getElementById('req-status-msg');
+
+        const visitorName = document.getElementById('req-name').value.trim();
+        let visitorPhone = document.getElementById('req-phone').value.trim().replace(/[^0-9]/g, '');
+        if (visitorPhone.length === 10) visitorPhone = '91' + visitorPhone;
+        const visitorReason = document.getElementById('req-reason').value.trim();
+
+        activeDynamicPasscode = "DS" + Math.floor(1000 + Math.random() * 9000);
+
+        btn.disabled = true;
+        btnText.innerText = 'Sending Request...';
+        statusMsg.classList.add('hidden');
+
+        const waText = encodeURIComponent(`Hi ${visitorName}, your passcode is ${activeDynamicPasscode}`);
+        const shortWaLink = `https://wa.me/${visitorPhone}?text=${waText}`;
+
+        const cleanEmailBody = `New Access Request:\nName: ${visitorName}\nPhone: +${visitorPhone}\nReason: ${visitorReason}\nOTP Code: ${activeDynamicPasscode}\n\nWhatsApp Approve Link:\n${shortWaLink}`;
+
+        const reqData = {
+          access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
+          subject: `🔐 Request: ${visitorName} [OTP: ${activeDynamicPasscode}]`,
+          name: visitorName,
+          phone: visitorPhone,
+          message: cleanEmailBody
+        };
+
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(reqData)
+          });
+          const json = await res.json();
+          if (res.status === 200) {
+            statusMsg.innerText = '✅ Request sent! You will receive your passcode on WhatsApp once approved.';
+            statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-emerald-700 block';
+            socialReqForm.reset();
+          } else {
+            statusMsg.innerText = '❌ ' + (json.message || 'Submission failed.');
+            statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-rose-600 block';
+          }
+        } catch (err) {
+          statusMsg.innerText = '❌ Network error. Please try again.';
+          statusMsg.className = 'text-center font-bold mt-1 text-[11px] text-rose-600 block';
+        } finally {
+          btn.disabled = false;
+          btnText.innerText = 'Send Access Request';
+          lucide.createIcons();
+        }
+      });
+    }
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const submitBtn = document.getElementById('submit-btn');
+        const btnText = document.getElementById('btn-text');
+        const formStatus = document.getElementById('form-status');
+
+        submitBtn.disabled = true;
+        btnText.innerText = 'Sending...';
+        formStatus.classList.add('hidden');
+
+        const formData = {
+          access_key: "08eb67fc-37c9-44e2-b52d-d29092328706",
+          name: document.getElementById('form-name').value,
+          email: document.getElementById('form-email').value,
+          message: document.getElementById('form-message').value,
+          subject: `Portfolio Inquiry from ${document.getElementById('form-name').value}`
+        };
+
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          const json = await response.json();
+          if (response.status === 200) {
+            formStatus.innerText = '✅ Message sent successfully! I will reach out soon.';
+            formStatus.className = 'text-center font-bold mt-2 text-emerald-600 text-xs block';
+            contactForm.reset();
+          } else {
+            formStatus.innerText = '❌ ' + (json.message || 'Failed to send.');
+            formStatus.className = 'text-center font-bold mt-2 text-rose-600 text-xs block';
+          }
+        } catch (err) {
+          formStatus.innerText = '❌ Network error. Please try again.';
+          formStatus.className = 'text-center font-bold mt-2 text-rose-600 text-xs block';
+        } finally {
+          submitBtn.disabled = false;
+          btnText.innerText = 'Send Message Directly';
+          lucide.createIcons();
+        }
+      });
+    }
+
+    function getOrdinalSuffix(n) {
+      const s = ["th", "st", "nd", "rd"];
+      const v = n % 100;
+      return n + (s[(v - 20) % 10] || s[v] || s[0]);
+    }
+
+    function checkNationalDay() {
+      const now = new Date();
+      const month = now.getMonth() + 1;
+      const day = now.getDate();
+      const year = now.getFullYear();
+      let eventGreeting = "";
+
+      if (month === 1 && day === 26) {
+        eventGreeting = `Happy ${getOrdinalSuffix(year - 1950 + 1)} Republic Day (${year})! Celebrating the Democratic Spirit of India`;
+      } else if (month === 8 && day === 15) {
+        eventGreeting = `Happy ${getOrdinalSuffix(year - 1947 + 1)} Independence Day (${year})! Celebrating Freedom & Global Leadership`;
+      } else if (month === 10 && day === 2) {
+        eventGreeting = `Remembering Mahatma Gandhi on his ${getOrdinalSuffix(year - 1869)} Birth Anniversary | International Day of Non-Violence`;
+      }
+
+      if (eventGreeting) {
+        const banner = document.getElementById('national-event-banner');
+        const bannerText = document.getElementById('national-event-text');
+        if (banner && bannerText) {
+          bannerText.innerText = eventGreeting;
+          banner.classList.remove('hidden');
+        }
+      }
+    }
+
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+      const targetTab = document.getElementById('tab-' + tabId);
+      if(targetTab) targetTab.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('bg-blue-800'));
+      const activeNav = document.getElementById('nav-' + tabId);
+      if(activeNav) activeNav.classList.add('bg-blue-800');
+
+      if (tabId === 'competencies') renderCharts();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function copyToClipboard(text, label) {
+      navigator.clipboard.writeText(text).then(() => showToast(`${label} copied to clipboard!`));
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast-notification');
+      document.getElementById('toast-message').innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100', 'translate-y-0');
+        toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+      }, 2500);
+    }
+
+    // WFM ENGINE & FORMULATED EXCEL EXPORT
+    function loadSampleData() {
+      if(document.getElementById('eng-vol')) document.getElementById('eng-vol').value = 55000;
+      if(document.getElementById('eng-aht')) document.getElementById('eng-aht').value = 300;
+      if(document.getElementById('eng-shrink')) document.getElementById('eng-shrink').value = 30;
+      if(document.getElementById('eng-paidhrs')) document.getElementById('eng-paidhrs').value = 160;
+      if(document.getElementById('eng-buffer')) document.getElementById('eng-buffer').value = 30;
+      if(document.getElementById('eng-currhc')) document.getElementById('eng-currhc').value = 65;
+      if(document.getElementById('eng-cost')) document.getElementById('eng-cost').value = 50000;
+      
+      if(document.getElementById('occ-vol')) document.getElementById('occ-vol').value = 65000;
+      if(document.getElementById('occ-hc')) document.getElementById('occ-hc').value = 65;
+
+      if(document.getElementById('calc-volume')) document.getElementById('calc-volume').value = 450;
+      if(document.getElementById('calc-aht')) document.getElementById('calc-aht').value = 320;
+      if(document.getElementById('calc-shrinkage')) {
+        document.getElementById('calc-shrinkage').value = 22;
+        if(document.getElementById('shrink-val')) document.getElementById('shrink-val').innerText = "22%";
+      }
+
+      if(document.getElementById('calc-mins')) document.getElementById('calc-mins').value = 450000;
+      if(document.getElementById('calc-min-rate')) document.getElementById('calc-min-rate').value = 1.85;
+      if(document.getElementById('calc-bill-fte')) document.getElementById('calc-bill-fte').value = 28;
+      if(document.getElementById('calc-fte-rate')) document.getElementById('calc-fte-rate').value = 32000;
+
+      runCapacityEngine();
+      runOccupancySim();
+      runFteCalculator();
+      runWhatIfModel();
+      runBillingSim();
+      showToast("Sample data loaded successfully!");
+    }
+
+    function runCapacityEngine() {
+      const vol = parseFloat(document.getElementById('eng-vol')?.value) || 0;
+      const aht = parseFloat(document.getElementById('eng-aht')?.value) || 0;
+      const shrink = (parseFloat(document.getElementById('eng-shrink')?.value) || 0) / 100;
+      const paidHrs = parseFloat(document.getElementById('eng-paidhrs')?.value) || 160;
+      const buffer = (parseFloat(document.getElementById('eng-buffer')?.value) || 0) / 100;
+      const currHC = parseFloat(document.getElementById('eng-currhc')?.value) || 0;
+      const costPerFte = parseFloat(document.getElementById('eng-cost')?.value) || 0;
+
+      const totalWorkloadHours = (vol * aht) / 3600;
+      const netFteNeeded = totalWorkloadHours / paidHrs;
+      const grossFteWithShrink = shrink < 1 ? netFteNeeded / (1 - shrink) : netFteNeeded;
+      const finalRequiredFte = grossFteWithShrink * (1 + buffer);
+
+      const gapOrSurplus = currHC - finalRequiredFte;
+      const monthlyPayroll = finalRequiredFte * costPerFte;
+
+      if(document.getElementById('out-fte')) document.getElementById('out-fte').innerText = finalRequiredFte.toFixed(1) + " FTE";
+      if(document.getElementById('out-gap')) document.getElementById('out-gap').innerText = (gapOrSurplus >= 0 ? "+" : "") + gapOrSurplus.toFixed(1) + " FTE";
+      if(document.getElementById('out-cost')) document.getElementById('out-cost').innerText = "₹" + Math.round(monthlyPayroll).toLocaleString('en-IN');
+    }
+
+    function runOccupancySim() {
+      const occVol = parseFloat(document.getElementById('occ-vol')?.value) || 0;
+      const occHC = parseFloat(document.getElementById('occ-hc')?.value) || 1;
+      const aht = parseFloat(document.getElementById('eng-aht')?.value) || 300;
+      const shrink = (parseFloat(document.getElementById('eng-shrink')?.value) || 30) / 100;
+      const paidHrs = parseFloat(document.getElementById('eng-paidhrs')?.value) || 160;
+
+      const occWorkloadHours = (occVol * aht) / 3600;
+      const availableStaffedHours = occHC * paidHrs * (1 - shrink);
+      let modelOccupancy = availableStaffedHours > 0 ? (occWorkloadHours / availableStaffedHours) * 100 : 0;
+      if (modelOccupancy > 100) modelOccupancy = 100;
+
+      if(document.getElementById('out-occupancy')) document.getElementById('out-occupancy').innerText = modelOccupancy.toFixed(1) + "%";
+      const occStatus = document.getElementById('out-occupancy-status');
+      if (occStatus) {
+        if (modelOccupancy > 85) {
+          occStatus.innerText = "⚠️ Overloaded (>85% Risk)";
+          occStatus.className = "bg-rose-950 border border-rose-800 px-4 py-2 rounded-lg text-rose-400 text-xs font-bold text-center";
+        } else if (modelOccupancy < 75) {
+          occStatus.innerText = "💤 Underutilized (<75%)";
+          occStatus.className = "bg-amber-950 border border-amber-800 px-4 py-2 rounded-lg text-amber-400 text-xs font-bold text-center";
+        } else {
+          occStatus.innerText = "✅ Optimal Range (75%-85%)";
+          occStatus.className = "bg-emerald-950 border border-emerald-800 px-4 py-2 rounded-lg text-emerald-400 text-xs font-bold text-center";
+        }
+      }
+    }
+
+    // FORMULATED EXCEL EXPORT (CSV with Formula Strings for Excel Evaluation)
+    function exportEngineReport() {
+      runCapacityEngine();
+      runOccupancySim();
+      const vol = document.getElementById('eng-vol')?.value || 55000;
+      const aht = document.getElementById('eng-aht')?.value || 300;
+      const shrink = document.getElementById('eng-shrink')?.value || 30;
+      const paidHrs = document.getElementById('eng-paidhrs')?.value || 160;
+      const buffer = document.getElementById('eng-buffer')?.value || 30;
+      const currHC = document.getElementById('eng-currhc')?.value || 65;
+      const costPerFte = document.getElementById('eng-cost')?.value || 50000;
+
+      // CSV with Excel Native Formulas in cells
+      const csvContent = "\uFEFF" + "Deepankar Shukla - WFMengine Formulated Report\n"
+        + "Parameter,Input Value / Excel Formula\n"
+        + `Monthly Volume,${vol}\n`
+        + `AHT (Seconds),${aht}\n`
+        + `Shrinkage %,${shrink}\n`
+        + `Paid Hours/Month,${paidHrs}\n`
+        + `Buffer %,${buffer}\n`
+        + `Current Active HC,${currHC}\n`
+        + `Cost Per FTE,${costPerFte}\n`
+        + `Required Gross FTE,"=((B2*B3/3600)/B5)/(1-(B4/100))*(1+(B6/100))"\n`
+        + `Staffing Gap/Surplus,"=B7-B9"\n`
+        + `Model Occupancy %,"=((B2*B3/3600)/(B7*B5*(1-(B4/100))))*100"\n`
+        + `Estimated Payroll,"=B9*B8"\n`
+        + `Generated On,${new Date().toLocaleDateString()}\n`;
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute("download", `WFMengine_Formulated_Report.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast("Formulated WFM report exported to Excel!");
+    }
+
+    function runFteCalculator() {
+      const volume = parseFloat(document.getElementById('calc-volume')?.value) || 0;
+      const aht = parseFloat(document.getElementById('calc-aht')?.value) || 0;
+      const intervalSecs = parseFloat(document.getElementById('calc-interval')?.value) || 1800;
+      const shrink = (parseFloat(document.getElementById('calc-shrinkage')?.value) || 0) / 100;
+
+      const workloadSecs = volume * aht;
+      const netFte = (workloadSecs / intervalSecs);
+      const grossFte = shrink < 1 ? (netFte / (1 - shrink)) : netFte;
+
+      if(document.getElementById('res-net-fte')) document.getElementById('res-net-fte').innerText = netFte.toFixed(1);
+      if(document.getElementById('res-gross-fte')) document.getElementById('res-gross-fte').innerText = grossFte.toFixed(1);
+    }
+
+    function runWhatIfModel() {
+      const baseVol = parseFloat(document.getElementById('calc-volume')?.value) || 450;
+      const baseAht = parseFloat(document.getElementById('calc-aht')?.value) || 320;
+      const intervalSecs = parseFloat(document.getElementById('calc-interval')?.value) || 1800;
+      const shrink = (parseFloat(document.getElementById('calc-shrinkage')?.value) || 22) / 100;
+
+      const surgePct = (parseFloat(document.getElementById('whatif-surge')?.value) || 0) / 100;
+      const ahtDelta = parseFloat(document.getElementById('whatif-aht-delta')?.value) || 0;
+
+      const surgeVol = Math.round(baseVol * (1 + surgePct));
+      const simulatedAht = Math.max(30, baseAht + ahtDelta);
+
+      const surgeNetFte = (surgeVol * simulatedAht) / intervalSecs;
+      const surgeGrossFte = shrink < 1 ? (surgeNetFte / (1 - shrink)) : surgeNetFte;
+
+      const baseGross = shrink < 1 ? ((baseVol * baseAht) / intervalSecs) / (1 - shrink) : ((baseVol * baseAht) / intervalSecs);
+      const deltaFte = surgeGrossFte - baseGross;
+
+      if(document.getElementById('res-surge-vol')) document.getElementById('res-surge-vol').innerText = surgeVol + ' calls';
+      if(document.getElementById('res-surge-fte')) document.getElementById('res-surge-fte').innerText = surgeGrossFte.toFixed(1) + ' FTE';
+      if(document.getElementById('res-surge-delta')) document.getElementById('res-surge-delta').innerText = (deltaFte >= 0 ? '+' : '') + deltaFte.toFixed(1) + ' FTE';
+    }
+
+    function runBillingSim() {
+      const mins = parseFloat(document.getElementById('calc-mins')?.value) || 0;
+      const rateMin = parseFloat(document.getElementById('calc-min-rate')?.value) || 0;
+      const ftes = parseFloat(document.getElementById('calc-bill-fte')?.value) || 0;
+      const rateFte = parseFloat(document.getElementById('calc-fte-rate')?.value) || 0;
+
+      const minRev = mins * rateMin;
+      const fteRev = ftes * rateFte;
+      const delta = minRev - fteRev;
+
+      if(document.getElementById('res-min-rev')) document.getElementById('res-min-rev').innerText = '₹' + minRev.toLocaleString('en-IN');
+      if(document.getElementById('res-fte-rev')) document.getElementById('res-fte-rev').innerText = '₹' + fteRev.toLocaleString('en-IN');
+      if(document.getElementById('res-var-rev')) document.getElementById('res-var-rev').innerText = (delta >= 0 ? '+₹' : '-₹') + Math.abs(delta).toLocaleString('en-IN');
+    }
+
+    // Chart.js Visuals
+    let chartsRendered = false;
+    function renderCharts() {
+      if (chartsRendered) return;
+      chartsRendered = true;
+
+      const ctx1 = document.getElementById('slaChart')?.getContext('2d');
+      if(ctx1) {
+        new Chart(ctx1, {
+          type: 'line',
+          data: {
+            labels: ['09:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:00'],
+            datasets: [
+              {
+                label: 'Call Volume',
+                data: [120, 380, 490, 420, 510, 320, 180],
+                borderColor: '#1e40af',
+                backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                yAxisID: 'y',
+                tension: 0.3,
+                fill: true
+              },
+              {
+                label: 'SLA Achieved %',
+                data: [94, 88, 82, 85, 81, 91, 95],
+                borderColor: '#059669',
+                yAxisID: 'y1',
+                tension: 0.3
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              y: { position: 'left', title: { display: true, text: 'Calls' } },
+              y1: { position: 'right', max: 100, min: 50, title: { display: true, text: 'SLA %' } }
+            }
+          }
+        });
+      }
+
+      const ctx2 = document.getElementById('shrinkageChart')?.getContext('2d');
+      if(ctx2) {
+        new Chart(ctx2, {
+          type: 'doughnut',
+          data: {
+            labels: ['Planned Leave (AL/SL)', 'Unplanned Attrition', 'Training & Coaching', 'Meeting / RnP Loss'],
+            datasets: [{
+              data: [9.5, 4.2, 3.8, 2.5],
+              backgroundColor: ['#1e3a8a', '#dc2626', '#0284c7', '#f59e0b']
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } }
+            }
+          }
+        });
+      }
+
+      const ctxRadar = document.getElementById('skillsRadarChart')?.getContext('2d');
+      if(ctxRadar) {
+        new Chart(ctxRadar, {
+          type: 'radar',
+          data: {
+            labels: [
+              'Workforce Planning & Erlang-C',
+              'Switch Telemetry (Avaya / CUIC)',
+              'Financial Invoicing (Connect-Min/FTE)',
+              'ETL & Automation (PowerShell/VBA)',
+              'Database & ERP (MS Access/NAV)'
+            ],
+            datasets: [{
+              label: 'Mastery Level (%)',
+              data: [98, 95, 96, 94, 92],
+              backgroundColor: 'rgba(30, 58, 138, 0.25)',
+              borderColor: '#1e40af',
+              pointBackgroundColor: '#2563eb',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: '#2563eb'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                suggestedMin: 50,
+                suggestedMax: 100,
+                ticks: { stepSize: 10, backdropColor: 'transparent', font: { size: 9 } },
+                pointLabels: { font: { size: 10, weight: 'bold' }, color: '#1e293b' }
+              }
+            },
+            plugins: {
+              legend: { display: false }
+            }
+          }
+        });
+      }
+    }
+
+    checkNationalDay();
+    runCapacityEngine();
+    runOccupancySim();
+    runFteCalculator();
+    runWhatIfModel();
+    runBillingSim();
+    lucide.createIcons();
+  </script>
+</body>
+</html>
