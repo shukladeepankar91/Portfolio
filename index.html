@@ -253,18 +253,18 @@
       </div>
     </div>
 
-    <!-- TAB 2: WFMENGINE HUB (ALL SIMULATORS INTEGRATED) -->
+    <!-- TAB 2: WFMENGINE HUB (STACKED IN EXACT REQUESTED ORDER) -->
     <div id="tab-engine" class="tab-content hidden space-y-8">
       
-      <!-- Section A: Advanced Capacity Planning & Occupancy Engine -->
+      <!-- 1. WFM Capacity Planning Engine -->
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
           <div>
             <span class="text-[11px] font-extrabold uppercase tracking-widest text-amber-700 bg-amber-50 px-2.5 py-1 rounded border border-amber-200">
               Master Simulation Hub
             </span>
-            <h2 class="text-2xl font-extrabold text-blue-950 mt-1">WFMengine: Capacity Planning & Model Occupancy</h2>
-            <p class="text-xs text-slate-600 mt-0.5">Computes required FTE, headcount gaps, agent occupancy impact for new business, and financial payroll.</p>
+            <h2 class="text-2xl font-extrabold text-blue-950 mt-1">WFMengine: Capacity Planning Engine</h2>
+            <p class="text-xs text-slate-600 mt-0.5">Computes required FTE, headcount gaps, and financial payroll.</p>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="loadSampleData()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2 rounded-lg border border-slate-300 transition flex items-center gap-1.5">
@@ -276,7 +276,6 @@
           </div>
         </div>
 
-        <!-- Scenario Inputs Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           <div>
             <label class="font-bold text-slate-700 block mb-1">Monthly Volume (Calls/Transactions):</label>
@@ -312,136 +311,150 @@
           </div>
         </div>
 
-        <div class="pt-2">
-          <button onclick="runCapacityEngine()" class="w-full sm:w-auto bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
-            <i data-lucide="play" class="w-4 h-4 fill-current"></i> Run Capacity & Occupancy Engine
-          </button>
-        </div>
-
-        <!-- Engine Outputs Result Dashboard -->
-        <div id="engine-results" class="space-y-6 pt-4 border-t border-slate-200">
-          <h3 class="font-extrabold text-blue-950 text-sm uppercase tracking-wider">📊 Simulation Engine Output & Occupancy Metrics</h3>
-          
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
-            <div class="bg-blue-950 text-white p-4 rounded-xl shadow-sm">
-              <p class="text-[11px] text-blue-200 font-semibold uppercase">Required Gross FTE</p>
-              <p id="out-fte" class="text-2xl sm:text-3xl font-black text-amber-400 mt-1">--</p>
-            </div>
-            <div class="bg-slate-900 text-white p-4 rounded-xl shadow-sm">
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Staffing Gap / Surplus</p>
-              <p id="out-gap" class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">--</p>
-            </div>
-            <div class="bg-slate-900 text-white p-4 rounded-xl shadow-sm">
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Model Occupancy %</p>
-              <p id="out-occupancy" class="text-2xl sm:text-3xl font-black text-cyan-400 mt-1">--</p>
-              <p id="out-occupancy-status" class="text-[10px] text-slate-400 mt-0.5">Target: 80% - 85%</p>
-            </div>
-            <div class="bg-slate-900 text-white p-4 rounded-xl shadow-sm">
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Est. Monthly Payroll</p>
-              <p id="out-cost" class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">--</p>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center pt-2">
+          <div class="bg-blue-950 text-white p-4 rounded-xl shadow-sm">
+            <p class="text-[11px] text-blue-200 font-semibold uppercase">Required Gross FTE</p>
+            <p id="out-fte" class="text-2xl sm:text-3xl font-black text-amber-400 mt-1">--</p>
+          </div>
+          <div class="bg-slate-900 text-white p-4 rounded-xl shadow-sm">
+            <p class="text-[11px] text-slate-300 font-semibold uppercase">Staffing Gap / Surplus</p>
+            <p id="out-gap" class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">--</p>
+          </div>
+          <div class="bg-slate-900 text-white p-4 rounded-xl shadow-sm">
+            <p class="text-[11px] text-slate-300 font-semibold uppercase">Est. Monthly Payroll</p>
+            <p id="out-cost" class="text-2xl sm:text-3xl font-black text-cyan-400 mt-1">--</p>
           </div>
         </div>
       </div>
 
-      <!-- Section B: Erlang-C & Billing Model Simulators -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
-        <!-- Calculator 1: Erlang-C / FTE Capacity Estimator -->
-        <div class="bg-white rounded-xl border border-slate-200 p-6 space-y-4 shadow-sm">
-          <div class="flex items-center gap-2 text-blue-900 font-bold text-base border-b border-slate-200 pb-3">
-            <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i>
-            <h3>Erlang-C / Interval FTE Estimator</h3>
-          </div>
+      <!-- 2. Model Occupancy Calculator (New Business Impact) -->
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+        <div class="border-b border-slate-200 pb-3">
+          <h3 class="text-lg font-bold text-blue-950 flex items-center gap-2">
+            <i data-lucide="activity" class="w-5 h-5 text-cyan-700"></i> Model Occupancy Calculator (New Business Impact)
+          </h3>
+          <p class="text-xs text-slate-600">Simulate agent occupancy when new volume/business comes in without matching staffing adjustments.</p>
+        </div>
 
-          <div class="space-y-3 text-xs">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">New Incoming Volume:</label>
+            <input type="number" id="occ-vol" value="65000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
+          </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Available Headcount (Agents):</label>
+            <input type="number" id="occ-hc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runOccupancySim()">
+          </div>
+        </div>
+
+        <div class="bg-slate-900 text-white rounded-lg p-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+          <div>
+            <p class="text-[11px] text-slate-300 font-semibold uppercase">Calculated Model Occupancy:</p>
+            <p id="out-occupancy" class="text-3xl font-black text-cyan-400 mt-0.5">--</p>
+          </div>
+          <div id="out-occupancy-status" class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg text-amber-400 font-bold">
+            Target: 80% - 85%
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Erlang-C / Interval FTE Estimator -->
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-4 shadow-sm space-y-4">
+        <div class="border-b border-slate-200 pb-3">
+          <h3 class="text-lg font-bold text-blue-950 flex items-center gap-2">
+            <i data-lucide="calculator" class="w-5 h-5 text-blue-700"></i> Erlang-C / Interval FTE Estimator
+          </h3>
+          <p class="text-xs text-slate-600">Interval-based queue workload and staffing requirement calculator.</p>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
+            <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runFteCalculator()">
+          </div>
+          <div class="grid grid-cols-2 gap-3">
             <div>
-              <label class="font-bold text-slate-700 block mb-1">Expected Call Volume (Per Interval):</label>
-              <input type="number" id="calc-volume" value="450" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
-            </div>
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
-                <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold focus:ring-2 focus:ring-blue-600 outline-none" oninput="runFteCalculator()">
-              </div>
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
-                <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator()">
-                  <option value="1800">30 Mins (1800s)</option>
-                  <option value="3600">60 Mins (3600s)</option>
-                </select>
-              </div>
+              <label class="font-bold text-slate-700 block mb-1">AHT (Seconds):</label>
+              <input type="number" id="calc-aht" value="320" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runFteCalculator()">
             </div>
             <div>
-              <label class="font-bold text-slate-700 block mb-1">Total Shrinkage %:</label>
-              <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator();">
-              <span id="shrink-val" class="text-blue-700 font-bold text-xs">22%</span>
+              <label class="font-bold text-slate-700 block mb-1">Interval (Mins):</label>
+              <select id="calc-interval" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" onchange="runFteCalculator()">
+                <option value="1800">30 Mins (1800s)</option>
+                <option value="3600">60 Mins (3600s)</option>
+              </select>
             </div>
           </div>
+          <div>
+            <label class="font-bold text-slate-700 block mb-1">Total Shrinkage %:</label>
+            <input type="range" id="calc-shrinkage" min="5" max="45" value="22" class="w-full" oninput="document.getElementById('shrink-val').innerText = this.value + '%'; runFteCalculator();">
+            <span id="shrink-val" class="text-blue-700 font-bold text-xs">22%</span>
+          </div>
+        </div>
 
-          <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center mt-4">
+        <div class="bg-blue-950 text-white rounded-lg p-4 grid grid-cols-2 gap-4 text-center">
+          <div>
+            <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
+            <p id="res-net-fte" class="text-2xl font-black text-emerald-400">80.0</p>
+          </div>
+          <div>
+            <p class="text-[11px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
+            <p id="res-gross-fte" class="text-2xl font-black text-amber-400">102.6</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Connect-Minute vs FTE Billing Simulator -->
+      <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-4 shadow-sm space-y-4">
+        <div class="border-b border-slate-200 pb-3">
+          <h3 class="text-lg font-bold text-emerald-900 flex items-center gap-2">
+            <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i> Connect-Minute vs FTE Billing Simulator
+          </h3>
+          <p class="text-xs text-slate-600">Compare revenue models between connect-minute billing and dedicated FTE retainer pricing.</p>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="grid grid-cols-2 gap-3">
             <div>
-              <p class="text-[11px] text-blue-200 font-semibold uppercase">Net Workload FTE</p>
-              <p id="res-net-fte" class="text-2xl font-black text-emerald-400">80.0</p>
+              <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
+              <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
             </div>
             <div>
-              <p class="text-[11px] text-blue-200 font-semibold uppercase">Gross Required FTE</p>
-              <p id="res-gross-fte" class="text-2xl font-black text-amber-400">102.6</p>
+              <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
+              <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
+              <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
+            </div>
+            <div>
+              <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
+              <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
             </div>
           </div>
         </div>
 
-        <!-- Calculator 2: Connect-Minute vs FTE Billing Simulator -->
-        <div class="bg-white rounded-xl border border-slate-200 p-6 space-y-4 shadow-sm">
-          <div class="flex items-center gap-2 text-emerald-900 font-bold text-base border-b border-slate-200 pb-3">
-            <i data-lucide="badge-percent" class="w-5 h-5 text-emerald-700"></i>
-            <h3>Connect-Minute vs FTE Billing Simulator</h3>
+        <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 text-xs">
+          <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+            <span>Connect-Minute Revenue:</span>
+            <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
           </div>
-
-          <div class="space-y-3 text-xs">
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">Monthly Connect Mins:</label>
-                <input type="number" id="calc-mins" value="450000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-              </div>
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">Rate / Connect Min (₹):</label>
-                <input type="number" id="calc-min-rate" value="1.85" step="0.05" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-              </div>
-            </div>
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">Dedicated Billable FTEs:</label>
-                <input type="number" id="calc-bill-fte" value="28" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-              </div>
-              <div>
-                <label class="font-bold text-slate-700 block mb-1">Rate / FTE / Month (₹):</label>
-                <input type="number" id="calc-fte-rate" value="32000" step="500" class="w-full p-2.5 rounded-lg border border-slate-300 bg-white font-semibold outline-none" oninput="runBillingSim()">
-              </div>
-            </div>
+          <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
+            <span>FTE Retainer Revenue:</span>
+            <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
           </div>
-
-          <div class="bg-slate-900 text-white rounded-lg p-4 space-y-2 mt-4 text-xs">
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-              <span>Connect-Minute Revenue:</span>
-              <span id="res-min-rev" class="font-bold text-emerald-400 text-sm">₹8,32,500</span>
-            </div>
-            <div class="flex justify-between items-center border-b border-slate-700 pb-1.5">
-              <span>FTE Retainer Revenue:</span>
-              <span id="res-fte-rev" class="font-bold text-cyan-400 text-sm">₹8,96,000</span>
-            </div>
-            <div class="flex justify-between items-center pt-1 font-bold">
-              <span>Variance (Model Delta):</span>
-              <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
-            </div>
+          <div class="flex justify-between items-center pt-1 font-bold">
+            <span>Variance (Model Delta):</span>
+            <span id="res-var-rev" class="text-amber-400 text-sm">-₹63,500</span>
           </div>
         </div>
-
       </div>
 
     </div>
 
-    <!-- TAB 3: TELEMETRY & VISUAL CHARTS -->
+    <!-- TAB 3: TELEMETRY & VISUAL CHARTS (RESTORED FULLY) -->
     <div id="tab-competencies" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-4">
@@ -452,8 +465,12 @@
             </div>
             <p class="text-xs text-slate-500 mt-0.5">Live operational performance, traffic origin routing, and multi-country node activity</p>
           </div>
+          <span class="bg-emerald-50 text-emerald-800 border border-emerald-300 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> GA4 Active Telemetry
+          </span>
         </div>
 
+        <!-- 4 Realtime KPI Cards -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
             <p class="text-[11px] font-bold uppercase text-slate-500 flex items-center justify-between">
@@ -492,7 +509,98 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4">
+        <!-- Geo Routing & Traffic Origin Distribution -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
+          <div class="lg:col-span-2 bg-gradient-to-br from-slate-900 to-blue-950 text-white rounded-xl p-5 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div class="flex items-center gap-2">
+                <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+                <h4 class="font-bold text-xs sm:text-sm">Active Command Center Geo-Distribution Nodes</h4>
+              </div>
+              <span class="text-[10px] bg-emerald-900/60 text-emerald-300 font-bold px-2 py-0.5 rounded border border-emerald-700">Live Traffic</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">India (HQ)</span>
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                </div>
+                <p class="text-emerald-400 font-black text-lg mt-1">82%</p>
+                <p class="text-[10px] text-slate-400">Lucknow / NCR Hubs</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">Malaysia</span>
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                </div>
+                <p class="text-cyan-400 font-black text-lg mt-1">8%</p>
+                <p class="text-[10px] text-slate-400">SEA Routing Node</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">Indonesia</span>
+                  <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                </div>
+                <p class="text-cyan-400 font-black text-lg mt-1">6%</p>
+                <p class="text-[10px] text-slate-400">BPM Operations</p>
+              </div>
+
+              <div class="bg-slate-800/80 p-3 rounded-lg border border-slate-700">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-white flex items-center gap-1.5">Global / Other</span>
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                </div>
+                <p class="text-amber-400 font-black text-lg mt-1">4%</p>
+                <p class="text-[10px] text-slate-400">US / EMEA Recruiters</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4">
+            <h4 class="font-bold text-slate-900 text-xs sm:text-sm border-b border-slate-200 pb-2 flex items-center justify-between">
+              <span>Traffic Acquisition</span>
+              <i data-lucide="compass" class="w-4 h-4 text-blue-700"></i>
+            </h4>
+            
+            <div class="space-y-3 text-xs">
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-700">LinkedIn & Professional Links</span>
+                  <span class="text-blue-900 font-bold">58%</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                  <div class="bg-blue-800 h-full rounded-full" style="width: 58%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-700">Direct Portfolio Access</span>
+                  <span class="text-emerald-800 font-bold">26%</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                  <div class="bg-emerald-600 h-full rounded-full" style="width: 26%"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between font-semibold mb-1">
+                  <span class="text-slate-700">Organic & Recruiter Search</span>
+                  <span class="text-indigo-800 font-bold">16%</span>
+                </div>
+                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                  <div class="bg-indigo-600 h-full rounded-full" style="width: 16%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intraday Call Flow & Shrinkage Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
           <div class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
             <h3 class="font-bold text-slate-900 text-sm mb-4">Intraday Call Flow & SLA Response Curve</h3>
             <div class="h-64"><canvas id="slaChart"></canvas></div>
@@ -502,6 +610,17 @@
             <div class="h-64 flex items-center justify-center"><canvas id="shrinkageChart"></canvas></div>
           </div>
         </div>
+
+        <!-- Radar Analysis Matrix -->
+        <div class="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+          <h3 class="font-bold text-base text-slate-900 mb-4 flex items-center gap-2">
+            <i data-lucide="crosshair" class="w-5 h-5 text-indigo-700"></i> 5-Dimensional WFM Competency Matrix (Radar Analysis)
+          </h3>
+          <div class="h-80 flex items-center justify-center">
+            <canvas id="skillsRadarChart"></canvas>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -630,7 +749,12 @@
       document.getElementById('eng-currhc').value = 65;
       document.getElementById('eng-attr').value = 5;
       document.getElementById('eng-cost').value = 50000;
+      
+      document.getElementById('occ-vol').value = 65000;
+      document.getElementById('occ-hc').value = 65;
+
       runCapacityEngine();
+      runOccupancySim();
       showToast("Sample data loaded successfully!");
     }
 
@@ -643,7 +767,6 @@
       const currHC = parseFloat(document.getElementById('eng-currhc').value) || 0;
       const costPerFte = parseFloat(document.getElementById('eng-cost').value) || 0;
 
-      // Mathematical Calculations
       const totalWorkloadSeconds = vol * aht;
       const totalWorkloadHours = totalWorkloadSeconds / 3600;
       const netFteNeeded = totalWorkloadHours / paidHrs;
@@ -653,46 +776,53 @@
       const gapOrSurplus = currHC - finalRequiredFte;
       const monthlyPayroll = finalRequiredFte * costPerFte;
 
-      // Model Occupancy Calculation
-      const availableStaffedHours = currHC * paidHrs * (1 - shrink);
+      document.getElementById('out-fte').innerText = finalRequiredFte.toFixed(1) + " FTE";
+      document.getElementById('out-gap').innerText = (gapOrSurplus >= 0 ? "+" : "") + gapOrSurplus.toFixed(1) + " FTE";
+      document.getElementById('out-cost').innerText = "₹" + Math.round(monthlyPayroll).toLocaleString('en-IN');
+    }
+
+    function runOccupancySim() {
+      const vol = parseFloat(document.getElementById('occ-vol').value) || 0;
+      const hc = parseFloat(document.getElementById('occ-hc').value) || 1;
+      const aht = parseFloat(document.getElementById('eng-aht').value) || 300;
+      const shrink = (parseFloat(document.getElementById('eng-shrink').value) || 30) / 100;
+      const paidHrs = parseFloat(document.getElementById('eng-paidhrs').value) || 160;
+
+      const totalWorkloadHours = (vol * aht) / 3600;
+      const availableStaffedHours = hc * paidHrs * (1 - shrink);
       let modelOccupancy = availableStaffedHours > 0 ? (totalWorkloadHours / availableStaffedHours) * 100 : 0;
       if (modelOccupancy > 100) modelOccupancy = 100;
 
-      document.getElementById('out-fte').innerText = finalRequiredFte.toFixed(1) + " FTE";
-      document.getElementById('out-gap').innerText = (gapOrSurplus >= 0 ? "+" : "") + gapOrSurplus.toFixed(1) + " FTE";
       document.getElementById('out-occupancy').innerText = modelOccupancy.toFixed(1) + "%";
       
       const occStatus = document.getElementById('out-occupancy-status');
       if (modelOccupancy > 85) {
         occStatus.innerText = "⚠️ Overloaded (>85% Risk)";
-        occStatus.className = "text-[10px] text-rose-400 font-bold mt-0.5";
+        occStatus.className = "bg-rose-950 border border-rose-800 px-4 py-2 rounded-lg text-rose-400 font-bold text-center";
       } else if (modelOccupancy < 75) {
         occStatus.innerText = "💤 Underutilized (<75%)";
-        occStatus.className = "text-[10px] text-amber-400 font-bold mt-0.5";
+        occStatus.className = "bg-amber-950 border border-amber-800 px-4 py-2 rounded-lg text-amber-400 font-bold text-center";
       } else {
         occStatus.innerText = "✅ Optimal Range (75%-85%)";
-        occStatus.className = "text-[10px] text-emerald-400 font-bold mt-0.5";
+        occStatus.className = "bg-emerald-950 border border-emerald-800 px-4 py-2 rounded-lg text-emerald-400 font-bold text-center";
       }
-
-      document.getElementById('out-cost').innerText = "₹" + Math.round(monthlyPayroll).toLocaleString('en-IN');
     }
 
     function exportEngineToExcel() {
       runCapacityEngine();
+      runOccupancySim();
       const vol = document.getElementById('eng-vol').value;
       const aht = document.getElementById('eng-aht').value;
-      const shrink = document.getElementById('eng-shrink').value;
       const reqFte = document.getElementById('out-fte').innerText;
       const gap = document.getElementById('out-gap').innerText;
       const occupancy = document.getElementById('out-occupancy').innerText;
       const payroll = document.getElementById('out-cost').innerText;
 
       const csvContent = "data:text/csv;charset=utf-8," 
-        + "Deepankar Shukla - WFMengine Report\n"
+        + "Deepankar Shukla - WFMengine Full Report\n"
         + "Parameter,Value\n"
         + `Monthly Volume,${vol}\n`
         + `AHT (Seconds),${aht}\n`
-        + `Shrinkage %,${shrink}%\n`
         + `Required Gross FTE,${reqFte}\n`
         + `Staffing Gap/Surplus,${gap}\n`
         + `Model Occupancy %,${occupancy}\n`
@@ -702,7 +832,7 @@
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", `WFMengine_Capacity_Report.csv`);
+      link.setAttribute("download", `WFMengine_Complete_Report.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -711,6 +841,7 @@
 
     // Run engine on load
     runCapacityEngine();
+    runOccupancySim();
 
     // Tab Switching
     function showTab(tabId) {
@@ -784,6 +915,14 @@
         data: {
           labels: ['Planned Leave', 'Attrition', 'Training', 'Meetings'],
           datasets: [{ data: [10, 5, 4, 3], backgroundColor: ['#1e3a8a', '#dc2626', '#0284c7', '#f59e0b'] }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+      new Chart(document.getElementById('skillsRadarChart').getContext('2d'), {
+        type: 'radar',
+        data: {
+          labels: ['Capacity Planning', 'Erlang-C', 'Financial Invoicing', 'VBA Automation', 'Database / SQL'],
+          datasets: [{ label: 'Mastery', data: [98, 95, 96, 94, 92], backgroundColor: 'rgba(30, 58, 138, 0.25)', borderColor: '#1e3a8a' }]
         },
         options: { responsive: true, maintainAspectRatio: false }
       });
