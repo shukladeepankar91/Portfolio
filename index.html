@@ -360,7 +360,7 @@
       </div>
     </div>
 
-    <!-- TAB 3: WFM CAPACITY PLANNING ENGINE (NEW EXTRA TAB) -->
+    <!-- TAB 3: WFM CAPACITY PLANNING ENGINE (WITH MODEL OCCUPANCY) -->
     <div id="tab-engine" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
@@ -368,8 +368,8 @@
             <span class="text-[11px] font-extrabold uppercase tracking-widest text-amber-700 bg-amber-50 px-2.5 py-1 rounded border border-amber-200">
               Advanced Workforce Simulation
             </span>
-            <h2 class="text-2xl font-extrabold text-blue-950 mt-1">WFM Capacity Planning Engine</h2>
-            <p class="text-xs text-slate-600 mt-0.5">Computes required FTE, headcount gaps, occupancy, attrition projections, and financial cost impact.</p>
+            <h2 class="text-2xl font-extrabold text-blue-950 mt-1">WFM Capacity Planning & Occupancy Engine</h2>
+            <p class="text-xs text-slate-600 mt-0.5">Computes required FTE, headcount gaps, agent occupancy impact for new business, and financial payroll.</p>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="loadSampleData()" class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold px-3 py-2 rounded-lg border border-slate-300 transition flex items-center gap-1.5">
@@ -384,7 +384,7 @@
         <!-- Scenario Inputs Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           <div>
-            <label class="font-bold text-slate-700 block mb-1">Monthly Volume:</label>
+            <label class="font-bold text-slate-700 block mb-1">Monthly Volume (Calls/Transactions):</label>
             <input type="number" id="eng-vol" value="55000" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
           </div>
           <div>
@@ -396,7 +396,7 @@
             <input type="number" id="eng-shrink" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
           </div>
           <div>
-            <label class="font-bold text-slate-700 block mb-1">Paid Hours / Month:</label>
+            <label class="font-bold text-slate-700 block mb-1">Paid Hours / Month per FTE:</label>
             <input type="number" id="eng-paidhrs" value="160" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
           </div>
           <div>
@@ -404,7 +404,7 @@
             <input type="number" id="eng-buffer" value="30" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
           </div>
           <div>
-            <label class="font-bold text-slate-700 block mb-1">Current HC:</label>
+            <label class="font-bold text-slate-700 block mb-1">Current Active HC (Agents):</label>
             <input type="number" id="eng-currhc" value="65" class="w-full p-2.5 rounded-lg border border-slate-300 bg-slate-50 font-semibold outline-none focus:ring-2 focus:ring-blue-600">
           </div>
           <div>
@@ -419,13 +419,13 @@
 
         <div class="pt-2">
           <button onclick="runCapacityEngine()" class="w-full sm:w-auto bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
-            <i data-lucide="play" class="w-4 h-4 fill-current"></i> Run Capacity Engine
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i> Run Capacity & Occupancy Engine
           </button>
         </div>
 
         <!-- Engine Outputs Result Dashboard -->
         <div id="engine-results" class="space-y-6 pt-4 border-t border-slate-200">
-          <h3 class="font-extrabold text-blue-950 text-sm uppercase tracking-wider">📊 Simulation Engine Output & Headcount Projections</h3>
+          <h3 class="font-extrabold text-blue-950 text-sm uppercase tracking-wider">📊 Simulation Engine Output & Occupancy Metrics</h3>
           
           <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">
             <div class="bg-blue-950 text-white p-4 rounded-xl shadow-sm">
@@ -437,13 +437,20 @@
               <p id="out-gap" class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">--</p>
             </div>
             <div class="bg-slate-900 text-white p-4 rounded-xl shadow-sm">
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Est. Monthly Payroll</p>
-              <p id="out-cost" class="text-2xl sm:text-3xl font-black text-cyan-400 mt-1">--</p>
+              <p class="text-[11px] text-slate-300 font-semibold uppercase">Model Occupancy %</p>
+              <p id="out-occupancy" class="text-2xl sm:text-3xl font-black text-cyan-400 mt-1">--</p>
+              <p id="out-occupancy-status" class="text-[10px] text-slate-400 mt-0.5">Target: 80% - 85%</p>
             </div>
             <div class="bg-slate-900 text-white p-4 rounded-xl shadow-sm">
-              <p class="text-[11px] text-slate-300 font-semibold uppercase">Net Attrition Impact</p>
-              <p id="out-attrition-loss" class="text-2xl sm:text-3xl font-black text-rose-400 mt-1">--</p>
+              <p class="text-[11px] text-slate-300 font-semibold uppercase">Est. Monthly Payroll</p>
+              <p id="out-cost" class="text-2xl sm:text-3xl font-black text-emerald-400 mt-1">--</p>
             </div>
+          </div>
+
+          <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-900 space-y-1">
+            <p class="font-bold">💡 How Model Occupancy is Calculated for New Business:</p>
+            <p>• <strong>Formula:</strong> $\text{Occupancy} = (\text{Net Workload Hours} / \text{Available Staffed Hours}) \times 100$</p>
+            <p>• When new business volume increases, if headcount is not scaled accordingly, occupancy spikes above 85%, leading to agent burn-out and SLA breaches. This engine factors in your shrinkage and buffer to maintain optimal occupancy.</p>
           </div>
         </div>
       </div>
@@ -628,7 +635,7 @@
     updateLiveDateTime();
     setInterval(updateLiveDateTime, 1000);
 
-    // WFM CAPACITY PLANNING ENGINE LOGIC
+    // WFM CAPACITY PLANNING & OCCUPANCY ENGINE LOGIC
     function loadSampleData() {
       document.getElementById('eng-vol').value = 55000;
       document.getElementById('eng-aht').value = 300;
@@ -652,7 +659,7 @@
       const attr = (parseFloat(document.getElementById('eng-attr').value) || 0) / 100;
       const costPerFte = parseFloat(document.getElementById('eng-cost').value) || 0;
 
-      // Mathematical Calculation
+      // Mathematical Calculations
       const totalWorkloadSeconds = vol * aht;
       const totalWorkloadHours = totalWorkloadSeconds / 3600;
       const netFteNeeded = totalWorkloadHours / paidHrs;
@@ -661,12 +668,29 @@
 
       const gapOrSurplus = currHC - finalRequiredFte;
       const monthlyPayroll = finalRequiredFte * costPerFte;
-      const monthlyAttrLoss = currHC * attr;
+
+      // Model Occupancy Calculation (Workload Hours / Available Staffed Staff Hours)
+      const availableStaffedHours = currHC * paidHrs * (1 - shrink);
+      let modelOccupancy = availableStaffedHours > 0 ? (totalWorkloadHours / availableStaffedHours) * 100 : 0;
+      if (modelOccupancy > 100) modelOccupancy = 100; // cap at 100%
 
       document.getElementById('out-fte').innerText = finalRequiredFte.toFixed(1) + " FTE";
       document.getElementById('out-gap').innerText = (gapOrSurplus >= 0 ? "+" : "") + gapOrSurplus.toFixed(1) + " FTE";
+      document.getElementById('out-occupancy').innerText = modelOccupancy.toFixed(1) + "%";
+      
+      const occStatus = document.getElementById('out-occupancy-status');
+      if (modelOccupancy > 85) {
+        occStatus.innerText = "⚠️ Overloaded (>85% Risk)";
+        occStatus.className = "text-[10px] text-rose-400 font-bold mt-0.5";
+      } else if (modelOccupancy < 75) {
+        occStatus.innerText = "💤 Underutilized (<75%)";
+        occStatus.className = "text-[10px] text-amber-400 font-bold mt-0.5";
+      } else {
+        occStatus.innerText = "✅ Optimal Range (75%-85%)";
+        occStatus.className = "text-[10px] text-emerald-400 font-bold mt-0.5";
+      }
+
       document.getElementById('out-cost').innerText = "₹" + Math.round(monthlyPayroll).toLocaleString('en-IN');
-      document.getElementById('out-attrition-loss').innerText = monthlyAttrLoss.toFixed(1) + " HC / mo";
     }
 
     function exportEngineToExcel() {
@@ -676,27 +700,29 @@
       const shrink = document.getElementById('eng-shrink').value;
       const reqFte = document.getElementById('out-fte').innerText;
       const gap = document.getElementById('out-gap').innerText;
+      const occupancy = document.getElementById('out-occupancy').innerText;
       const payroll = document.getElementById('out-cost').innerText;
 
       const csvContent = "data:text/csv;charset=utf-8," 
-        + "Deepankar Shukla - WFM Capacity Planning Engine Report\n"
+        + "Deepankar Shukla - WFM Capacity & Occupancy Engine Report\n"
         + "Parameter,Value\n"
         + `Monthly Volume,${vol}\n`
         + `AHT (Seconds),${aht}\n`
         + `Shrinkage %,${shrink}%\n`
         + `Required Gross FTE,${reqFte}\n`
         + `Staffing Gap/Surplus,${gap}\n`
+        + `Model Occupancy %,${occupancy}\n`
         + `Estimated Payroll,${payroll}\n`
         + `Generated On,${new Date().toLocaleDateString()}\n`;
 
       const encodedUri = encodeURI(csvContent);
       const link = document.createElement("a");
       link.setAttribute("href", encodedUri);
-      link.setAttribute("download", `WFM_Capacity_Engine_Report.csv`);
+      link.setAttribute("download", `WFM_Capacity_Occupancy_Report.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      showToast("Engine report exported to Excel (CSV)!");
+      showToast("Engine report exported to Excel!");
     }
 
     // Run engine on load
