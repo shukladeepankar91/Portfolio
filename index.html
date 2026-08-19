@@ -343,8 +343,9 @@
           </div>
           
           <div class="mt-4 bg-white border border-slate-200 rounded p-3 text-xs text-slate-600">
-            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition & Corrected Excel Formula (Rows 3 to 9):</p>
-            <p><strong>Gross Required FTE Formula:</strong> =((B3*B4/3600)/B6)/(1-(B5/100))*(1+(B7/100))</p>
+            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition & Calculation Model:</p>
+            <p><strong>Gross Required FTE</strong> = ((Monthly Volume × AHT / 3600) / Paid Hours) / (1 - Shrinkage%) × (1 + Buffer%)</p>
+            <p class="mt-0.5"><strong>Staffing Gap/Surplus</strong> = Current Active HC - Required Gross FTE</p>
           </div>
         </div>
 
@@ -377,8 +378,8 @@
           </div>
 
           <div class="mt-4 bg-white border border-slate-200 rounded p-3 text-xs text-slate-600">
-            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition & Corrected Excel Formula:</p>
-            <p><strong>Model Occupancy % Formula:</strong> =((B3*B4/3600)/(B8*B6*(1-(B5/100))))*100</p>
+            <p class="font-bold text-blue-900 mb-1">📌 Mathematical Definition & Calculation Model:</p>
+            <p><strong>Model Occupancy %</strong> = ((New Business Volume × AHT / 3600) / (Available Headcount × Paid Hours × (1 - Shrinkage%))) × 100</p>
           </div>
         </div>
 
@@ -665,7 +666,7 @@
       </div>
     </div>
 
-    <!-- TAB 4: CAREER MILESTONES -->
+    <!-- TAB 4: CAREER MILESTONES (ALL 5 RESTORED FULLY) -->
     <div id="tab-experience" class="tab-content hidden space-y-6">
       <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 shadow-sm">
         <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
@@ -680,8 +681,9 @@
             LinkedIn Profile
           </a>
         </div>
+
         <div class="space-y-8">
-          <!-- Startek -->
+          <!-- 1. Startek -->
           <div class="flex items-start gap-4 group">
             <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
               <img src="https://logo.clearbit.com/startek.com" alt="Startek Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-rose-600 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>S</div>';" />
@@ -700,8 +702,10 @@
               </div>
             </div>
           </div>
+
           <hr class="border-slate-100" />
-          <!-- Concentrix -->
+
+          <!-- 2. Concentrix -->
           <div class="flex items-start gap-4 group">
             <div class="w-12 h-12 rounded-xl bg-[#002f3a] border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
               <img src="https://logo.clearbit.com/concentrix.com" alt="Concentrix Logo" class="w-full h-full object-contain brightness-150" onerror="this.outerHTML='<div class=\'w-full h-full bg-[#002f3a] text-cyan-400 rounded-lg flex items-center justify-center font-bold text-lg\'>C</div>';" />
@@ -720,6 +724,73 @@
               </div>
             </div>
           </div>
+
+          <hr class="border-slate-100" />
+
+          <!-- 3. Cognizant -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
+              <img src="https://logo.clearbit.com/cognizant.com" alt="Cognizant Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-blue-900 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>CTS</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Process Specialist</h3>
+                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Mar 2022 – Oct 2022 · 7 mos</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Cognizant Technology Solutions · Full-time</p>
+              <p class="text-[11px] text-slate-500">📍 India · On-site</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Managed process analytics, performance scorecards, SLA governance, and workflow optimization standards.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Process Automation, KPI Scorecards, Workflow Governance</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <!-- 4. UP Police Technosys -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-blue-950 border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1 overflow-hidden">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Uttar_Pradesh_Police_Logo.png/120px-Uttar_Pradesh_Police_Logo.png" alt="UP Police Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-blue-950 text-amber-400 rounded-lg flex items-center justify-center font-bold text-lg\'>1090</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Data Analyst (Women Power Line 1090)</h3>
+                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2021 – Mar 2022 · 6 mos</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Technosys Pvt. Ltd. (UP Police Mission)</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, Uttar Pradesh, India</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Spearheaded operational analytics, emergency call flow volumes, and response telemetry reporting for the statewide UP Police 1090 mission.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Public Sector Telemetry, Emergency Incident Flow Analytics, Database Ingestion</span>
+              </div>
+            </div>
+          </div>
+
+          <hr class="border-slate-100" />
+
+          <!-- 5. Aegis -->
+          <div class="flex items-start gap-4 group">
+            <div class="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center flex-shrink-0 p-1.5 overflow-hidden">
+              <img src="https://logo.clearbit.com/startek.com" alt="Aegis Logo" class="w-full h-full object-contain" onerror="this.outerHTML='<div class=\'w-full h-full bg-slate-800 text-white rounded-lg flex items-center justify-center font-bold text-lg\'>A</div>';" />
+            </div>
+            <div class="flex-1 space-y-1.5">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-900 transition">Senior MIS Executive (Promoted Mar-2018)</h3>
+                <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-0.5 rounded-full self-start sm:self-auto">Oct 2016 – Oct 2021 · 5 yrs 1 mo</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">Aegis Customer Support Services (Startek)</p>
+              <p class="text-[11px] text-slate-500">📍 Lucknow, UP, India</p>
+              <p class="text-xs text-slate-600 leading-relaxed pt-1">Developed automated DPR/WPR/MPR reports, automated data ingestion with VBA, and maintained telephony database health.</p>
+              <div class="flex items-center gap-1.5 text-xs text-slate-700 font-semibold pt-1">
+                <i data-lucide="gem" class="w-3.5 h-3.5 text-blue-700 flex-shrink-0"></i>
+                <span class="text-[11px] text-slate-600"><strong class="text-slate-800">Core Skills:</strong> Advanced VBA Automation, Telecom DPR/WPR Reporting, MS Access Architecture</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -1318,7 +1389,7 @@
       }
     }
 
-    // FORMULATED EXCEL EXPORT WITH EXACT ROW MAPPING (Rows 3 to 9)
+    // FORMULATED EXCEL EXPORT (100% Correct Cell Mapping)
     function exportEngineReport() {
       runCapacityEngine();
       runOccupancySim();
@@ -1329,19 +1400,27 @@
       const buffer = document.getElementById('eng-buffer')?.value || 30;
       const currHC = document.getElementById('eng-currhc')?.value || 65;
       const costPerFte = document.getElementById('eng-cost')?.value || 50000;
+      const occVol = document.getElementById('occ-vol')?.value || 65000;
+      const occHC = document.getElementById('occ-hc')?.value || 65;
 
-      // Row mapping: 
-      // Row 1: Header ("Deepankar Shukla - WFMengine Formulated Report")
-      // Row 2: Subheader ("Parameter,Input Value / Excel Formula")
+      // Row mapping:
+      // Row 1: Title
+      // Row 2: Header
       // Row 3: Monthly Volume (B3)
       // Row 4: AHT (B4)
       // Row 5: Shrinkage % (B5)
-      // Row 6: Paid Hours (B6)
+      // Row 6: Paid Hours/Month (B6)
       // Row 7: Buffer % (B7)
-      // Row 8: Current HC (B8)
+      // Row 8: Current Active HC (B8)
       // Row 9: Cost Per FTE (B9)
+      // Row 10: New Business Volume (B10)
+      // Row 11: New Business Headcount (B11)
+      // Row 12: Required Gross FTE (B12)
+      // Row 13: Staffing Gap/Surplus (B13)
+      // Row 14: Model Occupancy % (B14)
+      // Row 15: Estimated Payroll (B15)
       const csvContent = "\uFEFF" + "Deepankar Shukla - WFMengine Formulated Report\n"
-        + "Parameter,Input Value / Excel Formula\n"
+        + "Parameter,Value / Excel Formula\n"
         + `Monthly Volume,${vol}\n`
         + `AHT (Seconds),${aht}\n`
         + `Shrinkage %,${shrink}\n`
@@ -1349,10 +1428,12 @@
         + `Buffer %,${buffer}\n`
         + `Current Active HC,${currHC}\n`
         + `Cost Per FTE,${costPerFte}\n`
+        + `New Business Volume,${occVol}\n`
+        + `New Business Staff HC,${occHC}\n`
         + `Required Gross FTE,"=((B3*B4/3600)/B6)/(1-(B5/100))*(1+(B7/100))"\n`
-        + `Staffing Gap/Surplus,"=B8-B10"\n`
-        + `Model Occupancy %,"=((B3*B4/3600)/(B8*B6*(1-(B5/100))))*100"\n`
-        + `Estimated Payroll,"=B10*B9"\n`
+        + `Staffing Gap/Surplus,"=B8-B12"\n`
+        + `Model Occupancy %,"=((B10*B4/3600)/(B11*B6*(1-(B5/100))))*100"\n`
+        + `Estimated Payroll,"=B12*B9"\n`
         + `Generated On,${new Date().toLocaleDateString()}\n`;
 
       const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
